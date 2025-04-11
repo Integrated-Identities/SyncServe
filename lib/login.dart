@@ -7,13 +7,28 @@ class Login extends StatefulWidget{
   State<Login> createState() => _LoginState();
 }
 class _LoginState extends State <Login>{
+
+  bool isPassVisible = true;
   @override
   Widget build (BuildContext context){
+
+    
     return Scaffold(
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+            child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: Colors.grey,
+                  ),
+                  height: 120,
+                  width: 120,
+                ),
+          ),
           const SizedBox(
-          height: 150,
+          height: 40,
           ),
           //WELCOME BACK TEXT
           const Row(
@@ -30,51 +45,54 @@ class _LoginState extends State <Login>{
             ],
           ),
           //TEXTFIELD OF EMAIL
-          const Padding(
-            padding: EdgeInsets.fromLTRB(20, 30, 20, 10),
-            child: TextField(
-              decoration: InputDecoration(
-                suffixIcon: Padding(
-                  padding: EdgeInsets.all(18),
-                  child: Icon(
-                    Icons.email,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Email",
+                  hintStyle: const TextStyle(
+                    fontSize: 18,
                     color: Colors.grey,
                   ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
-                hintText: "Email",
-                hintStyle: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-                contentPadding: EdgeInsets.symmetric(vertical: 22.0, horizontal: 10.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                )
-              ),
             ),
           ),
-          //TEXTFIELD OF PASSWORD
-          const Padding(
-            padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
-            child: TextField(
-              decoration: InputDecoration(
-                 suffixIcon: Padding(
-                   padding: EdgeInsets.all(18),
-                   child: Icon(
-                    Icons.visibility,
+          //TEXTFORMFIELD OF PASSWORD
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            child: TextFormField(
+                obscureText: isPassVisible,
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  hintStyle: const TextStyle(
+                    fontSize: 18,
                     color: Colors.grey,
-                                   ),
-                 ),
-                 hintText: "Password",
-                hintStyle: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isPassVisible = !isPassVisible;
+                      });
+                    },
+                    icon: Icon(
+                     isPassVisible? Icons.visibility_off : Icons.visibility 
+                    )
+                    )
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 22.0, horizontal: 10.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-              ),
             ),
           ),
           //GESTURE DETECTOR OF LOG IN
@@ -106,10 +124,10 @@ class _LoginState extends State <Login>{
                 child: Text(
                   style: TextStyle(
                     decoration: TextDecoration.underline,
-                    decorationColor: Colors.blue,
-                    color: Colors.blue,
+                    decorationColor: Colors.black,
+                    color: Colors.black,
                   ),
-                "forgot password"
+                "Forgot password"
                             ),
               )
         ],

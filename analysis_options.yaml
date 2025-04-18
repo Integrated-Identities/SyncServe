@@ -1,15 +1,1 @@
 include: package:flutter_lints/flutter.yaml
-analyzer:
-  language:
-    strict-casts: true
-    strict-raw-types: true
-
-linter:
-  rules: 
-    require_trailing_commas: true
-    sort_constructors_first: true
-    avoid_renaming_method_parameters: true
-    public_member_api_docs: false
-    avoid_print: false
-    comment_references: true
-    prefer_single_quotes: true

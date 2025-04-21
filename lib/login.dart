@@ -13,66 +13,65 @@ class _LoginState extends State <Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-          padding: const EdgeInsets.only(bottom: 50),
-          child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: Colors.grey,
-                ),
-                height: 120,
-                width: 120,
-              ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            //WELCOME BACK TEXT
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      return Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Colors.black,
-                    ),
-                    'Welcome back!',
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 40),
+                  child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  width: 100,
+                  ),
                 ),
-              ],
-            ),
-            //TEXTFIELD OF EMAIL
+              const Text(
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.black,
+                ),
+                "Welcome back!"
+              ),
+            //TEXTFORMFIELD OF EMAIL
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 10),
               child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                 autofillHints: const [AutofillHints.email],
+                 autocorrect: false,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
-                  hintText: 'Email',
-                  hintStyle: const TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 22, horizontal: 10,),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
+                    hintText: 'Email',
+                    hintStyle: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 22, horizontal: 10,),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                 ),
               ),
             ),
-            //TEXTFORMFIELD OF PASSWORD
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            //TEXTFIELD OF PASSWORD
+             Padding(
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
               child: TextFormField(
                 cursorColor: Colors.black,
                 obscureText: isPassVisible,
@@ -85,9 +84,15 @@ class _LoginState extends State <Login> {
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 22, horizontal: 10,),
                     enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                      ),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                      ),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     suffixIcon: IconButton(
@@ -106,7 +111,7 @@ class _LoginState extends State <Login> {
             ),
             //GESTURE DETECTOR OF LOG IN
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+              padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
               child: GestureDetector(
                 child: Container(
                   alignment: Alignment.center,
@@ -142,11 +147,12 @@ class _LoginState extends State <Login> {
                   'Forgot password',
               ),
             ),
-          ],
+              ]
               ),
                 ),
         ),
-      ),
+        )
+      )
     );
+      }
     }
-  }

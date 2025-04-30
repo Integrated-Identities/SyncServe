@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
                   ),
                   //TEXTFIELD OF PASSWORD
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                    padding: const EdgeInsets.symmetric(vertical: 30),
                     child: TextFormField(
                       cursorColor: Colors.black,
                       obscureText: isPassVisible,
@@ -72,7 +72,7 @@ class _LoginState extends State<Login> {
                   ),
                   // ELEVATED BUTTON OF LOG IN
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 10),
+                    padding: const EdgeInsets.only(top: 15, bottom: 10),
                     child: SizedBox(
                       height: 70,
                       width: MediaQuery.of(context).size.width,

@@ -16,7 +16,8 @@ class AppStyle {
     color: Colors.grey,
   );
 
-// "Forgot password"
+// forgotPasswordText
+// rename this once it is reused
   static const TextStyle forgotPasswordText = TextStyle(
     decoration: TextDecoration.underline,
     decorationColor: Colors.black,

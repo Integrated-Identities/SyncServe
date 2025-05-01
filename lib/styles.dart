@@ -23,20 +23,19 @@ class AppStyle {
     color: Colors.black,
   );
 
-// Login button text
-  static const TextStyle loginButtonText = TextStyle(
-    fontSize: 20,
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
-  );
-
 // Elevated Button
-  static ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
+  static final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: const Color.fromARGB(255, 237, 125, 125),
     minimumSize: const Size(double.infinity, 60),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(16),
     ),
+    textStyle: const TextStyle(
+    fontSize: 20,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    ),
+  foregroundColor: Colors.white,
   );
 
 //EMAIL AND PASSWORD TEXTFORMFIELD

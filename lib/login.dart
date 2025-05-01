@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   const Text(
-                    style: AppStyle.headingText, // NEW ADDITION IN THE CODE
+                    style: AppStyle.headingText,
                     'Welcome back!',
                   ),
                   //TEXTFORMFIELD OF EMAIL
@@ -79,20 +79,18 @@ class _LoginState extends State<Login> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: AppStyle
-                            .elevatedButtonStyle, // NEW ADDITION IN THE CODE
+                            .elevatedButtonStyle,
                         child: const Text(
-                          style: AppStyle
-                              .loginButtonText, // NEW ADDITION IN THE CODE
                           'Log In',
                         ),
                       ),
                     ),
-                  ),
+                  ),  
                   //FORGOT PASSWORD
                   const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      style: AppStyle.hintText, // NEW ADDITION IN THE CODE
+                      style: AppStyle.hintText,
                       'Forgot password',
                     ),
                   ),

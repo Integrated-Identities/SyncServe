@@ -31,11 +31,11 @@ class AppStyle {
       borderRadius: BorderRadius.circular(16),
     ),
     textStyle: const TextStyle(
-    fontSize: 20,
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
+      fontSize: 20,
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
     ),
-  foregroundColor: Colors.white,
+    foregroundColor: Colors.white,
   );
 
 //EMAIL AND PASSWORD TEXTFORMFIELD

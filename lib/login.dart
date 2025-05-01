@@ -78,14 +78,13 @@ class _LoginState extends State<Login> {
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                         onPressed: () {},
-                        style: AppStyle
-                            .elevatedButtonStyle,
+                        style: AppStyle.elevatedButtonStyle,
                         child: const Text(
                           'Log In',
                         ),
                       ),
                     ),
-                  ),  
+                  ),
                   //FORGOT PASSWORD
                   const Padding(
                     padding: EdgeInsets.all(10),

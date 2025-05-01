@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                  ),
+                  ),  
                   //FORGOT PASSWORD
                   const Padding(
                     padding: EdgeInsets.all(10),

@@ -45,7 +45,7 @@ class AppStyle {
   static InputDecoration inputDecoration(String hint) {
     return InputDecoration(
       hintText: hint,
-      contentPadding: const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
+      contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
       enabledBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.black),
         borderRadius: BorderRadius.circular(15),
@@ -63,6 +63,7 @@ class AppStyle {
     bool isRequired = false,
   }) {
     return InputDecoration(
+      helperText: ' ',
       alignLabelWithHint: true,
       fillColor: Colors.white,
       filled: true,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncserve/dashboard.dart';
 import 'package:syncserve/styles.dart';
 
 class Login extends StatefulWidget {
@@ -77,8 +78,15 @@ class _LoginState extends State<Login> {
                       height: 70,
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
-                        onPressed: () {},
-                        style: AppStyle.elevatedButtonStyle,
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Dashboard(),
+                            ),
+                          );
+                        },
+                        style: AppStyle.elevatedButtonStyle(isEnabled: true),
                         child: const Text(
                           'Log In',
                         ),

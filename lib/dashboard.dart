@@ -2,19 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:syncserve/customer_detail.dart';
 import 'package:syncserve/styles.dart';
 
-class Dashboard extends StatefulWidget {
+class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
-  @override
-  State<Dashboard> createState() => _DashboardState();
-}
-
-class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppStyle().appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarAndNavBarColor,
         actions: [
           Row(
             children: [
@@ -42,7 +37,7 @@ class _DashboardState extends State<Dashboard> {
                 height: 20,
               ),
               Image.asset(
-                'assets/images/worker.jpeg',
+                'assets/images/worker.png',
                 width: 200,
                 height: 150,
               ),
@@ -53,7 +48,7 @@ class _DashboardState extends State<Dashboard> {
               Padding(
                 padding: const EdgeInsets.only(top: 100, bottom: 20),
                 child: ElevatedButton(
-                  style: AppStyle.elevatedButtonStyle(isEnabled: true),
+                  style: AppStyle.elevatedButtonStyle(),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -70,7 +65,7 @@ class _DashboardState extends State<Dashboard> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: ElevatedButton(
-                  style: AppStyle.elevatedButtonStyle(isEnabled: true),
+                  style: AppStyle.elevatedButtonStyle(),
                   onPressed: () {},
                   child: Text(
                     'Start Generator Service',
@@ -82,7 +77,7 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppStyle().appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarAndNavBarColor,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(

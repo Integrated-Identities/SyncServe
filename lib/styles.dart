@@ -16,16 +16,8 @@ class AppStyle {
     color: Colors.grey,
   );
 
-// forgotPasswordText
-// rename forgotPasswordTextstyle once it is reused
-  static const TextStyle forgotPasswordText = TextStyle(
-    decoration: TextDecoration.underline,
-    decorationColor: Colors.black,
-    color: Colors.black,
-  );
-
 // Elevated Button
-  static ButtonStyle elevatedButtonStyle({required bool isEnabled}) {
+  static ButtonStyle elevatedButtonStyle() {
     return ElevatedButton.styleFrom(
       backgroundColor: Color.fromARGB(255, 237, 125, 125),
       minimumSize: const Size(double.infinity, 60),
@@ -99,5 +91,5 @@ class AppStyle {
   }
 
   //APP BAR AND NAVIGATION BAR BACKGROUND COLOR
-  final Color appBarAndNavBarColor = Colors.white;
+  static const appBarAndNavBarColor = Colors.white;
 }

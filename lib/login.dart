@@ -86,7 +86,7 @@ class _LoginState extends State<Login> {
                             ),
                           );
                         },
-                        style: AppStyle.elevatedButtonStyle(isEnabled: true),
+                        style: AppStyle.elevatedButtonStyle(),
                         child: const Text(
                           'Log In',
                         ),

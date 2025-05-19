@@ -161,7 +161,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         if (_formKey.currentState?.validate() ?? false) {}
                       }
                     : null,
-                style: AppStyle.elevatedButtonStyle().copyWith(),
+                style: AppStyle.elevatedButtonStyle(),
                 child: const Text('Next'),
               ),
             ),

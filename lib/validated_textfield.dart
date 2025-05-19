@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:syncserve/styles.dart';
 
-class Validatedtextfield extends StatelessWidget {
-  const Validatedtextfield({
+class ValidatedTextField extends StatelessWidget {
+  ValidatedTextField({
     super.key,
-    required this.controller,
-    required this.label,
-    required this.validator,
-    this.keyboardType = TextInputType.text,
-    this.maxLines = 1,
-    this.isRequired = false,
-    this.padding = const EdgeInsets.symmetric(vertical: 5),
-  });
+    required TextEditingController controller,
+    required String label,
+    required String? Function(String?) validator,
+    TextInputType keyboardType = TextInputType.text,
+    int maxLines = 1,
+    bool isRequired = false,
+    EdgeInsets padding = const EdgeInsets.symmetric(vertical: 5),
+    AutovalidateMode autovalidateMode = AutovalidateMode.always,
+    required void Function(String?) onChanged,
+    required InputDecoration decoration,
+  }) {
+    this.validator = validator;
+    this.autovalidateMode = autovalidateMode;
+    this.padding = padding;
+    this.controller = controller;
+    this.keyboardType = keyboardType;
+    this.maxLines = maxLines;
+    this.onChanged = onChanged;
+    this.decoration = decoration;
+  }
 
-  final TextEditingController controller;
-  final String label;
-  final String? Function(String?)? validator;
-  final TextInputType? keyboardType;
-  final int maxLines;
-  final bool isRequired;
-  final EdgeInsets padding;
+  late final String? Function(String?)? validator;
+  late final AutovalidateMode autovalidateMode;
+  late final EdgeInsets padding;
+  late final TextEditingController controller;
+  late final TextInputType keyboardType;
+  late final int maxLines;
+  late final void Function(String?) onChanged;
+  late final InputDecoration decoration;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +42,9 @@ class Validatedtextfield extends StatelessWidget {
         keyboardType: keyboardType,
         maxLines: maxLines,
         validator: validator,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        decoration:
-            AppStyle.inputDecorationWithLabel(label, isRequired: isRequired),
+        onChanged: onChanged,
+        autovalidateMode: autovalidateMode,
+        decoration: decoration,
       ),
     );
   }

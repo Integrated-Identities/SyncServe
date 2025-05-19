@@ -33,11 +33,11 @@ class AppStyle {
     );
   }
 
-//EMAIL AND PASSWORD TEXTFORMFIELD
+// EMAIL AND PASSWORD TEXTFORMFIELD
   static InputDecoration inputDecoration(String hint) {
     return InputDecoration(
       hintText: hint,
-      contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      contentPadding: const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
       enabledBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.black),
         borderRadius: BorderRadius.circular(15),
@@ -90,6 +90,6 @@ class AppStyle {
     );
   }
 
-  //APP BAR AND NAVIGATION BAR BACKGROUND COLOR
+  // APP BAR AND NAVIGATION BAR BACKGROUND COLOR
   static const appBarAndNavBarColor = Colors.white;
 }

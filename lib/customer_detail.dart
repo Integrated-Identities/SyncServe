@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncserve/styles.dart';
-import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/validated_textfield.dart';
+import 'package:zod_validation/zod_validation.dart';
 
 class CustomerDetail extends StatefulWidget {
   const CustomerDetail({super.key});
@@ -12,19 +12,20 @@ class CustomerDetail extends StatefulWidget {
 
 class _CustomerDetailState extends State<CustomerDetail> {
   final _formKey = GlobalKey<FormState>();
-
   final _nameController = TextEditingController();
   final _addressController = TextEditingController();
   final _emailController = TextEditingController();
-  final _phoneController = TextEditingController();
+  bool _isFormValid = false;
 
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _addressController.dispose();
-    _emailController.dispose();
-    _phoneController.dispose();
-    super.dispose();
+  bool isNameTouched = false;
+  bool isAddressTouched = false;
+  bool isEmailTouched = false;
+
+  void _validateForm() {
+    final isValid = _formKey.currentState?.validate() ?? false;
+    setState(() {
+      _isFormValid = isValid;
+    });
   }
 
   @override
@@ -51,11 +52,12 @@ class _CustomerDetailState extends State<CustomerDetail> {
                   child: Column(
                     children: [
                       const SizedBox(height: 14),
-                      Validatedtextfield(
+                      ValidatedTextField(
                         controller: _nameController,
                         label: 'Customer Name',
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (!isNameTouched) return null;
+                          if (value == null || value.trim().isEmpty) {
                             return 'Customer name is required';
                           }
                           return Zod()
@@ -64,12 +66,27 @@ class _CustomerDetailState extends State<CustomerDetail> {
                               .build(value);
                         },
                         isRequired: true,
+                        onChanged: (_) {
+                          if (!isNameTouched) {
+                            setState(() {
+                              isNameTouched = true;
+                            });
+                          }
+                          _validateForm();
+                        },
+                        autovalidateMode: isNameTouched
+                            ? AutovalidateMode.always
+                            : AutovalidateMode.always,
+                        decoration: AppStyle.inputDecorationWithLabel(
+                          'Customer Name',
+                        ),
                       ),
-                      Validatedtextfield(
+                      ValidatedTextField(
                         controller: _addressController,
                         label: 'Address',
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (!isAddressTouched) return null;
+                          if (value == null || value.trim().isEmpty) {
                             return 'Address is required';
                           }
                           return Zod()
@@ -79,13 +96,28 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         },
                         maxLines: 2,
                         isRequired: true,
+                        onChanged: (_) {
+                          if (!isAddressTouched) {
+                            setState(() {
+                              isAddressTouched = true;
+                            });
+                          }
+                          _validateForm();
+                        },
+                        autovalidateMode: isAddressTouched
+                            ? AutovalidateMode.onUserInteraction
+                            : AutovalidateMode.disabled,
+                        decoration: AppStyle.inputDecorationWithLabel(
+                          'Address',
+                        ),
                       ),
-                      Validatedtextfield(
+                      ValidatedTextField(
                         controller: _emailController,
                         label: 'Email Id',
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (!isEmailTouched) return null;
+                          if (value == null || value.trim().isEmpty) {
                             return 'Email is required';
                           }
                           return Zod()
@@ -95,13 +127,25 @@ class _CustomerDetailState extends State<CustomerDetail> {
                               .build(value);
                         },
                         isRequired: true,
-                      ),
-                      Validatedtextfield(
-                        validator: (p0) {
-                          return null;
+                        onChanged: (_) {
+                          if (!isEmailTouched) {
+                            setState(() {
+                              isEmailTouched = true;
+                            });
+                          }
+                          _validateForm();
                         },
-                        controller: _phoneController,
-                        label: 'Phone Number',
+                        autovalidateMode: isEmailTouched
+                            ? AutovalidateMode.onUserInteraction
+                            : AutovalidateMode.disabled,
+                        decoration: AppStyle.inputDecorationWithLabel(
+                          'Email Id',
+                        ),
+                      ),
+                      TextFormField(
+                        decoration: AppStyle.inputDecorationWithLabel(
+                          'Phone Number',
+                        ),
                         keyboardType: TextInputType.phone,
                       ),
                     ],
@@ -112,14 +156,12 @@ class _CustomerDetailState extends State<CustomerDetail> {
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 5, 20),
               child: ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState?.validate() ?? false) {}
-                },
-                style: AppStyle.elevatedButtonStyle().copyWith(
-                  minimumSize: WidgetStatePropertyAll(
-                    Size(MediaQuery.of(context).size.width, 70),
-                  ),
-                ),
+                onPressed: _isFormValid
+                    ? () {
+                        if (_formKey.currentState?.validate() ?? false) {}
+                      }
+                    : null,
+                style: AppStyle.elevatedButtonStyle().copyWith(),
                 child: const Text('Next'),
               ),
             ),

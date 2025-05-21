@@ -16,30 +16,24 @@ class AppStyle {
     color: Colors.grey,
   );
 
-// forgotPasswordText
-// rename this once it is reused
-  static const TextStyle forgotPasswordText = TextStyle(
-    decoration: TextDecoration.underline,
-    decorationColor: Colors.black,
-    color: Colors.black,
-  );
-
 // Elevated Button
-  static final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-    backgroundColor: const Color.fromARGB(255, 237, 125, 125),
-    minimumSize: const Size(double.infinity, 60),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16),
-    ),
-    textStyle: const TextStyle(
-      fontSize: 20,
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-    ),
-    foregroundColor: Colors.white,
-  );
+  static ButtonStyle elevatedButtonStyle() {
+    return ElevatedButton.styleFrom(
+      backgroundColor: Color.fromARGB(255, 237, 125, 125),
+      minimumSize: const Size(double.infinity, 60),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      textStyle: const TextStyle(
+        fontSize: 20,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
+      foregroundColor: Colors.white,
+    );
+  }
 
-//EMAIL AND PASSWORD TEXTFORMFIELD
+// EMAIL AND PASSWORD TEXTFORMFIELD
   static InputDecoration inputDecoration(String hint) {
     return InputDecoration(
       hintText: hint,
@@ -54,4 +48,48 @@ class AppStyle {
       ),
     );
   }
+
+// CUSTOMER DETAIL PAGE TEXTFORMFIELD
+  static InputDecoration inputDecorationWithLabel(
+    String label, {
+    bool isRequired = false,
+  }) {
+    return InputDecoration(
+      helperText: ' ',
+      alignLabelWithHint: true,
+      fillColor: Colors.white,
+      filled: true,
+      labelText: isRequired ? '$label*' : label,
+      labelStyle: const TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+      contentPadding: const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.black),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.black),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: const BorderSide(
+          color: Colors.red,
+          width: 2,
+        ),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(
+          color: Colors.red,
+          width: 2,
+        ),
+      ),
+    );
+  }
+
+  // APP BAR AND NAVIGATION BAR BACKGROUND COLOR
+  static const appBarAndNavBarColor = Colors.white;
 }

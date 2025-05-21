@@ -12,6 +12,13 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   @override
+import 'package:syncserve/customer_detail.dart';
+import 'package:syncserve/styles.dart';
+
+class Dashboard extends StatelessWidget {
+  const Dashboard({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -21,6 +28,7 @@ class _DashboardState extends State<Dashboard> {
             children: [
               Text(
                 AppLocalizations.of(context)!.logOut,
+                'Log out',
                 style: TextStyle(
                   color: Colors.red,
                 ),
@@ -49,6 +57,7 @@ class _DashboardState extends State<Dashboard> {
               ),
               Text(
                 AppLocalizations.of(context)!.hello,
+                'Hello! Technician.',
                 style: AppStyle.headingText,
               ),
               Padding(
@@ -65,6 +74,7 @@ class _DashboardState extends State<Dashboard> {
                   },
                   child: Text(
                     AppLocalizations.of(context)!.startUPSservice,
+                    'Start UPS Service',
                   ),
                 ),
               ),
@@ -75,6 +85,7 @@ class _DashboardState extends State<Dashboard> {
                   onPressed: () {},
                   child: Text(
                     AppLocalizations.of(context)!.startGeneratorService,
+                    'Start Generator Service',
                   ),
                 ),
               ),
@@ -97,6 +108,12 @@ class _DashboardState extends State<Dashboard> {
             icon: Icon(Icons.person),
             label: AppLocalizations.of(context)!.profile,
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );

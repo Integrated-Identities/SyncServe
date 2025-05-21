@@ -97,6 +97,25 @@ class _LoginState extends State<Login> {
                           child: Text(
                             AppLocalizations.of(context)!.logIn,
                           ),
+                  ),
+                  // ELEVATED BUTTON OF LOG IN
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15, bottom: 10),
+                    child: SizedBox(
+                      height: 70,
+                      width: MediaQuery.of(context).size.width,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Dashboard(),
+                            ),
+                          );
+                        },
+                        style: AppStyle.elevatedButtonStyle(),
+                        child: const Text(
+                          'Log In',
                         ),
                       ),
                     ),

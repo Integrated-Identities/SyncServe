@@ -72,6 +72,15 @@ class _CustomerDetailState extends State<CustomerDetail> {
                                 AppLocalizations.of(context)!
                                     .customerNameTooShort,
                               )
+                        label: 'Customer Name',
+                        validator: (value) {
+                          if (!isNameTouched) return null;
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Customer name is required';
+                          }
+                          return Zod()
+                              .required('Customer name is required')
+                              .min(3, 'Customer name too short')
                               .build(value);
                         },
                         isRequired: true,
@@ -88,6 +97,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             : AutovalidateMode.always,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerName,
+                          'Customer Name',
                         ),
                       ),
                       ValidatedTextField(
@@ -109,6 +119,15 @@ class _CustomerDetailState extends State<CustomerDetail> {
                                 AppLocalizations.of(context)!
                                     .customerAddressTooShort,
                               )
+                        label: 'Address',
+                        validator: (value) {
+                          if (!isAddressTouched) return null;
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Address is required';
+                          }
+                          return Zod()
+                              .required('Address is required')
+                              .min(3, 'Address too short')
                               .build(value);
                         },
                         maxLines: 2,
@@ -126,11 +145,13 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerAddress,
+                          'Address',
                         ),
                       ),
                       ValidatedTextField(
                         controller: _emailController,
                         label: AppLocalizations.of(context)!.customerEmail,
+                        label: 'Email Id',
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (!isEmailTouched) return null;
@@ -151,6 +172,12 @@ class _CustomerDetailState extends State<CustomerDetail> {
                                 AppLocalizations.of(context)!
                                     .customerEmailTooShort,
                               )
+                            return 'Email is required';
+                          }
+                          return Zod()
+                              .required('Email is required')
+                              .email('Invalid email')
+                              .min(3, 'Too short')
                               .build(value);
                         },
                         isRequired: true,
@@ -167,11 +194,13 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerEmail,
+                          'Email Id',
                         ),
                       ),
                       TextFormField(
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerPhone,
+                          'Phone Number',
                         ),
                         keyboardType: TextInputType.phone,
                       ),
@@ -190,6 +219,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                     : null,
                 style: AppStyle.elevatedButtonStyle(),
                 child: Text(AppLocalizations.of(context)!.next),
+                child: const Text('Next'),
               ),
             ),
           ],

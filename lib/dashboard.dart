@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/customer_detail.dart';
 import 'package:syncserve/styles.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +20,7 @@ class Dashboard extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Log out',
+                AppLocalizations.of(context)!.logOut,
                 style: TextStyle(
                   color: Colors.red,
                 ),
@@ -42,7 +48,7 @@ class Dashboard extends StatelessWidget {
                 height: 150,
               ),
               Text(
-                'Hello! Technician.',
+                AppLocalizations.of(context)!.hello,
                 style: AppStyle.headingText,
               ),
               Padding(
@@ -58,7 +64,7 @@ class Dashboard extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    'Start UPS Service',
+                    AppLocalizations.of(context)!.startUPSservice,
                   ),
                 ),
               ),
@@ -68,7 +74,7 @@ class Dashboard extends StatelessWidget {
                   style: AppStyle.elevatedButtonStyle(),
                   onPressed: () {},
                   child: Text(
-                    'Start Generator Service',
+                    AppLocalizations.of(context)!.startGeneratorService,
                   ),
                 ),
               ),
@@ -79,12 +85,18 @@ class Dashboard extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppStyle.appBarAndNavBarColor,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: AppLocalizations.of(context)!.home,
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Settings',
+            label: AppLocalizations.of(context)!.settings,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: AppLocalizations.of(context)!.profile,
+          ),
         ],
       ),
     );

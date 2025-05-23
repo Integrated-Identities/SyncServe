@@ -24,7 +24,7 @@
     "@customerEmailRequired": {
         "description": "Error message shown when the customer email field is empty"
     },
-    "customerEmailTooShort": "Customer email must be at least 5 characters long",
+    "customerEmailTooShort": "Customer email must be at least 3 characters long",
     "@customerEmailTooShort": {
         "description": "Error message shown when the customer email is too short"
     },

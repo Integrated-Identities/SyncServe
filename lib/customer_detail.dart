@@ -52,7 +52,9 @@ class _CustomerDetailState extends State<CustomerDetail> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      const SizedBox(height: 14),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       ValidatedTextField(
                         controller: _nameController,
                         label: AppLocalizations.of(context)!.customerName,

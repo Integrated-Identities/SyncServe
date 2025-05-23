@@ -11,6 +11,7 @@
     "customerNameRequired": "Customer name is required",
     "customerNameTooShort": "Customer name must be at least 3 characters long",
     "customerPhone": "Customer phone",
+    "email": "Email",
     "forgotPassword": "Forgot password",
     "hello": "Hello! Technician",
     "home": "Home",

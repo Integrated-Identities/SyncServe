@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/dashboard.dart';
 import 'package:syncserve/styles.dart';
 
@@ -31,9 +32,9 @@ class _LoginState extends State<Login> {
                       width: 100,
                     ),
                   ),
-                  const Text(
+                  Text(
+                    AppLocalizations.of(context)!.welcome,
                     style: AppStyle.headingText,
-                    'Welcome back!',
                   ),
                   //TEXTFORMFIELD OF EMAIL
                   Padding(
@@ -45,17 +46,20 @@ class _LoginState extends State<Login> {
                       autocorrect: false,
                       cursorColor: Colors.black,
                       decoration: AppStyle.inputDecoration(
-                        'Email',
+                        AppLocalizations.of(context)!.email,
                       ),
                     ),
                   ),
+
                   //TEXTFIELD OF PASSWORD
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 30),
                     child: TextFormField(
                       cursorColor: Colors.black,
                       obscureText: isPassVisible,
-                      decoration: AppStyle.inputDecoration('Password').copyWith(
+                      decoration: AppStyle.inputDecoration(
+                        AppLocalizations.of(context)!.password,
+                      ).copyWith(
                         suffixIcon: IconButton(
                           onPressed: () {
                             setState(() {
@@ -87,18 +91,18 @@ class _LoginState extends State<Login> {
                           );
                         },
                         style: AppStyle.elevatedButtonStyle(),
-                        child: const Text(
-                          'Log In',
+                        child: Text(
+                          AppLocalizations.of(context)!.logIn,
                         ),
                       ),
                     ),
                   ),
                   //FORGOT PASSWORD
-                  const Padding(
-                    padding: EdgeInsets.all(10),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
                     child: Text(
+                      AppLocalizations.of(context)!.forgotPassword,
                       style: AppStyle.hintText,
-                      'Forgot password',
                     ),
                   ),
                 ],

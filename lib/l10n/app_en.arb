@@ -1,0 +1,99 @@
+{
+    "@@locale": "en",
+    "customerAddress": "Customer address",
+    "@customerAddress": {
+        "description": "Label for the customer's address field"
+    },
+    "customerAddressRequired": "Customer address is required",
+    "@customerAddressRequired": {
+        "description": "Error message shown when the customer address field is empty"
+    },
+    "customerAddressTooShort": "Customer address must be at least 10 characters long",
+    "@customerAddressTooShort": {
+        "description": "Error message shown when the customer address is too short"
+    },
+    "customerEmail": "Customer email",
+    "@customerEmail": {
+        "description": "Label for the customer's email field"
+    },
+    "customerEmailInvalid": "Customer email is invalid",
+    "@customerEmailInvalid": {
+        "description": "Error message shown when the customer email is invalid"
+    },
+    "customerEmailRequired": "Customer email is required",
+    "@customerEmailRequired": {
+        "description": "Error message shown when the customer email field is empty"
+    },
+    "customerEmailTooShort": "Customer email must be at least 3 characters long",
+    "@customerEmailTooShort": {
+        "description": "Error message shown when the customer email is too short"
+    },
+    "customerName": "Customer name",
+    "@customerName": {
+        "description": "Label for the customer's name field"
+    },
+    "customerNameRequired": "Customer name is required",
+    "@customerNameRequired": {
+        "description": "Error message shown when the customer name field is empty"
+    },
+    "customerNameTooShort": "Customer name must be at least 3 characters long",
+    "@customerNameTooShort": {
+        "description": "Error message shown when the customer name is too short"
+    },
+    "customerPhone": "Customer phone",
+    "@customerPhone": {
+        "description": "Label for the customer's phone field"
+    },
+    "email": "Email",
+    "@email": {
+        "description": "Label for the email field"
+    },
+    "forgotPassword": "Forgot password",
+    "@forgotPassword": {
+        "description": "Label for the forgot password action"
+    },
+    "hello": "Hello! Technician",
+    "@hello": {
+        "description": "Greeting message for the technician"
+    },
+    "home": "Home",
+    "@home": {
+        "description": "Label for the home Icon"
+    },
+    "logIn": "Log In",
+    "@logIn": {
+        "description": "Label for the log in button"
+    },
+    "logOut": "Log Out",
+    "@logOut": {
+        "description": "Label for the log out button"
+    },
+    "next": "Next",
+    "@next": {
+        "description": "Label for the next button"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Label for the password field"
+    },
+    "profile": "Profile",
+    "@profile": {
+        "description": "Label for the profile Icon"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Label for the settings Icon"
+    },
+    "startGeneratorService": "Start Generator service",
+    "@startGeneratorService": {
+        "description": "Button label to start the generator service"
+    },
+    "startUPSservice": "Start UPS service",
+    "@startUPSservice": {
+        "description": "Button label to start the UPS service"
+    },
+    "welcome": "Welcome!",
+    "@welcome": {
+        "description": "Welcome message for the user"
+    }
+}

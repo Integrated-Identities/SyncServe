@@ -5,6 +5,7 @@
 ### Prerequisites
 - Dart SDK installed
 - Git installed
+- Flutter version- 3.29.3
 
 ### Installation Steps
 
@@ -23,6 +24,12 @@
    ```bash
    dart pub get
    ```
+
+### Generating localization
+
+```bash
+flutter gen-l10n
+```
 
 ### Running the Application
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/styles.dart';
 import 'package:syncserve/validated_textfield.dart';
 import 'package:zod_validation/zod_validation.dart';
@@ -54,15 +55,23 @@ class _CustomerDetailState extends State<CustomerDetail> {
                       const SizedBox(height: 14),
                       ValidatedTextField(
                         controller: _nameController,
-                        label: 'Customer Name',
+                        label: AppLocalizations.of(context)!.customerName,
                         validator: (value) {
                           if (!isNameTouched) return null;
                           if (value == null || value.trim().isEmpty) {
-                            return 'Customer name is required';
+                            return AppLocalizations.of(context)!
+                                .customerNameRequired;
                           }
                           return Zod()
-                              .required('Customer name is required')
-                              .min(3, 'Customer name too short')
+                              .required(
+                                AppLocalizations.of(context)!
+                                    .customerNameRequired,
+                              )
+                              .min(
+                                3,
+                                AppLocalizations.of(context)!
+                                    .customerNameTooShort,
+                              )
                               .build(value);
                         },
                         isRequired: true,
@@ -78,20 +87,28 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             ? AutovalidateMode.always
                             : AutovalidateMode.always,
                         decoration: AppStyle.inputDecorationWithLabel(
-                          'Customer Name',
+                          AppLocalizations.of(context)!.customerName,
                         ),
                       ),
                       ValidatedTextField(
                         controller: _addressController,
-                        label: 'Address',
+                        label: AppLocalizations.of(context)!.customerAddress,
                         validator: (value) {
                           if (!isAddressTouched) return null;
                           if (value == null || value.trim().isEmpty) {
-                            return 'Address is required';
+                            return AppLocalizations.of(context)!
+                                .customerAddressRequired;
                           }
                           return Zod()
-                              .required('Address is required')
-                              .min(3, 'Address too short')
+                              .required(
+                                AppLocalizations.of(context)!
+                                    .customerAddressRequired,
+                              )
+                              .min(
+                                10,
+                                AppLocalizations.of(context)!
+                                    .customerAddressTooShort,
+                              )
                               .build(value);
                         },
                         maxLines: 2,
@@ -108,22 +125,33 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             ? AutovalidateMode.onUserInteraction
                             : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
-                          'Address',
+                          AppLocalizations.of(context)!.customerAddress,
                         ),
                       ),
                       ValidatedTextField(
                         controller: _emailController,
-                        label: 'Email Id',
+                        label: AppLocalizations.of(context)!.customerEmail,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (!isEmailTouched) return null;
                           if (value == null || value.trim().isEmpty) {
-                            return 'Email is required';
+                            return AppLocalizations.of(context)!
+                                .customerEmailRequired;
                           }
                           return Zod()
-                              .required('Email is required')
-                              .email('Invalid email')
-                              .min(3, 'Too short')
+                              .required(
+                                AppLocalizations.of(context)!
+                                    .customerEmailRequired,
+                              )
+                              .email(
+                                AppLocalizations.of(context)!
+                                    .customerEmailInvalid,
+                              )
+                              .min(
+                                3,
+                                AppLocalizations.of(context)!
+                                    .customerEmailTooShort,
+                              )
                               .build(value);
                         },
                         isRequired: true,
@@ -139,12 +167,12 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             ? AutovalidateMode.onUserInteraction
                             : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
-                          'Email Id',
+                          AppLocalizations.of(context)!.customerEmail,
                         ),
                       ),
                       TextFormField(
                         decoration: AppStyle.inputDecorationWithLabel(
-                          'Phone Number',
+                          AppLocalizations.of(context)!.customerPhone,
                         ),
                         keyboardType: TextInputType.phone,
                       ),
@@ -162,7 +190,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                       }
                     : null,
                 style: AppStyle.elevatedButtonStyle(),
-                child: const Text('Next'),
+                child: Text(AppLocalizations.of(context)!.next),
               ),
             ),
           ],

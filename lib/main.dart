@@ -19,18 +19,11 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations
-            .delegate, // LANGUAGE SWITCH SINCE ENGLISH IS LTR WE DONT NEED THIS
-        GlobalCupertinoLocalizations
-            .delegate, // ADDED WHEN WE USE DATE-PICKER, TIME-PICKER, SNACKBARS, DATES AND NUMBERS
       ],
       supportedLocales: const [
         Locale('en', ''),
       ],
-      home: /*Localizations.override(
-        context: context,
-        locale: const Locale('en'),*/
-          Login(),
+      home: Login(),
     );
   }
 }

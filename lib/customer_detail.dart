@@ -52,9 +52,6 @@ class _CustomerDetailState extends State<CustomerDetail> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
                       ValidatedTextField(
                         controller: _nameController,
                         label: AppLocalizations.of(context)!.customerName,
@@ -171,6 +168,9 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerEmail,
                         ),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       TextFormField(
                         decoration: AppStyle.inputDecorationWithLabel(

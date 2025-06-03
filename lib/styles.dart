@@ -92,4 +92,10 @@ class AppStyle {
 
   // APP BAR AND NAVIGATION BAR BACKGROUND COLOR
   static const appBarAndNavBarColor = Colors.white;
+
+  // CHECKBOX TEXT STYLE
+  static const TextStyle checkBoxTextStyle = TextStyle(
+    fontSize: 18,
+    color: Colors.black,
+  );
 }

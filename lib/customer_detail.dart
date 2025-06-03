@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syncserve/service_checklist.dart';
 import 'package:syncserve/styles.dart';
 import 'package:syncserve/validated_textfield.dart';
 import 'package:zod_validation/zod_validation.dart';
@@ -188,7 +189,14 @@ class _CustomerDetailState extends State<CustomerDetail> {
               child: ElevatedButton(
                 onPressed: _isFormValid
                     ? () {
-                        if (_formKey.currentState?.validate() ?? false) {}
+                        if (_formKey.currentState?.validate() ?? false) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ServiceChecklist(),
+                            ),
+                          );
+                        }
                       }
                     : null,
                 style: AppStyle.elevatedButtonStyle(),

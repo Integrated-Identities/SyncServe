@@ -1,5 +1,25 @@
 {
     "@@locale": "en",
+    "batterUPScleaned": "Batter UPS cleaned",
+    "@batterUPScleaned": {
+        "description": "Checkbox Text when the UPS battery is cleaned"
+    },
+    "blowerChanged": "Blower changed",
+    "@blowerChanged": {
+        "description": "Checkbox Text when the blower is changed"
+    },
+    "batteryWaterLevel": "Battery water level checked",
+    "@batteryWaterLevel": {
+        "description": "Label for the battery water level field"
+    },
+    "backUptest": "Backup test checked",
+    "@backUptest": {
+        "description": "Checkbox Text when the backup test is checked"
+    },
+    "coolingFan": "Cooling fan working",
+    "@coolingFan": {
+        "description": "Checkbox Text when the cooling fan is working"
+    },
     "customerAddress": "Customer address",
     "@customerAddress": {
         "description": "Label for the customer's address field"
@@ -48,6 +68,10 @@
     "@email": {
         "description": "Label for the email field"
     },
+    "equipmentOk": "Equipment Ok",
+    "@equipmentOk": {
+        "description": "Checkbox Text when the equipment is ok"
+    },
     "forgotPassword": "Forgot password",
     "@forgotPassword": {
         "description": "Label for the forgot password action"
@@ -55,6 +79,10 @@
     "hello": "Hello! Technician",
     "@hello": {
         "description": "Greeting message for the technician"
+    },
+    "historyCardEntry": "History card entry",
+    "@historyCardEntry": {
+        "description": "Checkbox Text when the history card is entry"
     },
     "home": "Home",
     "@home": {
@@ -76,6 +104,10 @@
     "@password": {
         "description": "Label for the password field"
     },
+    "panelReadingMatched": "Panel reading matched",
+    "@panelReadingMatched": {
+        "description": "Checkbox Text when the panel reading is matched"
+    },
     "profile": "Profile",
     "@profile": {
         "description": "Label for the profile Icon"
@@ -91,6 +123,18 @@
     "startUPSservice": "Start UPS service",
     "@startUPSservice": {
         "description": "Button label to start the UPS service"
+    },
+    "staticBypass": "Static bypass checked",
+    "@staticBypass": {
+        "description": "Checkbox Text when the static bypass is checked"
+    },
+    "title": "Service Checklist",
+    "@title": {
+        "description": "Title of Service Checklist page"
+    },
+    "upsConnectionTight": "UPS connection tightened",
+    "@upsConnectiontight": {
+        "description": "Checkbox Text when the UPS connection is tightened"
     },
     "welcome": "Welcome!",
     "@welcome": {

@@ -58,7 +58,7 @@ class ServiceChecklistState extends State<ServiceChecklist> {
             Padding(
               padding: EdgeInsets.only(bottom: 22),
               child: ElevatedButton(
-                style: AppStyle.bottomelevatedButtonStyle(),
+                style: AppStyle.elevatedButtonStyle(),
                 onPressed: () {},
                 child: Text(AppLocalizations.of(context)!.next),
               ),

@@ -101,20 +101,4 @@ class AppStyle {
 
   // CHECKBOX TICK COLOR
   static const Color checkBoxTickColor = Colors.white;
-
-  // BOTTOM ELEVATED BUTTON STYLE
-  static ButtonStyle bottomelevatedButtonStyle() {
-    return ElevatedButton.styleFrom(
-      backgroundColor: Color.fromARGB(255, 237, 125, 125),
-      minimumSize: const Size(double.infinity, 60),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      textStyle: const TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-      foregroundColor: Colors.white,
-    );
-  }
 }

@@ -1,22 +1,22 @@
 {
     "@@locale": "en",
-    "batterUPScleaned": "Batter UPS cleaned",
-    "@batterUPScleaned": {
-        "description": "Checkbox Text when the UPS battery is cleaned"
+    "backUpTest": "Backup test checked",
+    "@backUpTest": {
+        "description": "Checkbox Text when the backup test is checked"
     },
-    "blowerChanged": "Blower changed",
-    "@blowerChanged": {
-        "description": "Checkbox Text when the blower is changed"
+    "batteryUPSCleaned": "Battery/UPS cleaned",
+    "@batteryUPSCleaned": {
+        "description": "Checkbox Text when the battery/UPS is cleaned"
     },
     "batteryWaterLevel": "Battery water level checked",
     "@batteryWaterLevel": {
         "description": "Label for the battery water level field"
     },
-    "backUptest": "Backup test checked",
-    "@backUptest": {
-        "description": "Checkbox Text when the backup test is checked"
+    "blowerChanged": "Blower changed",
+    "@blowerChanged": {
+        "description": "Checkbox Text when the blower is changed"
     },
-    "coolingFan": "Cooling fan working",
+    "coolingFan": "Cooling fan works",
     "@coolingFan": {
         "description": "Checkbox Text when the cooling fan is working"
     },
@@ -68,7 +68,7 @@
     "@email": {
         "description": "Label for the email field"
     },
-    "equipmentOk": "Equipment Ok",
+    "equipmentOk": "Equipment is ok",
     "@equipmentOk": {
         "description": "Checkbox Text when the equipment is ok"
     },
@@ -80,7 +80,7 @@
     "@hello": {
         "description": "Greeting message for the technician"
     },
-    "historyCardEntry": "History card entry",
+    "historyCardEntry": "History card entered",
     "@historyCardEntry": {
         "description": "Checkbox Text when the history card is entry"
     },
@@ -100,13 +100,13 @@
     "@next": {
         "description": "Label for the next button"
     },
-    "password": "Password",
-    "@password": {
-        "description": "Label for the password field"
-    },
     "panelReadingMatched": "Panel reading matched",
     "@panelReadingMatched": {
         "description": "Checkbox Text when the panel reading is matched"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Label for the password field"
     },
     "profile": "Profile",
     "@profile": {
@@ -133,7 +133,7 @@
         "description": "Title of Service Checklist page"
     },
     "upsConnectionTight": "UPS connection tightened",
-    "@upsConnectiontight": {
+    "@upsConnectionTight": {
         "description": "Checkbox Text when the UPS connection is tightened"
     },
     "welcome": "Welcome!",

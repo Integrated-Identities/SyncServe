@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ///1: TEXT STYLES///
 
-// Welcome back
+// WELCOME BACK
 class AppStyle {
   static const TextStyle headingText = TextStyle(
     fontWeight: FontWeight.bold,
@@ -10,13 +10,10 @@ class AppStyle {
     color: Colors.black,
   );
 
-// Hint text for input fields
-  static const TextStyle hintText = TextStyle(
-    fontSize: 18,
-    color: Colors.grey,
-  );
+// HINTTEXT FOR INPUT FIELDS
+  static final TextStyle hintText = labelText.copyWith(color: Colors.grey);
 
-// Elevated Button
+// ELEVATED BUTTON STYLE
   static ButtonStyle elevatedButtonStyle() {
     return ElevatedButton.styleFrom(
       backgroundColor: Color.fromARGB(255, 237, 125, 125),
@@ -94,8 +91,30 @@ class AppStyle {
   static const appBarAndNavBarColor = Colors.white;
 
   // CHECKBOX TEXT STYLE
-  static const TextStyle checkBoxTextStyle = TextStyle(
+  static const TextStyle labelText = TextStyle(
     fontSize: 18,
     color: Colors.black,
   );
+
+  // CHECKBOX COLOR
+  static const Color checkBoxColor = Color.fromARGB(255, 237, 125, 125);
+
+  // CHECKBOX TICK COLOR
+  static const Color checkBoxTickColor = Colors.white;
+
+  // BOTTOM ELEVATED BUTTON STYLE
+  static ButtonStyle bottomelevatedButtonStyle() {
+    return ElevatedButton.styleFrom(
+      backgroundColor: Color.fromARGB(255, 237, 125, 125),
+      minimumSize: const Size(double.infinity, 60),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      textStyle: const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+      foregroundColor: Colors.white,
+    );
+  }
 }

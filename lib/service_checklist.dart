@@ -1,30 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/styles.dart';
+import 'service_checklist_constant.dart';
 
 class ServiceChecklist extends StatefulWidget {
   const ServiceChecklist({super.key});
 
   @override
-  State<ServiceChecklist> createState() => _ServiceChecklistState();
+  State<ServiceChecklist> createState() => ServiceChecklistState();
 }
 
-class _ServiceChecklistState extends State<ServiceChecklist> {
-  List<bool> isTick = List.generate(10, (value) => false);
+class ServiceChecklistState extends State<ServiceChecklist> {
+  late List<bool> isTickList;
+  late List<String> checklistLabels;
+
+  @override
+  void initState() {
+    super.initState();
+    isTickList = List.generate(10, (_) => false);
+  }
+
+  Widget buildCheckboxRow(int index, String label) {
+    return CheckboxListTile(
+      activeColor: AppStyle.checkBoxColor,
+      checkColor: AppStyle.checkBoxTickColor,
+      value: isTickList[index],
+      onChanged: (bool? value) {
+        setState(() {
+          isTickList[index] = value ?? false;
+        });
+      },
+      title: Text(
+        label,
+        style: AppStyle.labelText,
+      ),
+      controlAffinity: ListTileControlAffinity.leading,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final items = [
-      AppLocalizations.of(context)!.batterUPScleaned,
-      AppLocalizations.of(context)!.blowerChanged,
-      AppLocalizations.of(context)!.upsConnectionTight,
-      AppLocalizations.of(context)!.batteryWaterLevel,
-      AppLocalizations.of(context)!.coolingFan,
-      AppLocalizations.of(context)!.backUptest,
-      AppLocalizations.of(context)!.staticBypass,
-      AppLocalizations.of(context)!.panelReadingMatched,
-      AppLocalizations.of(context)!.historyCardEntry,
-      AppLocalizations.of(context)!.equipmentOk,
-    ];
+    checklistLabels = ServiceChecklistItems.getChecklistLabels(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppStyle.appBarAndNavBarColor,
@@ -32,35 +49,16 @@ class _ServiceChecklistState extends State<ServiceChecklist> {
         title: Text(AppLocalizations.of(context)!.title),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           children: [
-            ...List.generate(
-              items.length,
-              (index) => Row(
-                children: [
-                  Checkbox(
-                    value: isTick[index],
-                    onChanged: (bool? value) {
-                      setState(() {
-                        isTick[index] = value ?? false;
-                      });
-                    },
-                    checkColor: Colors.white,
-                    activeColor: const Color.fromARGB(255, 237, 125, 125),
-                  ),
-                  Text(
-                    items[index],
-                    style: AppStyle.checkBoxTextStyle,
-                  ),
-                ],
-              ),
-            ),
-            const Spacer(),
+            for (int i = 0; i < checklistLabels.length; i++)
+              buildCheckboxRow(i, checklistLabels[i]),
+            Spacer(),
             Padding(
-              padding: const EdgeInsets.only(bottom: 50),
+              padding: EdgeInsets.only(bottom: 22),
               child: ElevatedButton(
-                style: AppStyle.elevatedButtonStyle(),
+                style: AppStyle.bottomelevatedButtonStyle(),
                 onPressed: () {},
                 child: Text(AppLocalizations.of(context)!.next),
               ),

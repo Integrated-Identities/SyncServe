@@ -95,10 +95,4 @@ class AppStyle {
     fontSize: 18,
     color: Colors.black,
   );
-
-  // CHECKBOX COLOR
-  static const Color checkBoxColor = Color.fromARGB(255, 237, 125, 125);
-
-  // CHECKBOX TICK COLOR
-  static const Color checkBoxTickColor = Colors.white;
 }

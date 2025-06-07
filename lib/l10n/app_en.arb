@@ -1,8 +1,8 @@
 {
     "@@locale": "en",
-    "backUpTest": "Backup test checked",
+    "backUpTest": "Backup checked",
     "@backUpTest": {
-        "description": "Checkbox Text when the backup test is checked"
+        "description": "Checkbox Text when the backup is checked"
     },
     "batteryUPSCleaned": "Battery/UPS cleaned",
     "@batteryUPSCleaned": {

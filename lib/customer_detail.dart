@@ -184,21 +184,24 @@ class _CustomerDetailState extends State<CustomerDetail> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: _isFormValid
-                  ? () {
-                      if (_formKey.currentState?.validate() ?? false) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ServiceChecklist(),
-                          ),
-                        );
+            Padding(
+              padding: EdgeInsets.only(bottom: 22),
+              child: ElevatedButton(
+                onPressed: _isFormValid
+                    ? () {
+                        if (_formKey.currentState?.validate() ?? false) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ServiceChecklist(),
+                            ),
+                          );
+                        }
                       }
-                    }
-                  : null,
-              style: AppStyle.elevatedButtonStyle(),
-              child: Text(AppLocalizations.of(context)!.next),
+                    : null,
+                style: AppStyle.elevatedButtonStyle(),
+                child: Text(AppLocalizations.of(context)!.next),
+              ),
             ),
           ],
         ),

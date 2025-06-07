@@ -22,8 +22,6 @@ class ServiceChecklistState extends State<ServiceChecklist> {
 
   Widget buildCheckboxRow(int index, String label) {
     return CheckboxListTile(
-      activeColor: AppStyle.checkBoxColor,
-      checkColor: AppStyle.checkBoxTickColor,
       value: isTickList[index],
       onChanged: (bool? value) {
         setState(() {
@@ -35,6 +33,8 @@ class ServiceChecklistState extends State<ServiceChecklist> {
         style: AppStyle.labelText,
       ),
       controlAffinity: ListTileControlAffinity.leading,
+      activeColor: ServiceChecklistItems.checkbox,
+      checkColor: ServiceChecklistItems.checkTickBox,
     );
   }
 

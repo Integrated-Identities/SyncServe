@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ///1: TEXT STYLES///
 
-// Welcome back
+// WELCOME BACK
 class AppStyle {
   static const TextStyle headingText = TextStyle(
     fontWeight: FontWeight.bold,
@@ -10,13 +10,10 @@ class AppStyle {
     color: Colors.black,
   );
 
-// Hint text for input fields
-  static const TextStyle hintText = TextStyle(
-    fontSize: 18,
-    color: Colors.grey,
-  );
+// HINTTEXT FOR INPUT FIELDS
+  static final TextStyle hintText = labelText.copyWith(color: Colors.grey);
 
-// Elevated Button
+// ELEVATED BUTTON STYLE
   static ButtonStyle elevatedButtonStyle() {
     return ElevatedButton.styleFrom(
       backgroundColor: Color.fromARGB(255, 237, 125, 125),
@@ -92,4 +89,10 @@ class AppStyle {
 
   // APP BAR AND NAVIGATION BAR BACKGROUND COLOR
   static const appBarAndNavBarColor = Colors.white;
+
+  // CHECKBOX TEXT STYLE
+  static const TextStyle labelText = TextStyle(
+    fontSize: 18,
+    color: Colors.black,
+  );
 }

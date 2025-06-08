@@ -185,7 +185,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 22),
+              padding: AppStyle.elevatedButtonPadding,
               child: ElevatedButton(
                 onPressed: _isFormValid
                     ? () {

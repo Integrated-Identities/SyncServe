@@ -40,7 +40,9 @@ class ServiceChecklistState extends State<ServiceChecklist> {
 
   @override
   Widget build(BuildContext context) {
-    checklistLabels = ServiceChecklistItems.getChecklistLabels(context);
+    checklistLabels = ServiceChecklistItems.getChecklistLabels(context)
+        .map((item) => item.label)
+        .toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -56,7 +58,7 @@ class ServiceChecklistState extends State<ServiceChecklist> {
               buildCheckboxRow(i, checklistLabels[i]),
             Spacer(),
             Padding(
-              padding: EdgeInsets.only(bottom: 22),
+              padding: AppStyle.elevatedButtonPadding,
               child: ElevatedButton(
                 style: AppStyle.elevatedButtonStyle(),
                 onPressed: () {},

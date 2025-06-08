@@ -95,4 +95,9 @@ class AppStyle {
     fontSize: 18,
     color: Colors.black,
   );
+
+  // PADDING FOR THE ELEVATED BUTTON
+  static const EdgeInsets elevatedButtonPadding = EdgeInsets.only(
+    bottom: 10,
+  );
 }

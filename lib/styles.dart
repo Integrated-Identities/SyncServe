@@ -96,15 +96,20 @@ class AppStyle {
     color: Colors.black,
   );
 
-  // PADDING FOR THE ELEVATED BUTTON
+  // BOTTOM AREA PADDING FOR ELEVATED BUTTON
   static const EdgeInsets elevatedButtonPadding = EdgeInsets.symmetric(
     horizontal: 10,
     vertical: 10,
   );
 
-  // COLOR FOR THE CHECKBOX
-  static const Color checkBoxColor = Color.fromARGB(255, 237, 125, 125);
-
-  // COLOR FOR THE CHECKBOX TICK
-  static const Color checkBoxTickColor = Colors.white;
+  // CHECKBOX THEME FOR CHECKBOX STYLE
+  static CheckboxThemeData checkboxThemeData = CheckboxThemeData(
+    fillColor: WidgetStateColor.resolveWith((Set<WidgetState> states) {
+      if (states.contains(WidgetState.selected)) {
+        return const Color.fromARGB(255, 237, 125, 125);
+      }
+      return Colors.white;
+    }),
+    checkColor: WidgetStateColor.resolveWith((states) => Colors.white),
+  );
 }

@@ -1,20 +1,14 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'service_checklist_model.dart';
 
-class ServiceChecklistItem {
-  final String label;
-  bool isChecked;
+class ServiceChecklistItems extends ChangeNotifier {
+  late List<ServiceChecklistItem> checklistItems;
 
-  // ignore: sort_constructors_first
-  ServiceChecklistItem({required this.label, this.isChecked = false});
-}
+  List<ServiceChecklistItem> get items => checklistItems;
 
-class ServiceChecklistItems {
-  static const Color checkbox = Color.fromARGB(255, 237, 125, 125);
-  static const Color checkTickBox = Colors.white;
-
-  static List<ServiceChecklistItem> getChecklistLabels(BuildContext context) {
-    return [
+  void loadItems(BuildContext context) {
+    checklistItems = [
       ServiceChecklistItem(
         label: AppLocalizations.of(context)!.batteryUPSCleaned,
       ),
@@ -36,5 +30,11 @@ class ServiceChecklistItems {
       ),
       ServiceChecklistItem(label: AppLocalizations.of(context)!.equipmentOk),
     ];
+    notifyListeners();
+  }
+
+  void toggleCheck(int index) {
+    checklistItems[index].isChecked = !checklistItems[index].isChecked;
+    notifyListeners();
   }
 }

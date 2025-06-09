@@ -32,6 +32,8 @@ class _CustomerDetailState extends State<CustomerDetail> {
 
   @override
   Widget build(BuildContext context) {
+    final bottomInset = MediaQuery.of(context).viewInsets.bottom;
+    final isKeyboardOpen = bottomInset > 0;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -184,23 +186,27 @@ class _CustomerDetailState extends State<CustomerDetail> {
                 ),
               ),
             ),
-            Padding(
-              padding: AppStyle.elevatedButtonPadding,
-              child: ElevatedButton(
-                onPressed: _isFormValid
-                    ? () {
-                        if (_formKey.currentState?.validate() ?? false) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ServiceChecklist(),
-                            ),
-                          );
+            MediaQuery.removeViewInsets(
+              context: context,
+              removeBottom: true,
+              child: Padding(
+                padding: AppStyle.elevatedButtonPadding,
+                child: ElevatedButton(
+                  onPressed: _isFormValid
+                      ? () {
+                          if (_formKey.currentState?.validate() ?? false) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ServiceChecklist(),
+                              ),
+                            );
+                          }
                         }
-                      }
-                    : null,
-                style: AppStyle.elevatedButtonStyle(),
-                child: Text(AppLocalizations.of(context)!.next),
+                      : null,
+                  style: AppStyle.elevatedButtonStyle(),
+                  child: Text(AppLocalizations.of(context)!.next),
+                ),
               ),
             ),
           ],

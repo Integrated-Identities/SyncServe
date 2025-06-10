@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:syncserve/styles.dart';
+import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/viewmodel/service_checklist_viewmodel.dart';
 
 class ServiceChecklist extends StatelessWidget {
@@ -28,6 +28,7 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
     viewmodel.initialize(AppLocalizations.of(context)!);
   }
 
+  // TODO: toggle should not be based on index.
   void toggleCheck(int index) {
     setState(() {
       viewmodel.toggleCheck(index);
@@ -62,7 +63,7 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
             ),
           ),
           Padding(
-            padding: AppStyle.elevatedButtonPadding,
+            padding: AppStyle.bottomAreaPadding,
             child: ElevatedButton(
               style: AppStyle.elevatedButtonStyle(),
               onPressed: () {},

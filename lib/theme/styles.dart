@@ -97,7 +97,7 @@ class AppStyle {
   );
 
   // BOTTOM AREA PADDING FOR ELEVATED BUTTON
-  static const EdgeInsets elevatedButtonPadding = EdgeInsets.symmetric(
+  static const EdgeInsets bottomAreaPadding = EdgeInsets.symmetric(
     horizontal: 10,
     vertical: 10,
   );

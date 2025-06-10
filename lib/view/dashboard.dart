@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/customer_detail.dart';
-import 'package:syncserve/styles.dart';
+import 'package:syncserve/theme/styles.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});

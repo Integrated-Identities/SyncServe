@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncserve/view/login.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:syncserve/styles.dart';
+import 'package:syncserve/theme/styles.dart';
 
 void main() {
   runApp(const MyApp());

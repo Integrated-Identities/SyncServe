@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view/service_checklist_view.dart';
-import 'package:syncserve/styles.dart';
+import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/validated_textfield.dart';
 import 'package:zod_validation/zod_validation.dart';
 
@@ -185,7 +185,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
               ),
             ),
             Padding(
-              padding: AppStyle.elevatedButtonPadding,
+              padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
                 onPressed: _isFormValid
                     ? () {

@@ -1,6 +1,6 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:syncserve/model/service_checklist_item.dart';
 import 'package:syncserve/model/service_checklist_model.dart';
+import 'package:syncserve/viewmodel/service_checklist_item.dart';
 
 class ServiceChecklistViewmodel {
   late List<ServiceChecklistItem> items;

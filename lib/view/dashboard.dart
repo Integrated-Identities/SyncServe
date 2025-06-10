@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:syncserve/customer_detail.dart';
-import 'package:syncserve/styles.dart';
+import 'package:syncserve/view/customer_detail.dart';
+import 'package:syncserve/theme/styles.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -47,7 +47,7 @@ class Dashboard extends StatelessWidget {
                 style: AppStyle.headingText,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 100, bottom: 20),
+                padding: const EdgeInsets.only(top: 100, bottom: 10),
                 child: ElevatedButton(
                   style: AppStyle.elevatedButtonStyle(),
                   onPressed: () {
@@ -64,7 +64,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 10, bottom: 20),
                 child: ElevatedButton(
                   style: AppStyle.elevatedButtonStyle(),
                   onPressed: () {},

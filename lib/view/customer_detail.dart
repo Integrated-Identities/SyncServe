@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:syncserve/styles.dart';
-import 'package:syncserve/validated_textfield.dart';
+import 'package:syncserve/view/service_checklist_view.dart';
+import 'package:syncserve/theme/styles.dart';
+import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:zod_validation/zod_validation.dart';
 
 class CustomerDetail extends StatefulWidget {
@@ -47,12 +48,14 @@ class _CustomerDetailState extends State<CustomerDetail> {
           children: [
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
                 child: Form(
                   key: _formKey,
                   child: Column(
+                    spacing: 5,
                     children: [
                       ValidatedTextField(
+                        padding: EdgeInsets.zero,
                         controller: _nameController,
                         label: AppLocalizations.of(context)!.customerName,
                         validator: (value) {
@@ -90,6 +93,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         ),
                       ),
                       ValidatedTextField(
+                        padding: EdgeInsets.zero,
                         controller: _addressController,
                         label: AppLocalizations.of(context)!.customerAddress,
                         validator: (value) {
@@ -128,6 +132,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         ),
                       ),
                       ValidatedTextField(
+                        padding: EdgeInsets.zero,
                         controller: _emailController,
                         label: AppLocalizations.of(context)!.customerEmail,
                         keyboardType: TextInputType.emailAddress,
@@ -169,9 +174,6 @@ class _CustomerDetailState extends State<CustomerDetail> {
                           AppLocalizations.of(context)!.customerEmail,
                         ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
                       TextFormField(
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerPhone,
@@ -184,11 +186,18 @@ class _CustomerDetailState extends State<CustomerDetail> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 0, 5, 20),
+              padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
                 onPressed: _isFormValid
                     ? () {
-                        if (_formKey.currentState?.validate() ?? false) {}
+                        if (_formKey.currentState?.validate() ?? false) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ServiceChecklist(),
+                            ),
+                          );
+                        }
                       }
                     : null,
                 style: AppStyle.elevatedButtonStyle(),

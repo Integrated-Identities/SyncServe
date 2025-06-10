@@ -20,15 +20,26 @@ class ServiceChecklistView extends StatefulWidget {
 }
 
 class _ServiceChecklistViewState extends State<ServiceChecklistView> {
-  _ServiceChecklistViewState() {
-    // Initialize the viewModel with the current AppLocalizations context
-    viewModel = ServiceChecklistViewModel(AppLocalizations.of(context)!);
-  }
+  ServiceChecklistViewModel? viewModel;
 
-  late final ServiceChecklistViewModel viewModel;
+  @override
+  void initState() {
+    super.initState();
+    // Initialize after the widget is fully mounted
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        viewModel = ServiceChecklistViewModel(AppLocalizations.of(context)!);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    // Add null check for viewModel
+    if (viewModel == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppStyle.appBarAndNavBarColor,
@@ -41,12 +52,19 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: ListView.builder(
-                itemCount: viewModel.items.length,
+                itemCount: viewModel!.items.length,
                 itemBuilder: (context, index) {
-                  final item = viewModel.items[index];
+                  final item = viewModel!.items[index];
                   return CheckboxListTile(
                     value: item.isChecked,
-                    onChanged: (newValue) => item.isChecked = newValue ?? false,
+                    onChanged: (newValue) {
+                      print(
+                        'Checkbox changed: ${item.label}, new value: $newValue',
+                      );
+                      setState(() {
+                        item.isChecked = newValue ?? false;
+                      });
+                    },
                     title: Text(item.label),
                     controlAffinity: ListTileControlAffinity.leading,
                   );

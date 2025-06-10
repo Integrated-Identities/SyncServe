@@ -31,6 +31,9 @@
 flutter gen-l10n
 ```
 
+> [!NOTE]  
+> If you see error like - `arget of URI doesn't exist: 'package:flutter_gen/gen_l10n/app_localizations.dart'.`, try running `flutter clean && flutter gen-l10n && flutter run`.
+
 ### Running the Application
 
 ```bash

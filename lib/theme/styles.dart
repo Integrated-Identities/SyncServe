@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-///1: TEXT STYLES///
-
 // WELCOME BACK
 class AppStyle {
   static const TextStyle headingText = TextStyle(

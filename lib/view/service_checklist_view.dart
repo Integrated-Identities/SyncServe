@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/theme/styles.dart';
-import 'package:syncserve/viewmodel/service_checklist_viewmodel.dart';
+import 'package:syncserve/view_model/service_checklist_view_model.dart';
 
 class ServiceChecklist extends StatelessWidget {
   const ServiceChecklist({super.key});
@@ -20,20 +20,12 @@ class ServiceChecklistView extends StatefulWidget {
 }
 
 class _ServiceChecklistViewState extends State<ServiceChecklistView> {
-  final viewmodel = ServiceChecklistViewmodel();
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    viewmodel.initialize(AppLocalizations.of(context)!);
+  _ServiceChecklistViewState() {
+    // Initialize the viewModel with the current AppLocalizations context
+    viewModel = ServiceChecklistViewModel(AppLocalizations.of(context)!);
   }
 
-  // TODO: toggle should not be based on index.
-  void toggleCheck(int index) {
-    setState(() {
-      viewmodel.toggleCheck(index);
-    });
-  }
+  late final ServiceChecklistViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +41,12 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: ListView.builder(
-                itemCount: viewmodel.items.length,
+                itemCount: viewModel.items.length,
                 itemBuilder: (context, index) {
-                  final item = viewmodel.items[index];
+                  final item = viewModel.items[index];
                   return CheckboxListTile(
                     value: item.isChecked,
-                    onChanged: (_) => toggleCheck(index),
+                    onChanged: (newValue) => item.isChecked = newValue ?? false,
                     title: Text(item.label),
                     controlAffinity: ListTileControlAffinity.leading,
                   );

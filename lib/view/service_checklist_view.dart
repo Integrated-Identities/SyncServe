@@ -46,41 +46,47 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
         centerTitle: true,
         title: Text(AppLocalizations.of(context)!.title),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: ListView.builder(
-                itemCount: viewModel!.items.length,
-                itemBuilder: (context, index) {
-                  final item = viewModel!.items[index];
-                  return CheckboxListTile(
-                    value: item.isChecked,
-                    onChanged: (newValue) {
-                      print(
-                        'Checkbox changed: ${item.label}, new value: $newValue',
-                      );
-                      setState(() {
-                        item.isChecked = newValue ?? false;
-                      });
-                    },
-                    title: Text(item.label),
-                    controlAffinity: ListTileControlAffinity.leading,
-                  );
-                },
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                child: ListView.builder(
+                  itemCount: viewModel!.items.length,
+                  itemBuilder: (context, index) {
+                    final item = viewModel!.items[index];
+                    return CheckboxListTile(
+                      value: item.isChecked,
+                      onChanged: (newValue) {
+                        print(
+                          'Checkbox changed: ${item.label}, new value: $newValue',
+                        );
+                        setState(() {
+                          item.isChecked = newValue ?? false;
+                        });
+                      },
+                      title: Text(
+                        item.label,
+                        style: AppStyle.labelText,
+                      ),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      visualDensity: VisualDensity.comfortable,
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: AppStyle.bottomAreaPadding,
-            child: ElevatedButton(
-              style: AppStyle.elevatedButtonStyle(),
-              onPressed: () {},
-              child: Text(AppLocalizations.of(context)!.next),
+            Padding(
+              padding: AppStyle.bottomAreaPadding,
+              child: ElevatedButton(
+                style: AppStyle.elevatedButtonStyle(),
+                onPressed: () {},
+                child: Text(AppLocalizations.of(context)!.next),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

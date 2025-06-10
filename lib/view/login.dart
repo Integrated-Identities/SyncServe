@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 40),
+                    padding: const EdgeInsets.only(bottom: 10),
                     child: Container(
                       color: Colors.grey,
                       height: 80,
@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
 
                   //TEXTFIELD OF PASSWORD
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 30),
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 30),
                     child: TextFormField(
                       cursorColor: Colors.black,
                       obscureText: isPassVisible,

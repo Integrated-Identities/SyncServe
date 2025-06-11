@@ -26,8 +26,10 @@ class ServiceFormModel {
       isInStabilizerSelected ||
       isInInverterSelected;
 
+  bool get isManufacturerValid =>
+      manufacturerName != null && manufacturerName!.trim().isNotEmpty;
+
   bool isValid() {
-    final isManufacturerValid = (manufacturerName?.trim().length ?? 0) >= 3;
     return isManufacturerValid &&
         isAtLeastOneReasonSelected &&
         isAtLeastOneServiceCategorySelected &&

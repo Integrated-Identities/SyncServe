@@ -111,23 +111,21 @@ class AppStyle {
     checkColor: WidgetStateColor.resolveWith((states) => Colors.white),
   );
 
-  // SERVICEFORM LABEL TEXT STYLE
-  static const TextStyle serviceFormLabelText = TextStyle(
+  // SECTION TITLE TEXT STYLE
+  static const TextStyle sectionTitleText = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: Colors.black,
   );
 
-  // LEFT PADDING FOR THE LABELS OF SERVICE FORM
-  static const EdgeInsets serviceFormLabelPadding =
-      EdgeInsets.fromLTRB(15, 0, 0, 5);
+  // SECTION TITLE PADDING
+  static const EdgeInsets sectionTitlePadding =
+      EdgeInsets.symmetric(horizontal: 10);
 
-  // SERVICEFORM LABEL TEXT STYLE
-  static const TextStyle serviceFormText = TextStyle(
-    fontSize: 18,
-    color: Colors.black,
-  );
+  // SECTION CONTENT PADDING
+  static const EdgeInsets sectionContentPadding =
+      EdgeInsets.symmetric(horizontal: 5);
 
   // DIVIDER COLOR
-  static const Color dividerColor = Colors.black;
+  static const Color dividerColor = Color.fromARGB(255, 100, 100, 100);
 }

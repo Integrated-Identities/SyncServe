@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:syncserve/theme/styles.dart';
 
 class LabeledCheckbox extends StatelessWidget {
   const LabeledCheckbox({
     super.key,
     required this.label,
-    required this.padding,
     required this.value,
     required this.onChanged,
-    this.textStyle,
+    this.padding = EdgeInsets.zero,
   });
 
   final String label;
   final EdgeInsets padding;
   final bool value;
   final Function(bool) onChanged;
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class LabeledCheckbox extends StatelessWidget {
             ),
             Text(
               label,
-              style: textStyle,
+              style: AppStyle.labelText,
             ),
           ],
         ),

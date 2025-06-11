@@ -99,9 +99,9 @@
     "inAnnualMaintenanceContract": "In Annual Maintenance Contract",
     "@inAnnualMaintenanceContract": {
         "description": "Checkbox Text when the equipment is in annual maintenance contract"
-    },
+    },    
     "inFreeService": "Free service",
-    "@freeService": {
+    "@inFreeService": {
         "description": "Label for the free service checkbox"
     },
     "installation": "Installation",
@@ -160,12 +160,12 @@
     "@profile": {
         "description": "Label for the profile Icon"
     },
-    "reason": "Reason for Visit",
-    "@selectReason": {
+    "reasonForVisit": "Reason for Visit",
+    "@reasonForVisit": {
         "description": "Label for the reason for visit in the service form"
     },
     "serviceCategory": "Service Category",
-    "@selectServiceCategory": {
+    "@ServiceCategory": {
         "description": "Label for the service category selection in the service form"
     },
     "serviceForm": "Service Form",
@@ -193,7 +193,7 @@
         "description": "Checkbox Text when the static bypass is checked"
     },
     "systemType": "System Type",
-    "@systemYou'reWorkingOn": {
+    "@systemType": {
         "description": "Label for the system you're working on"
     },
     "title": "Service Checklist",

@@ -122,9 +122,11 @@ class AppStyle {
   static const EdgeInsets serviceFormLabelPadding =
       EdgeInsets.fromLTRB(15, 0, 0, 5);
 
-  // LEFT PADDING FOR THE EXTREME-LEFT CHECKBOXES OF SERVICE FORM
-  static const EdgeInsets serviceFormLabelLeftPadding =
-      EdgeInsets.fromLTRB(15, 0, 0, 5);
+  // SERVICEFORM LABEL TEXT STYLE
+  static const TextStyle serviceFormText = TextStyle(
+    fontSize: 18,
+    color: Colors.black,
+  );
 
   // DIVIDER COLOR
   static const Color dividerColor = Colors.black;

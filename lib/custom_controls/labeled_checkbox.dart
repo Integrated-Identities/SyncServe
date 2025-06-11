@@ -7,14 +7,14 @@ class LabeledCheckbox extends StatelessWidget {
     required this.padding,
     required this.value,
     required this.onChanged,
-    this.textstyle = const TextStyle(fontSize: 16),
+    this.textStyle,
   });
 
   final String label;
   final EdgeInsets padding;
   final bool value;
   final Function(bool) onChanged;
-  final TextStyle textstyle;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,10 @@ class LabeledCheckbox extends StatelessWidget {
                 onChanged(newValue ?? false);
               },
             ),
-            Text(label, style: textstyle),
+            Text(
+              label,
+              style: textStyle,
+            ),
           ],
         ),
       ),

@@ -1,61 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:syncserve/model/service_form_model.dart';
 
 class ServiceFormViewModel {
-  bool isInstallationSelected = false;
-  bool isCallBasisSelected = false;
-  bool isPreventiveMaintenanceSelected = false;
-  bool isInWarrantySelected = false;
-  bool isInFreeServiceSelected = false;
-  bool isInAnnualSelected = false;
-  bool isInUPSSelected = false;
-  bool isInGeneratorSelected = false;
-  bool isInStabilizerSelected = false;
-  bool isInInverterSelected = false;
-
+  final _model = ServiceFormModel();
   final TextEditingController manufacturerController = TextEditingController();
-  bool isManufacturerTouched = false;
 
+  // Forward model properties
+  bool get isInstallationSelected => _model.isInstallationSelected;
+  bool get isCallBasisSelected => _model.isCallBasisSelected;
+  bool get isPreventiveMaintenanceSelected =>
+      _model.isPreventiveMaintenanceSelected;
+  bool get isInWarrantySelected => _model.isInWarrantySelected;
+  bool get isInFreeServiceSelected => _model.isInFreeServiceSelected;
+  bool get isInAnnualSelected => _model.isInAnnualSelected;
+  bool get isInUPSSelected => _model.isInUPSSelected;
+  bool get isInGeneratorSelected => _model.isInGeneratorSelected;
+  bool get isInStabilizerSelected => _model.isInStabilizerSelected;
+  bool get isInInverterSelected => _model.isInInverterSelected;
+  bool get isManufacturerTouched => _model.isManufacturerTouched;
+
+  // Forward validations
+  bool get isAtLeastOneReasonSelected => _model.isAtLeastOneReasonSelected;
+  bool get isAtLeastOneCategorySelected => _model.isAtLeastOneCategorySelected;
+  bool get isAtLeastOneSystemTypeSelected =>
+      _model.isAtLeastOneSystemTypeSelected;
+  bool get isManufacturerValid => _model.isManufacturerValid;
+  bool get isValid => _model.isValid;
+
+  // State update methods
   void setInstallationSelected(bool? value) {
-    isInstallationSelected = value ?? false;
+    _model.isInstallationSelected = value ?? false;
   }
 
   void setCallBasisSelected(bool? value) {
-    isCallBasisSelected = value ?? false;
+    _model.isCallBasisSelected = value ?? false;
   }
 
   void setPreventiveMaintenanceSelected(bool? value) {
-    isPreventiveMaintenanceSelected = value ?? false;
+    _model.isPreventiveMaintenanceSelected = value ?? false;
   }
 
   void setInWarrantySelected(bool? value) {
-    isInWarrantySelected = value ?? false;
+    _model.isInWarrantySelected = value ?? false;
   }
 
   void setInFreeServiceSelected(bool? value) {
-    isInFreeServiceSelected = value ?? false;
+    _model.isInFreeServiceSelected = value ?? false;
   }
 
   void setInAnnualSelected(bool? value) {
-    isInAnnualSelected = value ?? false;
+    _model.isInAnnualSelected = value ?? false;
   }
 
   void setInUPSSelected(bool? value) {
-    isInUPSSelected = value ?? false;
+    _model.isInUPSSelected = value ?? false;
   }
 
   void setInGeneratorSelected(bool? value) {
-    isInGeneratorSelected = value ?? false;
+    _model.isInGeneratorSelected = value ?? false;
   }
 
   void setInStabilizerSelected(bool? value) {
-    isInStabilizerSelected = value ?? false;
+    _model.isInStabilizerSelected = value ?? false;
   }
 
   void setInInverterSelected(bool? value) {
-    isInInverterSelected = value ?? false;
+    _model.isInInverterSelected = value ?? false;
   }
 
   void updateManufacturerName(String value) {
-    isManufacturerTouched = true;
+    _model.manufacturerName = value;
+    _model.isManufacturerTouched = true;
   }
 }

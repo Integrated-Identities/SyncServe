@@ -65,14 +65,22 @@ class _ServiceFormState extends State<ServiceForm> {
                             label: AppLocalizations.of(context)!.installation,
                             padding: AppStyle.serviceFormLabelPadding,
                             value: viewModel!.isInstallationSelected,
-                            onChanged: viewModel!.setInstallationSelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setInstallationSelected(value);
+                              });
+                            },
                             textStyle: AppStyle.serviceFormText,
                           ),
                           LabeledCheckbox(
                             label: AppLocalizations.of(context)!.callBasis,
                             padding: EdgeInsets.only(left: 60),
                             value: viewModel!.isCallBasisSelected,
-                            onChanged: viewModel!.setCallBasisSelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setCallBasisSelected(value);
+                              });
+                            },
                             textStyle: AppStyle.serviceFormText,
                           ),
                         ],
@@ -82,7 +90,11 @@ class _ServiceFormState extends State<ServiceForm> {
                             AppLocalizations.of(context)!.preventiveMaintenance,
                         padding: AppStyle.serviceFormLabelPadding,
                         value: viewModel!.isPreventiveMaintenanceSelected,
-                        onChanged: viewModel!.setPreventiveMaintenanceSelected,
+                        onChanged: (value) {
+                          setState(() {
+                            viewModel!.setPreventiveMaintenanceSelected(value);
+                          });
+                        },
                         textStyle: AppStyle.serviceFormText,
                       ),
                       SizedBox(
@@ -110,14 +122,22 @@ class _ServiceFormState extends State<ServiceForm> {
                             label: AppLocalizations.of(context)!.inWarranty,
                             padding: AppStyle.serviceFormLabelPadding,
                             value: viewModel!.isInWarrantySelected,
-                            onChanged: viewModel!.setInWarrantySelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setInWarrantySelected(value);
+                              });
+                            },
                           ),
                           LabeledCheckbox(
                             textStyle: AppStyle.serviceFormText,
                             label: AppLocalizations.of(context)!.inFreeService,
                             padding: EdgeInsets.only(left: 60),
                             value: viewModel!.isInFreeServiceSelected,
-                            onChanged: viewModel!.setInFreeServiceSelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setInFreeServiceSelected(value);
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -127,7 +147,11 @@ class _ServiceFormState extends State<ServiceForm> {
                             .inAnnualMaintenanceContract,
                         padding: AppStyle.serviceFormLabelPadding,
                         value: viewModel!.isInAnnualSelected,
-                        onChanged: viewModel!.setInAnnualSelected,
+                        onChanged: (value) {
+                          setState(() {
+                            viewModel!.setInAnnualSelected(value);
+                          });
+                        },
                       ),
                       SizedBox(
                         height: 40,
@@ -153,7 +177,11 @@ class _ServiceFormState extends State<ServiceForm> {
                             label: AppLocalizations.of(context)!.ups,
                             padding: AppStyle.serviceFormLabelPadding,
                             value: viewModel!.isInUPSSelected,
-                            onChanged: viewModel!.setInUPSSelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setInUPSSelected(value);
+                              });
+                            },
                             textStyle: AppStyle.serviceFormText,
                           ),
                           LabeledCheckbox(
@@ -161,7 +189,11 @@ class _ServiceFormState extends State<ServiceForm> {
                             label: AppLocalizations.of(context)!.generator,
                             padding: EdgeInsets.only(left: 115),
                             value: viewModel!.isInGeneratorSelected,
-                            onChanged: viewModel!.setInGeneratorSelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setInGeneratorSelected(value);
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -171,7 +203,11 @@ class _ServiceFormState extends State<ServiceForm> {
                             label: AppLocalizations.of(context)!.stabilizer,
                             padding: AppStyle.serviceFormLabelPadding,
                             value: viewModel!.isInStabilizerSelected,
-                            onChanged: viewModel!.setInStabilizerSelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setInStabilizerSelected(value);
+                              });
+                            },
                             textStyle: AppStyle.serviceFormText,
                           ),
                           LabeledCheckbox(
@@ -179,7 +215,11 @@ class _ServiceFormState extends State<ServiceForm> {
                             label: AppLocalizations.of(context)!.inverter,
                             padding: EdgeInsets.only(left: 73),
                             value: viewModel!.isInInverterSelected,
-                            onChanged: viewModel!.setInInverterSelected,
+                            onChanged: (value) {
+                              setState(() {
+                                viewModel!.setInInverterSelected(value);
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -211,7 +251,11 @@ class _ServiceFormState extends State<ServiceForm> {
                           decoration: AppStyle.inputDecorationWithLabel(
                             AppLocalizations.of(context)!.manufacturerName,
                           ),
-                          onChanged: viewModel!.updateManufacturerName,
+                          onChanged: (value) {
+                            setState(() {
+                              viewModel!.updateManufacturerName(value);
+                            });
+                          },
                         ),
                       ),
                     ],
@@ -223,7 +267,7 @@ class _ServiceFormState extends State<ServiceForm> {
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.elevatedButtonStyle(),
-                onPressed: viewModel!.isFormValid
+                onPressed: viewModel!.isValid
                     ? () {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(

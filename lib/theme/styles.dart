@@ -110,4 +110,22 @@ class AppStyle {
     }),
     checkColor: WidgetStateColor.resolveWith((states) => Colors.white),
   );
+
+  // SERVICEFORM LABEL TEXT STYLE
+  static const TextStyle serviceFormLabelText = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
+  // LEFT PADDING FOR THE LABELS OF SERVICE FORM
+  static const EdgeInsets serviceFormLabelPadding =
+      EdgeInsets.fromLTRB(15, 0, 0, 5);
+
+  // LEFT PADDING FOR THE EXTREME-LEFT CHECKBOXES OF SERVICE FORM
+  static const EdgeInsets serviceFormLabelLeftPadding =
+      EdgeInsets.fromLTRB(15, 0, 0, 5);
+
+  // DIVIDER COLOR
+  static const Color dividerColor = Colors.black;
 }

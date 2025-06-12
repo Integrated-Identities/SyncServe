@@ -1,75 +1,37 @@
-import 'package:flutter/material.dart';
 import 'package:syncserve/model/service_form_model.dart';
 
 class ServiceFormViewModel {
-  final _model = ServiceFormModel();
-  final TextEditingController manufacturerController = TextEditingController();
+  int selectedReasons = 0;
+  int selectedCategory = 0;
+  int selectedSystemType = 0;
 
-  // Forward model properties
-  bool get isInstallationSelected => _model.isInstallationSelected;
-  bool get isCallBasisSelected => _model.isCallBasisSelected;
-  bool get isPreventiveMaintenanceSelected =>
-      _model.isPreventiveMaintenanceSelected;
-  bool get isInWarrantySelected => _model.isInWarrantySelected;
-  bool get isInFreeServiceSelected => _model.isInFreeServiceSelected;
-  bool get isInAnnualSelected => _model.isInAnnualSelected;
-  bool get isInUPSSelected => _model.isInUPSSelected;
-  bool get isInGeneratorSelected => _model.isInGeneratorSelected;
-  bool get isInStabilizerSelected => _model.isInStabilizerSelected;
-  bool get isInInverterSelected => _model.isInInverterSelected;
-  bool get isManufacturerTouched => _model.isManufacturerTouched;
+  String? manufacturerName;
+  bool isManufacturerTouched = false;
 
-  // Forward validations
-  bool get isAtLeastOneReasonSelected => _model.isAtLeastOneReasonSelected;
-  bool get isAtLeastOneCategorySelected => _model.isAtLeastOneCategorySelected;
-  bool get isAtLeastOneSystemTypeSelected =>
-      _model.isAtLeastOneSystemTypeSelected;
-  bool get isManufacturerValid => _model.isManufacturerValid;
-  bool get isValid => _model.isValid;
+  bool isSelected(ServiceReasons reason) => (selectedReasons & reason.bit) != 0;
+  void toggleReason(ServiceReasons reason) => selectedReasons ^= reason.bit;
 
-  // State update methods
-  void setInstallationSelected(bool? value) {
-    _model.isInstallationSelected = value ?? false;
-  }
+  bool isSelectedCategory(ServiceCategory category) =>
+      (selectedCategory & category.bit) != 0;
+  void toggleCategory(ServiceCategory category) =>
+      selectedCategory ^= category.bit;
 
-  void setCallBasisSelected(bool? value) {
-    _model.isCallBasisSelected = value ?? false;
-  }
+  bool isSelectedSystemType(ServiceSystemType type) =>
+      (selectedSystemType & type.bit) != 0;
+  void toggleSystemType(ServiceSystemType type) =>
+      selectedSystemType ^= type.bit;
+  bool get isManufacturerValid =>
+      isManufacturerTouched &&
+      manufacturerName != null &&
+      manufacturerName!.trim().length >= 3;
 
-  void setPreventiveMaintenanceSelected(bool? value) {
-    _model.isPreventiveMaintenanceSelected = value ?? false;
-  }
+  bool get hasSelectedReason => selectedReasons != 0;
+  bool get hasSelectedCategory => selectedCategory != 0;
+  bool get hasSelectedSystemType => selectedSystemType != 0;
 
-  void setInWarrantySelected(bool? value) {
-    _model.isInWarrantySelected = value ?? false;
-  }
-
-  void setInFreeServiceSelected(bool? value) {
-    _model.isInFreeServiceSelected = value ?? false;
-  }
-
-  void setInAnnualSelected(bool? value) {
-    _model.isInAnnualSelected = value ?? false;
-  }
-
-  void setInUPSSelected(bool? value) {
-    _model.isInUPSSelected = value ?? false;
-  }
-
-  void setInGeneratorSelected(bool? value) {
-    _model.isInGeneratorSelected = value ?? false;
-  }
-
-  void setInStabilizerSelected(bool? value) {
-    _model.isInStabilizerSelected = value ?? false;
-  }
-
-  void setInInverterSelected(bool? value) {
-    _model.isInInverterSelected = value ?? false;
-  }
-
-  void updateManufacturerName(String value) {
-    _model.manufacturerName = value;
-    _model.isManufacturerTouched = true;
-  }
+  bool get isValid =>
+      isManufacturerValid &&
+      hasSelectedReason &&
+      hasSelectedCategory &&
+      hasSelectedSystemType;
 }

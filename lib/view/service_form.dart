@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syncserve/model/service_form_model.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/labeled_checkbox.dart';
 import 'package:syncserve/view/service_checklist.dart';
@@ -15,8 +16,8 @@ class ServiceForm extends StatefulWidget {
 
 class _ServiceFormState extends State<ServiceForm> {
   final _formKey = GlobalKey<FormState>();
-  ServiceFormViewModel? viewModel;
-
+  ServiceFormViewModel viewModel = ServiceFormViewModel();
+  final TextEditingController controller = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -29,10 +30,13 @@ class _ServiceFormState extends State<ServiceForm> {
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (viewModel == null) {
-      return const Center(child: CircularProgressIndicator());
-    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppStyle.appBarAndNavBarColor,
@@ -69,11 +73,14 @@ class _ServiceFormState extends State<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .installation,
-                                      value: viewModel!.isInstallationSelected,
+                                      value: viewModel.isSelected(
+                                        ServiceReasons.installation,
+                                      ),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!
-                                              .setInstallationSelected(value);
+                                          viewModel.toggleReason(
+                                            ServiceReasons.installation,
+                                          );
                                         });
                                       },
                                     ),
@@ -82,11 +89,13 @@ class _ServiceFormState extends State<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .callBasis,
-                                      value: viewModel!.isCallBasisSelected,
+                                      value: viewModel
+                                          .isSelected(ServiceReasons.callBasis),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!
-                                              .setCallBasisSelected(value);
+                                          viewModel.toggleReason(
+                                            ServiceReasons.callBasis,
+                                          );
                                         });
                                       },
                                     ),
@@ -96,12 +105,13 @@ class _ServiceFormState extends State<ServiceForm> {
                               LabeledCheckbox(
                                 label: AppLocalizations.of(context)!
                                     .preventiveMaintenance,
-                                value:
-                                    viewModel!.isPreventiveMaintenanceSelected,
+                                value: viewModel.isSelected(
+                                  ServiceReasons.preventiveMaintenance,
+                                ),
                                 onChanged: (value) {
                                   setState(() {
-                                    viewModel!.setPreventiveMaintenanceSelected(
-                                      value,
+                                    viewModel.toggleReason(
+                                      ServiceReasons.preventiveMaintenance,
                                     );
                                   });
                                 },
@@ -133,11 +143,14 @@ class _ServiceFormState extends State<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .inWarranty,
-                                      value: viewModel!.isInWarrantySelected,
+                                      value: viewModel.isSelectedCategory(
+                                        ServiceCategory.inWarranty,
+                                      ),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!
-                                              .setInWarrantySelected(value);
+                                          viewModel.toggleCategory(
+                                            ServiceCategory.inWarranty,
+                                          );
                                         });
                                       },
                                     ),
@@ -146,11 +159,14 @@ class _ServiceFormState extends State<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .inFreeService,
-                                      value: viewModel!.isInFreeServiceSelected,
+                                      value: viewModel.isSelectedCategory(
+                                        ServiceCategory.inFreeService,
+                                      ),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!
-                                              .setInFreeServiceSelected(value);
+                                          viewModel.toggleCategory(
+                                            ServiceCategory.inFreeService,
+                                          );
                                         });
                                       },
                                     ),
@@ -160,10 +176,15 @@ class _ServiceFormState extends State<ServiceForm> {
                               LabeledCheckbox(
                                 label: AppLocalizations.of(context)!
                                     .inAnnualMaintenanceContract,
-                                value: viewModel!.isInAnnualSelected,
+                                value: viewModel.isSelectedCategory(
+                                  ServiceCategory.inAnnualMaintenanceContract,
+                                ),
                                 onChanged: (value) {
                                   setState(() {
-                                    viewModel!.setInAnnualSelected(value);
+                                    viewModel.toggleCategory(
+                                      ServiceCategory
+                                          .inAnnualMaintenanceContract,
+                                    );
                                   });
                                 },
                               ),
@@ -193,10 +214,14 @@ class _ServiceFormState extends State<ServiceForm> {
                                   Expanded(
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!.ups,
-                                      value: viewModel!.isInUPSSelected,
+                                      value: viewModel.isSelectedSystemType(
+                                        ServiceSystemType.ups,
+                                      ),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!.setInUPSSelected(value);
+                                          viewModel.toggleSystemType(
+                                            ServiceSystemType.ups,
+                                          );
                                         });
                                       },
                                     ),
@@ -205,11 +230,14 @@ class _ServiceFormState extends State<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .generator,
-                                      value: viewModel!.isInGeneratorSelected,
+                                      value: viewModel.isSelectedSystemType(
+                                        ServiceSystemType.generator,
+                                      ),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!
-                                              .setInGeneratorSelected(value);
+                                          viewModel.toggleSystemType(
+                                            ServiceSystemType.generator,
+                                          );
                                         });
                                       },
                                     ),
@@ -222,11 +250,14 @@ class _ServiceFormState extends State<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .stabilizer,
-                                      value: viewModel!.isInStabilizerSelected,
+                                      value: viewModel.isSelectedSystemType(
+                                        ServiceSystemType.stabilizer,
+                                      ),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!
-                                              .setInStabilizerSelected(value);
+                                          viewModel.toggleSystemType(
+                                            ServiceSystemType.stabilizer,
+                                          );
                                         });
                                       },
                                     ),
@@ -235,11 +266,14 @@ class _ServiceFormState extends State<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .inverter,
-                                      value: viewModel!.isInInverterSelected,
+                                      value: viewModel.isSelectedSystemType(
+                                        ServiceSystemType.inverter,
+                                      ),
                                       onChanged: (value) {
                                         setState(() {
-                                          viewModel!
-                                              .setInInverterSelected(value);
+                                          viewModel.toggleSystemType(
+                                            ServiceSystemType.inverter,
+                                          );
                                         });
                                       },
                                     ),
@@ -253,7 +287,7 @@ class _ServiceFormState extends State<ServiceForm> {
                           padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
                           child: TextFormField(
                             validator: (value) {
-                              if (!viewModel!.isManufacturerTouched) {
+                              if (!viewModel.isManufacturerTouched) {
                                 return null;
                               }
                               if (value == null || value.trim().isEmpty) {
@@ -272,8 +306,8 @@ class _ServiceFormState extends State<ServiceForm> {
                                   )
                                   .build(value);
                             },
-                            controller: viewModel!.manufacturerController,
-                            autovalidateMode: viewModel!.isManufacturerTouched
+                            controller: controller,
+                            autovalidateMode: viewModel.isManufacturerTouched
                                 ? AutovalidateMode.onUserInteraction
                                 : AutovalidateMode.disabled,
                             decoration: AppStyle.inputDecorationWithLabel(
@@ -281,7 +315,9 @@ class _ServiceFormState extends State<ServiceForm> {
                             ),
                             onChanged: (value) {
                               setState(() {
-                                viewModel!.updateManufacturerName(value);
+                                viewModel.manufacturerName = value;
+                                viewModel.isManufacturerTouched = true;
+                                _formKey.currentState?.validate();
                               });
                             },
                           ),
@@ -296,13 +332,13 @@ class _ServiceFormState extends State<ServiceForm> {
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.elevatedButtonStyle(),
-                onPressed: viewModel!.isValid
+                onPressed: viewModel.isValid
                     ? () {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ServiceChecklistView(),
+                              builder: (context) => ServiceChecklist(),
                             ),
                           );
                         }

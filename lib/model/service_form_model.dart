@@ -1,46 +1,58 @@
-class ServiceFormModel {
-  // Form data
-  String? manufacturerName;
-  bool isManufacturerTouched = false;
+enum ServiceReasons {
+  installation,
+  callBasis,
+  preventiveMaintenance,
+}
 
-  // Reason for Visit selections
-  bool isInstallationSelected = false;
-  bool isCallBasisSelected = false;
-  bool isPreventiveMaintenanceSelected = false;
+enum ServiceCategory { inWarranty, inFreeService, inAnnualMaintenanceContract }
 
-  // Service Category selections
-  bool isInWarrantySelected = false;
-  bool isInFreeServiceSelected = false;
-  bool isInAnnualSelected = false;
+enum ServiceSystemType {
+  ups,
+  generator,
+  stabilizer,
+  inverter,
+  otherequipment,
+}
 
-  // System Type selections
-  bool isInUPSSelected = false;
-  bool isInGeneratorSelected = false;
-  bool isInStabilizerSelected = false;
-  bool isInInverterSelected = false;
+extension ServiceReasonsFlag on ServiceReasons {
+  int get bit {
+    switch (this) {
+      case ServiceReasons.installation:
+        return 1 << 0;
+      case ServiceReasons.callBasis:
+        return 1 << 1;
+      case ServiceReasons.preventiveMaintenance:
+        return 1 << 2;
+    }
+  }
+}
 
-  // Section validations
-  bool get isAtLeastOneReasonSelected =>
-      isInstallationSelected ||
-      isCallBasisSelected ||
-      isPreventiveMaintenanceSelected;
+extension ServiceCategoryFlag on ServiceCategory {
+  int get bit {
+    switch (this) {
+      case ServiceCategory.inWarranty:
+        return 1 << 0;
+      case ServiceCategory.inFreeService:
+        return 1 << 1;
+      case ServiceCategory.inAnnualMaintenanceContract:
+        return 1 << 2;
+    }
+  }
+}
 
-  bool get isAtLeastOneCategorySelected =>
-      isInWarrantySelected || isInFreeServiceSelected || isInAnnualSelected;
-
-  bool get isAtLeastOneSystemTypeSelected =>
-      isInUPSSelected ||
-      isInGeneratorSelected ||
-      isInStabilizerSelected ||
-      isInInverterSelected;
-
-  bool get isManufacturerValid =>
-      manufacturerName != null && manufacturerName!.trim().isNotEmpty;
-
-  // Form validation
-  bool get isValid =>
-      isManufacturerValid &&
-      isAtLeastOneReasonSelected &&
-      isAtLeastOneCategorySelected &&
-      isAtLeastOneSystemTypeSelected;
+extension ServiceSystemTypeFlag on ServiceSystemType {
+  int get bit {
+    switch (this) {
+      case ServiceSystemType.ups:
+        return 1 << 0;
+      case ServiceSystemType.generator:
+        return 1 << 1;
+      case ServiceSystemType.stabilizer:
+        return 1 << 2;
+      case ServiceSystemType.inverter:
+        return 1 << 3;
+      case ServiceSystemType.otherequipment:
+        return 1 << 4;
+    }
+  }
 }

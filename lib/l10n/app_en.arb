@@ -165,7 +165,7 @@
         "description": "Label for the reason for visit in the service form"
     },
     "serviceCategory": "Service Category",
-    "@ServiceCategory": {
+    "@serviceCategory": {
         "description": "Label for the service category selection in the service form"
     },
     "serviceForm": "Service Form",

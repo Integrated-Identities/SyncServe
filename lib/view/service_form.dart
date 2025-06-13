@@ -16,7 +16,7 @@ class ServiceForm extends StatefulWidget {
 
 class _ServiceFormState extends State<ServiceForm> {
   final _formKey = GlobalKey<FormState>();
-  ServiceFormViewModel viewModel = ServiceFormViewModel();
+  late final ServiceFormViewModel viewModel;
   final TextEditingController controller = TextEditingController();
   @override
   void initState() {

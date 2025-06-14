@@ -16,6 +16,10 @@
     "@blowerChanged": {
         "description": "Checkbox Text when the blower is changed"
     },
+    "callBasis": "Call-basis",
+    "@callBasis": {
+        "description": "Label for the call-basis checkbox"
+    },
     "coolingFan": "Cooling fan works",
     "@coolingFan": {
         "description": "Checkbox Text when the cooling fan is working"
@@ -76,6 +80,10 @@
     "@forgotPassword": {
         "description": "Label for the forgot password action"
     },
+    "generator": "Generator",
+    "@generator": {
+        "description": "Label for the generator checkbox"
+    },
     "hello": "Hello! Technician",
     "@hello": {
         "description": "Greeting message for the technician"
@@ -88,6 +96,26 @@
     "@home": {
         "description": "Label for the home Icon"
     },
+    "inAnnualMaintenanceContract": "In Annual Maintenance Contract",
+    "@inAnnualMaintenanceContract": {
+        "description": "Checkbox Text when the equipment is in annual maintenance contract"
+    },    
+    "inFreeService": "Free service",
+    "@inFreeService": {
+        "description": "Label for the free service checkbox"
+    },
+    "installation": "Installation",
+    "@installation": {
+        "description": "Label for the installation checkbox"
+    },
+    "inverter": "Inverter",
+    "@inverter": {
+        "description": "Label for the inverter checkbox"
+    },
+    "inWarranty": "In warranty",
+    "@inWarranty": {
+        "description": "Checkbox Text when the equipment is in warranty"
+    },
     "logIn": "Log In",
     "@logIn": {
         "description": "Label for the log in button"
@@ -96,9 +124,25 @@
     "@logOut": {
         "description": "Label for the log out button"
     },
+    "manufacturerName": "Manufacturer's name",
+    "@manufacturerName": {
+        "description": "Label for the manufacturer's Textfield"
+    },
+    "manufacturerNameRequired": "Manufacturer's name is required",
+    "@manufacturerNameRequired": {
+        "description": "Error message shown when the manufacturer's name field is empty"
+    },
+    "manufacturerNameTooShort": "Manufacturer's name must be at least 3 characters long",
+    "@manufacturerNameTooShort": {
+        "description": "Error message shown when the manufacturer's name is too short"
+    },
     "next": "Next",
     "@next": {
         "description": "Label for the next button"
+    },
+    "otherEquipment": "Other equipment",
+    "@otherEquipment": {
+        "description": "Label for the other equipment checkbox"
     },
     "panelReadingMatched": "Panel reading matched",
     "@panelReadingMatched": {
@@ -108,13 +152,33 @@
     "@password": {
         "description": "Label for the password field"
     },
+    "preventiveMaintenance": "Preventive maintenance",
+    "@preventiveMaintenance": {
+        "description": "Label for the preventive maintenance checkbox"
+    },
     "profile": "Profile",
     "@profile": {
         "description": "Label for the profile Icon"
     },
+    "reasonForVisit": "Reason for Visit",
+    "@reasonForVisit": {
+        "description": "Label for the reason for visit in the service form"
+    },
+    "serviceCategory": "Service Category",
+    "@serviceCategory": {
+        "description": "Label for the service category selection in the service form"
+    },
+    "serviceForm": "Service Form",
+    "@serviceForm": {
+        "description": "Title for the service form page"
+    },
     "settings": "Settings",
     "@settings": {
         "description": "Label for the settings Icon"
+    },
+    "stabilizer": "Stabilizer",
+    "@stabilizer": {
+        "description": "Label for the stabilizer checkbox"
     },
     "startGeneratorService": "Start Generator service",
     "@startGeneratorService": {
@@ -128,9 +192,17 @@
     "@staticBypass": {
         "description": "Checkbox Text when the static bypass is checked"
     },
+    "systemType": "System Type",
+    "@systemType": {
+        "description": "Label for the system you're working on"
+    },
     "title": "Service Checklist",
     "@title": {
         "description": "Title of Service Checklist page"
+    },
+    "ups": "UPS",
+    "@ups": {
+        "description": "Label for the UPS checkbox"
     },
     "upsConnectionTight": "UPS connection tightened",
     "@upsConnectionTight": {

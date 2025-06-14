@@ -110,4 +110,22 @@ class AppStyle {
     }),
     checkColor: WidgetStateColor.resolveWith((states) => Colors.white),
   );
+
+  // SECTION TITLE TEXT STYLE
+  static const TextStyle sectionTitleText = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
+  // SECTION TITLE PADDING
+  static const EdgeInsets sectionTitlePadding =
+      EdgeInsets.symmetric(horizontal: 10);
+
+  // SECTION CONTENT PADDING
+  static const EdgeInsets sectionContentPadding =
+      EdgeInsets.symmetric(horizontal: 5);
+
+  // DIVIDER COLOR
+  static const Color dividerColor = Color.fromARGB(255, 100, 100, 100);
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:syncserve/view/service_checklist_view.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
+import 'package:syncserve/view/service_form.dart';
 import 'package:zod_validation/zod_validation.dart';
 
 class CustomerDetail extends StatefulWidget {
@@ -194,7 +194,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ServiceChecklist(),
+                              builder: (context) => const ServiceForm(),
                             ),
                           );
                         }

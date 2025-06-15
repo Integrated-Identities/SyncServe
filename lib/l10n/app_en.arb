@@ -1,8 +1,16 @@
 {
     "@@locale": "en",
+    "ah": "AH",
+    "@ah": {
+        "description": "Unit for Energy current on readings page"
+    },
     "backUpTest": "Backup checked",
     "@backUpTest": {
         "description": "Checkbox Text when the backup is checked"
+    },
+    "batteryType": "Battery Type",
+    "@batteryType": {
+        "description": "Label for drop down on readings page"
     },
     "batteryUPSCleaned": "Battery/UPS cleaned",
     "@batteryUPSCleaned": {
@@ -68,9 +76,21 @@
     "@customerPhone": {
         "description": "Label for the customer's phone field"
     },
+    "dcv": "DCV",
+    "@dcv": {
+        "description": "Unit for DC Voltage textfield"
+    },
+    "dcVoltage": "DC Voltage",
+    "@dcVoltage": {
+        "description": "Label for readings page textfield" 
+    },
     "email": "Email",
     "@email": {
         "description": "Label for the email field"
+    },
+    "energyCurrent": "Energy Current",
+    "@energyCurrent": {
+        "description": "Label for energy current textfield"
     },
     "equipmentOk": "Equipment is ok",
     "@equipmentOk": {
@@ -104,6 +124,10 @@
     "@inFreeService": {
         "description": "Label for the free service checkbox"
     },
+    "inputPhase": "Input Phase",
+    "@inputPhase": {
+        "description": "Label for segemented button in readings page"
+    },
     "installation": "Installation",
     "@installation": {
         "description": "Label for the installation checkbox"
@@ -115,6 +139,10 @@
     "inWarranty": "In warranty",
     "@inWarranty": {
         "description": "Checkbox Text when the equipment is in warranty"
+    },
+    "kva": "KVA",
+    "@kva": {
+        "description": "Unit for power textfield"
     },
     "logIn": "Log In",
     "@logIn": {
@@ -136,13 +164,25 @@
     "@manufacturerNameTooShort": {
         "description": "Error message shown when the manufacturer's name is too short"
     },
+    "minusSign": "-",
+    "@minusSign":{
+        "description": "Minus sign text for quanity "
+    },
     "next": "Next",
     "@next": {
         "description": "Label for the next button"
     },
+    "onePhase": "1 Phase",
+    "@onePhase": {
+        "description": "Label for the button in segemented button in readings page"
+    },
     "otherEquipment": "Other equipment",
     "@otherEquipment": {
         "description": "Label for the other equipment checkbox"
+    },
+    "outputPhase": "Output Phase",
+    "@outputPhase": {
+        "description": "Section Title for segmented button"
     },
     "panelReadingMatched": "Panel reading matched",
     "@panelReadingMatched": {
@@ -152,6 +192,14 @@
     "@password": {
         "description": "Label for the password field"
     },
+    "plusSign": "+",
+    "@plusSign": {
+        "description": "Plus sign symbol for quantity selector"
+    },
+    "power": "Power",
+    "@power": {
+        "description": "Label for readings page textfield"
+    },
     "preventiveMaintenance": "Preventive maintenance",
     "@preventiveMaintenance": {
         "description": "Label for the preventive maintenance checkbox"
@@ -159,6 +207,14 @@
     "profile": "Profile",
     "@profile": {
         "description": "Label for the profile Icon"
+    },
+    "quantity": "Quanity",
+    "@quantity": {
+        "description": "Label for the quantity label in Readings page"
+    },
+    "readingsPage": "Readings Page",
+    "@readingsPage": {
+        "description": "Title for the readings page"
     },
     "reasonForVisit": "Reason for Visit",
     "@reasonForVisit": {
@@ -175,6 +231,10 @@
     "settings": "Settings",
     "@settings": {
         "description": "Label for the settings Icon"
+    },
+    "smf": "SMF",
+    "@smf": {
+        "description": "Label for the drop down button"
     },
     "stabilizer": "Stabilizer",
     "@stabilizer": {
@@ -200,6 +260,14 @@
     "@title": {
         "description": "Title of Service Checklist page"
     },
+    "threePhase": "3 Phase",
+    "@threePhase": {
+        "description": "Label for the button in segemented button in readings page"
+    },
+    "tub": "TUB",
+    "@tub": {
+        "description": "Label for TUB dropdown"
+    },
     "ups": "UPS",
     "@ups": {
         "description": "Label for the UPS checkbox"
@@ -211,5 +279,9 @@
     "welcome": "Welcome!",
     "@welcome": {
         "description": "Welcome message for the user"
+    },
+    "withStabilizer": "With Stabilizer",
+    "@withStabilizer": {
+        "description": "Label for checkbox in readings page"
     }
 }

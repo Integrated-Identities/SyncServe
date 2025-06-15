@@ -348,8 +348,10 @@ class _ServiceFormState extends State<ServiceForm> {
                             },
                             controller: controller,
                             decoration: AppStyle.inputDecorationWithLabel(
+                              '',
                               AppLocalizations.of(context)!.manufacturerName,
                             ),
+                            autovalidateMode: AutovalidateMode.onUnfocus,
                             onChanged: (value) {
                               setState(() {
                                 viewModel.manufacturerName = value;

@@ -46,10 +46,12 @@ class AppStyle {
 
 // CUSTOMER DETAIL PAGE TEXTFORMFIELD
   static InputDecoration inputDecorationWithLabel(
+    String unit,
     String label, {
     bool isRequired = false,
   }) {
     return InputDecoration(
+      suffixText: unit,
       helperText: ' ',
       alignLabelWithHint: true,
       fillColor: Colors.white,
@@ -128,4 +130,38 @@ class AppStyle {
 
   // DIVIDER COLOR
   static const Color dividerColor = Color.fromARGB(255, 100, 100, 100);
+
+  // STYLE OF INCREMENT DECREMENT BUTTON OF QUANITYSELECTOR
+  static ButtonStyle quantitySelectorButtonStyle() {
+    return ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      backgroundColor: const Color.fromARGB(255, 237, 125, 125),
+      padding: const EdgeInsets.all(8),
+      minimumSize: const Size(40, 40),
+    );
+  }
+
+  // 'QUANTITY' TEXT AND BUTTONS PADDING
+  static const EdgeInsets textButtonPadding =
+      EdgeInsets.symmetric(horizontal: 18);
+
+  // SEGMENTED BUTTON COLOR STYLES
+  static ButtonStyle segmentedButtonStyle() {
+    return ButtonStyle(
+      backgroundColor: WidgetStateColor.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return Color.fromARGB(255, 237, 125, 125);
+          }
+          return Colors.white;
+        },
+      ),
+    );
+  }
+
+  // SEGMENTED BUTTON WITH LABEL PADDING
+  static const EdgeInsets segmentedButtonWithLabelPadding =
+      EdgeInsets.symmetric(horizontal: 18);
 }

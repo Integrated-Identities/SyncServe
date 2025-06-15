@@ -89,6 +89,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             ? AutovalidateMode.always
                             : AutovalidateMode.always,
                         decoration: AppStyle.inputDecorationWithLabel(
+                          '',
                           AppLocalizations.of(context)!.customerName,
                         ),
                       ),
@@ -128,6 +129,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             ? AutovalidateMode.onUserInteraction
                             : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
+                          '',
                           AppLocalizations.of(context)!.customerAddress,
                         ),
                       ),
@@ -171,11 +173,13 @@ class _CustomerDetailState extends State<CustomerDetail> {
                             ? AutovalidateMode.onUserInteraction
                             : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
+                          '',
                           AppLocalizations.of(context)!.customerEmail,
                         ),
                       ),
                       TextFormField(
                         decoration: AppStyle.inputDecorationWithLabel(
+                          '',
                           AppLocalizations.of(context)!.customerPhone,
                         ),
                         keyboardType: TextInputType.phone,

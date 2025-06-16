@@ -68,8 +68,7 @@ class MailerService {
         port: _smtpPort,
         username: username,
         password: password,
-        ssl: false,
-        allowInsecure: true,
+        ssl: true,
       );
 
       addLog(l10n.emailCreatingMessage);

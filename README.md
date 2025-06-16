@@ -25,6 +25,13 @@
    dart pub get
    ```
 
+4. Configure Environment Variables
+   ```bash
+   # Copy the environment template
+   cp .env-local .env
+   ```
+   See [Environment Setup Guide](docs/environment-setup.md) for detailed instructions on configuring all required environment variables.
+
 ### Generating localization
 
 ```bash
@@ -39,3 +46,6 @@ flutter gen-l10n
 ```bash
 dart run
 ```
+
+> [!IMPORTANT]  
+> Never commit the `.env` file to version control as it contains sensitive information.

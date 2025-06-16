@@ -49,217 +49,231 @@ class _ReadingsPageState extends State<ReadingsPage> {
                   padding: EdgeInsets.all(10),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 448,
-                        child: Card(
-                          color: AppStyle.appBarAndNavBarColor,
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 8),
-                                        child: TextFormField(
-                                          decoration:
-                                              AppStyle.inputDecorationWithLabel(
-                                            AppLocalizations.of(context)!.kva,
-                                            AppLocalizations.of(context)!.power,
-                                          ),
+                      Card(
+                        color: AppStyle.appBarAndNavBarColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 8),
+                                      child: TextFormField(
+                                        decoration:
+                                            AppStyle.inputDecorationWithLabel(
+                                          AppLocalizations.of(context)!.power,
+                                          suffix:
+                                              AppLocalizations.of(context)!.kva,
                                         ),
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 8),
-                                        child: TextFormField(
-                                          decoration:
-                                              AppStyle.inputDecorationWithLabel(
-                                            AppLocalizations.of(context)!.dcv,
-                                            AppLocalizations.of(context)!
-                                                .dcVoltage,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            style: AppStyle.labelText,
-                                            AppLocalizations.of(context)!
-                                                .batteryType,
-                                          ),
-                                          DropdownButtonFormField(
-                                            items: category.map((e) {
-                                              return DropdownMenuItem(
-                                                value: e,
-                                                child: Text(e),
-                                              );
-                                            }).toList(),
-                                            onChanged: (value) {
-                                              print(value);
-                                            },
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 8),
-                                        child: TextFormField(
-                                          decoration:
-                                              AppStyle.inputDecorationWithLabel(
-                                            AppLocalizations.of(context)!.ah,
-                                            AppLocalizations.of(context)!
-                                                .energyCurrent,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                QuantitySelector(
-                                  initialValue: 1,
-                                  onChanged: (value) {
-                                    print('New quantity: $value');
-                                  },
-                                  minValue: 0,
-                                  maxValue: 100,
-                                ),
-                                TextFormField(
-                                  decoration: AppStyle.inputDecorationWithLabel(
-                                    '',
-                                    AppLocalizations.of(context)!
-                                        .manufacturerName,
                                   ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8),
+                                      child: TextFormField(
+                                        decoration:
+                                            AppStyle.inputDecorationWithLabel(
+                                          AppLocalizations.of(context)!
+                                              .dcVoltage,
+                                          suffix:
+                                              AppLocalizations.of(context)!.dcv,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: DropdownButtonFormField(
+                                      value: category.first,
+                                      decoration:
+                                          AppStyle.inputDecorationWithLabel(
+                                        AppLocalizations.of(context)!
+                                            .batteryType,
+                                      ),
+                                      icon: const Icon(
+                                        Icons.arrow_drop_down,
+                                      ),
+                                      items: category.map((e) {
+                                        return DropdownMenuItem(
+                                          value: e,
+                                          child: Text(e),
+                                        );
+                                      }).toList(),
+                                      onChanged: (value) {
+                                        print(value);
+                                      },
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8),
+                                      child: TextFormField(
+                                        decoration:
+                                            AppStyle.inputDecorationWithLabel(
+                                          AppLocalizations.of(context)!
+                                              .energyCurrent,
+                                          suffix:
+                                              AppLocalizations.of(context)!.ah,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              IntrinsicHeight(
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment
+                                      .stretch, // This stretches children to match height
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        decoration:
+                                            AppStyle.inputDecorationWithLabel(
+                                          AppLocalizations.of(context)!
+                                              .manufacturerName,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                      ),
+                                      child: Center(
+                                        child: LabeledCheckbox(
+                                          label: AppLocalizations.of(context)!
+                                              .withStabilizer,
+                                          value: viewModel.withStabilizer,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              viewModel.withStabilizer = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                LabeledCheckbox(
-                                  label: AppLocalizations.of(context)!
-                                      .withStabilizer,
-                                  value: viewModel.withStabilizer,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      viewModel.withStabilizer = value;
-                                    });
-                                  },
-                                ),
-                              ],
-                            ),
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.only(
+                                      right: 5,
+                                      left: 10,
+                                    ),
+                                    child: Text(
+                                      AppLocalizations.of(context)!.quantity,
+                                      style: AppStyle.labelText,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 150,
+                                    child: QuantitySelector(
+                                      initialValue: 1,
+                                      onChanged: (value) {
+                                        print('New quantity: $value');
+                                      },
+                                      minValue: 0,
+                                      maxValue: 100,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
                       SizedBox(
                         height: 15,
                       ),
-                      SizedBox(
-                        height: 200,
-                        width: MediaQuery.of(context).size.width,
-                        child: Card(
-                          color: AppStyle.appBarAndNavBarColor,
+                      Card(
+                        color: AppStyle.appBarAndNavBarColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Align(
                                 alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding:
-                                      AppStyle.segmentedButtonWithLabelPadding,
-                                  child: Text(
-                                    style: AppStyle.labelText,
-                                    AppLocalizations.of(context)!.inputPhase,
-                                  ),
+                                child: Text(
+                                  style: AppStyle.labelText,
+                                  AppLocalizations.of(context)!.inputPhase,
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    AppStyle.segmentedButtonWithLabelPadding,
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: SegmentedButton<PhaseType>(
-                                    segments: <ButtonSegment<PhaseType>>[
-                                      ButtonSegment<PhaseType>(
-                                        value: PhaseType.onePhase,
-                                        label: Text(
-                                          AppLocalizations.of(context)!
-                                              .onePhase,
-                                        ),
+                              SizedBox(
+                                width: double.infinity,
+                                child: SegmentedButton<PhaseType>(
+                                  segments: <ButtonSegment<PhaseType>>[
+                                    ButtonSegment<PhaseType>(
+                                      value: PhaseType.onePhase,
+                                      label: Text(
+                                        AppLocalizations.of(context)!.onePhase,
                                       ),
-                                      ButtonSegment<PhaseType>(
-                                        value: PhaseType.threePhase,
-                                        label: Text(
-                                          AppLocalizations.of(context)!
-                                              .threePhase,
-                                        ),
+                                    ),
+                                    ButtonSegment<PhaseType>(
+                                      value: PhaseType.threePhase,
+                                      label: Text(
+                                        AppLocalizations.of(context)!
+                                            .threePhase,
                                       ),
-                                    ],
-                                    selected: <PhaseType>{viewModel.inputPhase},
-                                    onSelectionChanged:
-                                        (Set<PhaseType> newSelection) {
-                                      setState(() {
-                                        viewModel.inputPhase =
-                                            newSelection.first;
-                                      });
-                                    },
-                                    style: AppStyle.segmentedButtonStyle(),
-                                  ),
+                                    ),
+                                  ],
+                                  selected: <PhaseType>{viewModel.inputPhase},
+                                  onSelectionChanged:
+                                      (Set<PhaseType> newSelection) {
+                                    setState(() {
+                                      viewModel.inputPhase = newSelection.first;
+                                    });
+                                  },
+                                  style: AppStyle.segmentedButtonStyle(),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 15,
                               ),
                               Align(
                                 alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding:
-                                      AppStyle.segmentedButtonWithLabelPadding,
-                                  child: Text(
-                                    style: AppStyle.labelText,
-                                    AppLocalizations.of(context)!.outputPhase,
-                                  ),
+                                child: Text(
+                                  style: AppStyle.labelText,
+                                  AppLocalizations.of(context)!.outputPhase,
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    AppStyle.segmentedButtonWithLabelPadding,
-                                child: SizedBox(
-                                  width: MediaQuery.of(context).size.width,
-                                  child: SegmentedButton<PhaseType>(
-                                    segments: <ButtonSegment<PhaseType>>[
-                                      ButtonSegment<PhaseType>(
-                                        value: PhaseType.onePhase,
-                                        label: Text(
-                                          AppLocalizations.of(context)!
-                                              .onePhase,
-                                        ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width,
+                                child: SegmentedButton<PhaseType>(
+                                  segments: <ButtonSegment<PhaseType>>[
+                                    ButtonSegment<PhaseType>(
+                                      value: PhaseType.onePhase,
+                                      label: Text(
+                                        AppLocalizations.of(context)!.onePhase,
                                       ),
-                                      ButtonSegment<PhaseType>(
-                                        value: PhaseType.threePhase,
-                                        label: Text(
-                                          AppLocalizations.of(context)!
-                                              .threePhase,
-                                        ),
+                                    ),
+                                    ButtonSegment<PhaseType>(
+                                      value: PhaseType.threePhase,
+                                      label: Text(
+                                        AppLocalizations.of(context)!
+                                            .threePhase,
                                       ),
-                                    ],
-                                    selected: <PhaseType>{
-                                      viewModel.outputPhase,
-                                    },
-                                    onSelectionChanged:
-                                        (Set<PhaseType> newSelection) {
-                                      setState(() {
-                                        viewModel.outputPhase =
-                                            newSelection.last;
-                                      });
-                                    },
-                                    style: AppStyle.segmentedButtonStyle(),
-                                  ),
+                                    ),
+                                  ],
+                                  selected: <PhaseType>{
+                                    viewModel.outputPhase,
+                                  },
+                                  onSelectionChanged:
+                                      (Set<PhaseType> newSelection) {
+                                    setState(() {
+                                      viewModel.outputPhase = newSelection.last;
+                                    });
+                                  },
+                                  style: AppStyle.segmentedButtonStyle(),
                                 ),
                               ),
                             ],
@@ -274,7 +288,7 @@ class _ReadingsPageState extends State<ReadingsPage> {
             Padding(
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
-                style: AppStyle.elevatedButtonStyle(),
+                style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: () {},
                 child: Text(AppLocalizations.of(context)!.next),
               ),

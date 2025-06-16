@@ -348,7 +348,6 @@ class _ServiceFormState extends State<ServiceForm> {
                             },
                             controller: controller,
                             decoration: AppStyle.inputDecorationWithLabel(
-                              '',
                               AppLocalizations.of(context)!.manufacturerName,
                             ),
                             autovalidateMode: AutovalidateMode.onUnfocus,
@@ -369,7 +368,7 @@ class _ServiceFormState extends State<ServiceForm> {
             Padding(
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
-                style: AppStyle.elevatedButtonStyle(),
+                style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: viewModel.isValid
                     ? () {
                         if (_formKey.currentState!.validate()) {

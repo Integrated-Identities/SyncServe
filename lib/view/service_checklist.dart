@@ -81,7 +81,7 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
             Padding(
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
-                style: AppStyle.elevatedButtonStyle(),
+                style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: () {
                   Navigator.push(
                     context,

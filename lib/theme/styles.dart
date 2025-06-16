@@ -12,7 +12,7 @@ class AppStyle {
   static final TextStyle hintText = labelText.copyWith(color: Colors.grey);
 
 // ELEVATED BUTTON STYLE
-  static ButtonStyle elevatedButtonStyle() {
+  static ButtonStyle primaryElevatedButtonStyle() {
     return ElevatedButton.styleFrom(
       backgroundColor: Color.fromARGB(255, 237, 125, 125),
       minimumSize: const Size(double.infinity, 60),
@@ -44,15 +44,15 @@ class AppStyle {
     );
   }
 
-// CUSTOMER DETAIL PAGE TEXTFORMFIELD
+  // INPUT DECORATION WITH LABEL and
   static InputDecoration inputDecorationWithLabel(
-    String unit,
     String label, {
+    String? suffix,
     bool isRequired = false,
   }) {
     return InputDecoration(
-      suffixText: unit,
-      helperText: ' ',
+      suffixText: suffix,
+      helperText: '',
       alignLabelWithHint: true,
       fillColor: Colors.white,
       filled: true,
@@ -133,13 +133,21 @@ class AppStyle {
 
   // STYLE OF INCREMENT DECREMENT BUTTON OF QUANITYSELECTOR
   static ButtonStyle quantitySelectorButtonStyle() {
-    return ElevatedButton.styleFrom(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+    return primaryElevatedButtonStyle().copyWith(
+      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
       ),
-      backgroundColor: const Color.fromARGB(255, 237, 125, 125),
-      padding: const EdgeInsets.all(8),
-      minimumSize: const Size(40, 40),
+      padding: WidgetStateProperty.all(
+        const EdgeInsets.all(8),
+      ),
+      minimumSize: WidgetStateProperty.all(
+        const Size(40, 40),
+      ),
+      maximumSize: WidgetStateProperty.all(
+        const Size(40, 40),
+      ),
     );
   }
 
@@ -150,12 +158,25 @@ class AppStyle {
   // SEGMENTED BUTTON COLOR STYLES
   static ButtonStyle segmentedButtonStyle() {
     return ButtonStyle(
+      shape: WidgetStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
       backgroundColor: WidgetStateColor.resolveWith(
         (Set<WidgetState> states) {
           if (states.contains(WidgetState.selected)) {
             return Color.fromARGB(255, 237, 125, 125);
           }
           return Colors.white;
+        },
+      ),
+      foregroundColor: WidgetStateColor.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return Colors.black;
         },
       ),
     );

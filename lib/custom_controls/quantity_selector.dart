@@ -48,36 +48,32 @@ class _QuantitySelectorState extends State<QuantitySelector> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(0, 20, 0, 25),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ElevatedButton(
-            onPressed: _decrement,
-            style: AppStyle.quantitySelectorButtonStyle(),
-            child: Text(
-              AppLocalizations.of(context)!.minusSign,
-              style: AppStyle.labelText,
-            ),
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        ElevatedButton(
+          onPressed: _decrement,
+          style: AppStyle.quantitySelectorButtonStyle(),
+          child: Text(
+            AppLocalizations.of(context)!.minusSign,
+            style: TextStyle(fontWeight: FontWeight.normal),
           ),
-          Padding(
-            padding: AppStyle.textButtonPadding,
-            child: Text(
-              '${AppLocalizations.of(context)!.quantity}: $_quantity',
-              style: AppStyle.labelText,
-            ),
+        ),
+        Text(
+          _quantity.toString(),
+          textAlign: TextAlign.center,
+          style: AppStyle.labelText,
+        ),
+        ElevatedButton(
+          onPressed: _increment,
+          style: AppStyle.quantitySelectorButtonStyle(),
+          child: Text(
+            AppLocalizations.of(context)!.plusSign,
+            style: TextStyle(fontWeight: FontWeight.normal),
           ),
-          ElevatedButton(
-            onPressed: _increment,
-            style: AppStyle.quantitySelectorButtonStyle(),
-            child: Text(
-              AppLocalizations.of(context)!.plusSign,
-              style: AppStyle.labelText,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -145,6 +145,7 @@
     "emailSentSuccessfully": "Email sent successfully!",
     "@emailSentSuccessfully": {
         "description": "Log message shown when email is sent successfully"
+    },
     "energyCurrent": "Energy Current",
     "@energyCurrent": {
         "description": "Label for energy current textfield"

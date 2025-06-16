@@ -88,6 +88,63 @@
     "@email": {
         "description": "Label for the email field"
     },
+    "emailAddingAttachment": "Adding attachment.",
+    "@emailAddingAttachment": {
+        "description": "Log message shown when adding an attachment"
+    },
+    "emailAttachmentFileSize": "File size: {size}KB",
+    "@emailAttachmentFileSize": {
+        "description": "Log message showing attachment file size",
+        "placeholders": {
+            "size": {
+                "type": "String",
+                "example": "256.45"
+            }
+        }
+    },
+    "emailConfigError": "SMTP credentials not found in environment variables",
+    "@emailConfigError": {
+        "description": "Error message shown when SMTP credentials are missing"
+    },
+    "emailConfiguringSmtp": "Configuring SMTP server...",
+    "@emailConfiguringSmtp": {
+        "description": "Log message shown when configuring SMTP server"
+    },
+    "emailCreatingMessage": "Creating email message...",
+    "@emailCreatingMessage": {
+        "description": "Log message shown when creating email message"
+    },
+    "emailOperationCancelled": "Operation cancelled",
+    "@emailOperationCancelled": {
+        "description": "Message shown when email operation is cancelled"
+    },
+    "emailPreparingToSend": "Preparing to send email to: {recipient}",
+    "@emailPreparingToSend": {
+        "description": "Log message shown when preparing to send an email",
+        "placeholders": {
+            "recipient": {
+                "type": "String",
+                "example": "user@example.com"
+            }
+        }
+    },
+    "emailProcessingAttachments": "Processing {count} attachments...",
+    "@emailProcessingAttachments": {
+        "description": "Log message shown when processing email attachments",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "3"
+            }
+        }
+    },
+    "emailSending": "Sending email...",
+    "@emailSending": {
+        "description": "Log message shown when sending email"
+    },
+    "emailSentSuccessfully": "Email sent successfully!",
+    "@emailSentSuccessfully": {
+        "description": "Log message shown when email is sent successfully"
     "energyCurrent": "Energy Current",
     "@energyCurrent": {
         "description": "Label for energy current textfield"
@@ -95,6 +152,50 @@
     "equipmentOk": "Equipment is ok",
     "@equipmentOk": {
         "description": "Checkbox Text when the equipment is ok"
+    },
+    "errorFileNotFound": "File not found",
+    "@errorFileNotFound": {
+        "description": "Error message shown when an attachment file is not found"
+    },
+    "errorFileSystem": "File System Error: {error}",
+    "@errorFileSystem": {
+        "description": "Error message shown when file system error occurs",
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "example": "File not found"
+            }
+        }
+    },
+    "errorSendingEmail": "Failed to send email: {error}",
+    "@errorSendingEmail": {
+        "description": "Error message shown when email sending fails",
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "example": "Network error"
+            }
+        }
+    },
+    "errorSmtpConfiguration": "SMTP Configuration Error: {error}",
+    "@errorSmtpConfiguration": {
+        "description": "Error message shown when SMTP configuration fails",
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "example": "Incorrect configuration"
+            }
+        }
+    },
+    "errorSmtpConnection": "Failed to connect to SMTP server: {error}",
+    "@errorSmtpConnection": {
+        "description": "Error message shown when SMTP connection fails",
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "example": "Connection timed out"
+            }
+        }
     },
     "forgotPassword": "Forgot password",
     "@forgotPassword": {
@@ -119,7 +220,7 @@
     "inAnnualMaintenanceContract": "In Annual Maintenance Contract",
     "@inAnnualMaintenanceContract": {
         "description": "Checkbox Text when the equipment is in annual maintenance contract"
-    },    
+    },
     "inFreeService": "Free service",
     "@inFreeService": {
         "description": "Label for the free service checkbox"

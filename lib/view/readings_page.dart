@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncserve/custom_controls/labeled_checkbox.dart';
 import 'package:syncserve/custom_controls/quantity_selector.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
+import 'package:syncserve/enums/battery_type.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view_model/readings_page_view_model.dart';
@@ -41,10 +42,7 @@ class _ReadingsPageState extends State<ReadingsPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    category = [
-      AppLocalizations.of(context)!.smf,
-      AppLocalizations.of(context)!.tub,
-    ];
+    category = BatteryType.values.map((e) => e.name).toList();
   }
 
   @override
@@ -198,8 +196,8 @@ class _PowerConfigurationCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: DropdownButtonFormField<String>(
-                    value: viewModel.batteryType ?? category.first,
+                  child: DropdownButtonFormField<BatteryType>(
+                    value: viewModel.batteryType,
                     decoration: AppStyle.inputDecorationWithLabel(
                       AppLocalizations.of(context)!.batteryType,
                     ),
@@ -209,13 +207,13 @@ class _PowerConfigurationCard extends StatelessWidget {
                             AppLocalizations.of(context)!
                                 .pleaseSelectBatteryType,
                           )
-                          .build(value);
+                          .build(value?.name);
                     },
                     icon: const Icon(Icons.arrow_drop_down),
-                    items: category.map((e) {
+                    items: BatteryType.values.map((e) {
                       return DropdownMenuItem(
                         value: e,
-                        child: Text(e),
+                        child: Text(e.name),
                       );
                     }).toList(),
                     onChanged: (value) {

@@ -4,74 +4,13 @@
     "@ah": {
         "description": "Unit for Energy"
     },
-    "emailAttachmentFileSize": {
-        "description": "Log message showing attachment file size",
-        "placeholders": {
-            "size": {
-                "type": "String",
-                "example": "256.45"
-            }
-        }
+    "backUpTest": "Backup checked",
+    "@backUpTest": {
+        "description": "Checkbox Text when the backup is checked"
     },
-    "pleaseEnterPower": "Enter power",
-    "@pleaseEnterPower": {
-        "description": "Error message shown when power value is empty"
-    },
-    "pleaseEnterValidPower": "Invalid power value",
-    "@pleaseEnterValidPower": {
-        "description": "Error message shown when power value is invalid"
-    },
-    "pleaseEnterDcVoltage": "Enter voltage",
-    "@pleaseEnterDcVoltage": {
-        "description": "Error message shown when DC voltage value is empty"
-    },
-    "pleaseEnterValidDcVoltage": "Invalid voltage value",
-    "@pleaseEnterValidDcVoltage": {
-        "description": "Error message shown when DC voltage value is invalid"
-    },
-    "pleaseEnterEnergy": "Enter energy",
-    "@pleaseEnterEnergy": {
-        "description": "Error message shown when energy value is empty"
-    },
-    "pleaseEnterValidEnergy": "Invalid energy value",
-    "@pleaseEnterValidEnergy": {
-        "description": "Error message shown when energy value is invalid"
-    },
-    "pleaseEnterManufacturerName": "Enter manufacturer",
-    "@pleaseEnterManufacturerName": {
-        "description": "Error message shown when manufacturer name is empty"
-    },
-    "pleaseSelectBatteryType": "Select battery type",
-    "@pleaseSelectBatteryType": {
-        "description": "Error message shown when battery type is not selected"
-    },
-    "powerRequired": "Enter power",
-    "@powerRequired": {
-        "description": "Error message shown when power value is empty"
-    },
-    "powerTooLow": "Power must be above 0",
-    "@powerTooLow": {
-        "description": "Error message shown when power value is too low"
-    },
-    "dcVoltageRequired": "Enter voltage",
-    "@dcVoltageRequired": {
-        "description": "Error message shown when DC voltage value is empty"
-    },
-    "dcVoltageTooLow": "Voltage must be above 0",
-    "@dcVoltageTooLow": {
-        "description": "Error message shown when DC voltage value is too low"
-    },
-    "energyRequired": "Enter energy",
-    "@energyRequired": {
-        "description": "Error message shown when energy value is empty"
-    },
-    "manufacturerNameRequired": "Enter manufacturer",
-    "@manufacturerNameRequired": {
-        "description": "Error message shown when manufacturer name is empty"
-    },
-    "invalidNumber": "Invalid number",
-    "@invalidNumber": {
-        "description": "Error message shown when input is not a valid number"
+    "batteryType": "Battery Type",
+    "@batteryType": {
+        "description": "Label for drop down on readings page"
     },
     "backUpTest": "Backup checked",
     "@backUpTest": {
@@ -109,7 +48,7 @@
     "@customerAddressRequired": {
         "description": "Error message shown when the customer address field is empty"
     },
-    "customerAddressTooShort": "Customer address must be at least 10 characters long",
+    "customerAddressTooShort": "Address too short",
     "@customerAddressTooShort": {
         "description": "Error message shown when the customer address is too short"
     },
@@ -219,6 +158,10 @@
     "@energy": {
         "description": "Label for energy textfield"
     },
+    "energyRequired": "Enter energy",
+    "@energyRequired": {
+        "description": "Error message shown when energy value is empty"
+    },
     "equipmentOk": "Equipment is ok",
     "@equipmentOk": {
         "description": "Checkbox Text when the equipment is ok"
@@ -303,6 +246,10 @@
     "@installation": {
         "description": "Label for the installation checkbox"
     },
+    "invalidNumber": "Invalid number",
+    "@invalidNumber": {
+        "description": "Error message shown when input is not a valid number"
+    },
     "inverter": "Inverter",
     "@inverter": {
         "description": "Label for the inverter checkbox"
@@ -327,17 +274,17 @@
     "@manufacturerName": {
         "description": "Label for the manufacturer's Textfield"
     },
-    "manufacturerNameRequired": "Manufacturer's name is required",
+    "manufacturerNameRequired": "Enter manufacturer",
     "@manufacturerNameRequired": {
-        "description": "Error message shown when the manufacturer's name field is empty"
+        "description": "Error message shown when manufacturer name is empty"
     },
-    "manufacturerNameTooShort": "Manufacturer's name must be at least 3 characters long",
+    "manufacturerNameTooShort": "Name must be at least 3 characters long",
     "@manufacturerNameTooShort": {
         "description": "Error message shown when the manufacturer's name is too short"
     },
     "minusSign": "-",
     "@minusSign":{
-        "description": "Minus sign text for quanity "
+        "description": "Minus sign text for quantity "
     },
     "next": "Next",
     "@next": {
@@ -345,7 +292,7 @@
     },
     "onePhase": "1 Phase",
     "@onePhase": {
-        "description": "Label for the button in segemented button in readings page"
+        "description": "Label for the button in segmented button in readings page"
     },
     "otherEquipment": "Other equipment",
     "@otherEquipment": {
@@ -370,6 +317,14 @@
     "power": "Power",
     "@power": {
         "description": "Label for readings page textfield"
+    },
+    "powerRequired": "Enter power",
+    "@powerRequired": {
+        "description": "Error message shown when power value is empty"
+    },
+    "powerTooLow": "Power must be above 0",
+    "@powerTooLow": {
+        "description": "Error message shown when power value is too low"
     },
     "preventiveMaintenance": "Preventive maintenance",
     "@preventiveMaintenance": {
@@ -403,10 +358,6 @@
     "@settings": {
         "description": "Label for the settings Icon"
     },
-    "smf": "SMF",
-    "@smf": {
-        "description": "Label for the drop down button"
-    },
     "stabilizer": "Stabilizer",
     "@stabilizer": {
         "description": "Label for the stabilizer checkbox"
@@ -434,10 +385,6 @@
     "threePhase": "3 Phase",
     "@threePhase": {
         "description": "Label for the button in segemented button in readings page"
-    },
-    "tub": "TUB",
-    "@tub": {
-        "description": "Label for TUB dropdown"
     },
     "ups": "UPS",
     "@ups": {

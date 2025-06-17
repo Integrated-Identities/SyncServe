@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncserve/enums/battery_type.dart';
 
 enum PhaseType { onePhase, threePhase }
 
@@ -12,7 +13,7 @@ class ReadingsViewModel {
   PhaseType inputPhase = PhaseType.onePhase;
   PhaseType outputPhase = PhaseType.onePhase;
   int quantity = 1;
-  String? batteryType;
+  BatteryType? batteryType;
 
   void updateQuantity(int value) {
     quantity = value;

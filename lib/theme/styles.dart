@@ -52,7 +52,7 @@ class AppStyle {
   }) {
     return InputDecoration(
       suffixText: suffix,
-      helperText: '',
+      helperText: ' ',
       alignLabelWithHint: true,
       fillColor: Colors.white,
       filled: true,
@@ -151,10 +151,6 @@ class AppStyle {
     );
   }
 
-  // 'QUANTITY' TEXT AND BUTTONS PADDING
-  static const EdgeInsets textButtonPadding =
-      EdgeInsets.symmetric(horizontal: 18);
-
   // SEGMENTED BUTTON COLOR STYLES
   static ButtonStyle segmentedButtonStyle() {
     return ButtonStyle(
@@ -181,8 +177,4 @@ class AppStyle {
       ),
     );
   }
-
-  // SEGMENTED BUTTON WITH LABEL PADDING
-  static const EdgeInsets segmentedButtonWithLabelPadding =
-      EdgeInsets.symmetric(horizontal: 18);
 }

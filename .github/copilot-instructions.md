@@ -39,6 +39,8 @@ If you are an AI assistant setting up this project, follow these steps from this
 - Use AsyncValue for proper error handling and loading states.
 - Avoid using generic `Exception` or `Error` classes. Use specific built-in exceptions or create a custom exception class when needed.
 - Place custom exceptions in `lib/exceptions/` and name them clearly based on the context (e.g., `EmailSendFailure`, `AuthTokenMissingException`).
+- Use `zod` for schema-based validation where applicable (e.g., forms, API responses).
+- Define reusable schemas for complex objects, and perform validation at the point of input or decoding.
 
 ## Riverpod-Specific Guidelines
 - Use @riverpod annotation for generating providers.

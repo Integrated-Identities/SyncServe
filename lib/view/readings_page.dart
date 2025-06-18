@@ -201,14 +201,6 @@ class _PowerConfigurationCard extends StatelessWidget {
                     decoration: AppStyle.inputDecorationWithLabel(
                       AppLocalizations.of(context)!.batteryType,
                     ),
-                    validator: (value) {
-                      return Zod()
-                          .required(
-                            AppLocalizations.of(context)!
-                                .pleaseSelectBatteryType,
-                          )
-                          .build(value?.name);
-                    },
                     icon: const Icon(Icons.arrow_drop_down),
                     items: BatteryType.values.map((e) {
                       return DropdownMenuItem(

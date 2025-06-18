@@ -92,6 +92,10 @@
     "@dcVoltage": {
         "description": "Label for readings page textfield" 
     },
+    "dcVoltageRequired": "Enter voltage",
+    "@dcVoltageRequired": {
+        "description": "Error message shown when DC voltage value is empty"
+    },
     "email": "Email",
     "@email": {
         "description": "Label for the email field"

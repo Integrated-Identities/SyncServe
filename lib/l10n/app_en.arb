@@ -12,14 +12,6 @@
     "@batteryType": {
         "description": "Label for drop down on readings page"
     },
-    "backUpTest": "Backup checked",
-    "@backUpTest": {
-        "description": "Checkbox Text when the backup is checked"
-    },
-    "batteryType": "Battery Type",
-    "@batteryType": {
-        "description": "Label for drop down on readings page"
-    },
     "batteryUPSCleaned": "Battery/UPS cleaned",
     "@batteryUPSCleaned": {
         "description": "Checkbox Text when the battery/UPS is cleaned"

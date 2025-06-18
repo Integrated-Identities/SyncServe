@@ -193,7 +193,7 @@ class _PowerConfigurationCard extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
                   child: DropdownButtonFormField<BatteryType>(
@@ -209,6 +209,8 @@ class _PowerConfigurationCard extends StatelessWidget {
                       );
                     }).toList(),
                     onChanged: (value) {
+                      if (value == null) return;
+
                       viewModel.batteryType = value;
                     },
                   ),

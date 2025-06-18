@@ -13,7 +13,7 @@ class ReadingsViewModel {
   PhaseType inputPhase = PhaseType.onePhase;
   PhaseType outputPhase = PhaseType.onePhase;
   int quantity = 1;
-  BatteryType? batteryType;
+  BatteryType batteryType = BatteryType.smf;
 
   void updateQuantity(int value) {
     quantity = value;
@@ -32,7 +32,7 @@ class ReadingsViewModel {
     inputPhase = PhaseType.onePhase;
     outputPhase = PhaseType.onePhase;
     quantity = 1;
-    batteryType = null;
+    batteryType = BatteryType.smf;
   }
 
   void dispose() {

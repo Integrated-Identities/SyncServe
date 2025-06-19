@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syncserve/electrical_page_1.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/view_model/service_checklist_view_model.dart';
 
@@ -42,7 +43,7 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppStyle.appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarNavBarandCardColor,
         centerTitle: true,
         title: Text(AppLocalizations.of(context)!.title),
       ),
@@ -81,7 +82,14 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.elevatedButtonStyle(),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ElectricalPage(),
+                    ),
+                  );
+                },
                 child: Text(AppLocalizations.of(context)!.next),
               ),
             ),

@@ -1,8 +1,16 @@
 {
     "@@locale": "en",
+    "ah": "AH",
+    "@ah": {
+        "description": "Unit for Energy"
+    },
     "backUpTest": "Backup checked",
     "@backUpTest": {
         "description": "Checkbox Text when the backup is checked"
+    },
+    "batteryType": "Battery Type",
+    "@batteryType": {
+        "description": "Label for drop down on readings page"
     },
     "batteryUPSCleaned": "Battery/UPS cleaned",
     "@batteryUPSCleaned": {
@@ -32,7 +40,7 @@
     "@customerAddressRequired": {
         "description": "Error message shown when the customer address field is empty"
     },
-    "customerAddressTooShort": "Customer address must be at least 10 characters long",
+    "customerAddressTooShort": "Address too short",
     "@customerAddressTooShort": {
         "description": "Error message shown when the customer address is too short"
     },
@@ -67,6 +75,18 @@
     "customerPhone": "Customer phone",
     "@customerPhone": {
         "description": "Label for the customer's phone field"
+    },
+    "dcv": "DCV",
+    "@dcv": {
+        "description": "Unit for DC Voltage textfield"
+    },
+    "dcVoltage": "DC Voltage",
+    "@dcVoltage": {
+        "description": "Label for readings page textfield" 
+    },
+    "dcVoltageRequired": "Enter voltage",
+    "@dcVoltageRequired": {
+        "description": "Error message shown when DC voltage value is empty"
     },
     "email": "Email",
     "@email": {
@@ -129,6 +149,14 @@
     "emailSentSuccessfully": "Email sent successfully!",
     "@emailSentSuccessfully": {
         "description": "Log message shown when email is sent successfully"
+    },
+    "energy": "Energy",
+    "@energy": {
+        "description": "Label for energy textfield"
+    },
+    "energyRequired": "Enter energy",
+    "@energyRequired": {
+        "description": "Error message shown when energy value is empty"
     },
     "equipmentOk": "Equipment is ok",
     "@equipmentOk": {
@@ -206,9 +234,17 @@
     "@inFreeService": {
         "description": "Label for the free service checkbox"
     },
+    "inputPhase": "Input Phase",
+    "@inputPhase": {
+        "description": "Label for segemented button in readings page"
+    },
     "installation": "Installation",
     "@installation": {
         "description": "Label for the installation checkbox"
+    },
+    "invalidNumber": "Invalid number",
+    "@invalidNumber": {
+        "description": "Error message shown when input is not a valid number"
     },
     "inverter": "Inverter",
     "@inverter": {
@@ -217,6 +253,10 @@
     "inWarranty": "In warranty",
     "@inWarranty": {
         "description": "Checkbox Text when the equipment is in warranty"
+    },
+    "kva": "KVA",
+    "@kva": {
+        "description": "Unit for power textfield"
     },
     "logIn": "Log In",
     "@logIn": {
@@ -230,21 +270,33 @@
     "@manufacturerName": {
         "description": "Label for the manufacturer's Textfield"
     },
-    "manufacturerNameRequired": "Manufacturer's name is required",
+    "manufacturerNameRequired": "Enter manufacturer",
     "@manufacturerNameRequired": {
-        "description": "Error message shown when the manufacturer's name field is empty"
+        "description": "Error message shown when manufacturer name is empty"
     },
-    "manufacturerNameTooShort": "Manufacturer's name must be at least 3 characters long",
+    "manufacturerNameTooShort": "Name must be at least 3 characters long",
     "@manufacturerNameTooShort": {
         "description": "Error message shown when the manufacturer's name is too short"
+    },
+    "minusSign": "-",
+    "@minusSign":{
+        "description": "Minus sign text for quantity "
     },
     "next": "Next",
     "@next": {
         "description": "Label for the next button"
     },
+    "onePhase": "1 Phase",
+    "@onePhase": {
+        "description": "Label for the button in segmented button in readings page"
+    },
     "otherEquipment": "Other equipment",
     "@otherEquipment": {
         "description": "Label for the other equipment checkbox"
+    },
+    "outputPhase": "Output Phase",
+    "@outputPhase": {
+        "description": "Section Title for segmented button"
     },
     "panelReadingMatched": "Panel reading matched",
     "@panelReadingMatched": {
@@ -254,6 +306,22 @@
     "@password": {
         "description": "Label for the password field"
     },
+    "plusSign": "+",
+    "@plusSign": {
+        "description": "Plus sign symbol for quantity selector"
+    },
+    "power": "Power",
+    "@power": {
+        "description": "Label for readings page textfield"
+    },
+    "powerRequired": "Enter power",
+    "@powerRequired": {
+        "description": "Error message shown when power value is empty"
+    },
+    "powerTooLow": "Power must be above 0",
+    "@powerTooLow": {
+        "description": "Error message shown when power value is too low"
+    },
     "preventiveMaintenance": "Preventive maintenance",
     "@preventiveMaintenance": {
         "description": "Label for the preventive maintenance checkbox"
@@ -261,6 +329,14 @@
     "profile": "Profile",
     "@profile": {
         "description": "Label for the profile Icon"
+    },
+    "quantity": "Quantity",
+    "@quantity": {
+        "description": "Label for the quantity label in Readings page"
+    },
+    "readingsPage": "Readings Page",
+    "@readingsPage": {
+        "description": "Title for the readings page"
     },
     "reasonForVisit": "Reason for Visit",
     "@reasonForVisit": {
@@ -302,6 +378,10 @@
     "@title": {
         "description": "Title of Service Checklist page"
     },
+    "threePhase": "3 Phase",
+    "@threePhase": {
+        "description": "Label for the button in segemented button in readings page"
+    },
     "ups": "UPS",
     "@ups": {
         "description": "Label for the UPS checkbox"
@@ -313,5 +393,9 @@
     "welcome": "Welcome!",
     "@welcome": {
         "description": "Welcome message for the user"
+    },
+    "withStabilizer": "With Stabilizer",
+    "@withStabilizer": {
+        "description": "Label for checkbox in readings page"
     }
 }

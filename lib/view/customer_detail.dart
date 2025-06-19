@@ -200,7 +200,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         }
                       }
                     : null,
-                style: AppStyle.elevatedButtonStyle(),
+                style: AppStyle.primaryElevatedButtonStyle(),
                 child: Text(AppLocalizations.of(context)!.next),
               ),
             ),

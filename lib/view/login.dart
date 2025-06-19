@@ -90,7 +90,7 @@ class _LoginState extends State<Login> {
                             ),
                           );
                         },
-                        style: AppStyle.elevatedButtonStyle(),
+                        style: AppStyle.primaryElevatedButtonStyle(),
                         child: Text(
                           AppLocalizations.of(context)!.logIn,
                         ),

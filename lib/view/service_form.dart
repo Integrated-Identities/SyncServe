@@ -350,6 +350,7 @@ class _ServiceFormState extends State<ServiceForm> {
                             decoration: AppStyle.inputDecorationWithLabel(
                               AppLocalizations.of(context)!.manufacturerName,
                             ),
+                            autovalidateMode: AutovalidateMode.onUnfocus,
                             onChanged: (value) {
                               setState(() {
                                 viewModel.manufacturerName = value;
@@ -367,7 +368,7 @@ class _ServiceFormState extends State<ServiceForm> {
             Padding(
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
-                style: AppStyle.elevatedButtonStyle(),
+                style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: viewModel.isValid
                     ? () {
                         if (_formKey.currentState!.validate()) {

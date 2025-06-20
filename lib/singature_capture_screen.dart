@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:signature/signature.dart';
 import 'package:syncserve/theme/styles.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SingatureCaptureScreen extends StatefulWidget {
   const SingatureCaptureScreen({super.key});
@@ -34,7 +35,7 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
       body: Row(
         children: [
           Container(
-            color: Colors.grey,
+            color: AppStyle.canvasAndContainerColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -42,13 +43,14 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
                 RotatedBox(
                   quarterTurns: 1,
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 120, 0),
+                    padding: AppStyle.customerApprovalDoneButtonPadding,
                     child: ElevatedButton(
                       onPressed: () {
                         _signatureController.clear();
                       },
                       child: Text(
-                        'Clear',
+                        style: AppStyle.labelText,
+                        AppLocalizations.of(context)!.clearElevatedButton,
                       ),
                     ),
                   ),
@@ -57,19 +59,20 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
                   quarterTurns: 1,
                   child: Text(
                     style: AppStyle.headingText,
-                    'Sign Here',
+                    AppLocalizations.of(context)!.signHereText,
                   ),
                 ),
                 RotatedBox(
                   quarterTurns: 1,
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(120, 0, 0, 0),
+                    padding: AppStyle.customerApprovalClearButtonPadding,
                     child: ElevatedButton(
                       onPressed: () {
                         _saveSignature();
                       },
                       child: Text(
-                        'Done',
+                        style: AppStyle.labelText,
+                        AppLocalizations.of(context)!.doneElevatedButton,
                       ),
                     ),
                   ),
@@ -80,7 +83,7 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
           Expanded(
             child: Signature(
               controller: _signatureController,
-              backgroundColor: Colors.grey,
+              backgroundColor: AppStyle.canvasAndContainerColor,
               width: double.infinity,
             ),
           ),

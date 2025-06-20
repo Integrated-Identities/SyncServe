@@ -32,6 +32,10 @@
     "@certificationCheckbox":{
         "description": "Label for the certification checkbox"
     },
+    "clearElevatedButton": "Clear",
+    "@clearElevatedButton": {
+        "description": "Label for the elevated button named as clear"
+    },
     "coolingFan": "Cooling fan works",
     "@coolingFan": {
         "description": "Checkbox Text when the cooling fan is working"
@@ -88,10 +92,6 @@
     "@customerPhoneRequired": {
         "description": "Error message shown when the customer phone number is not given"
     },
-    "customerPhoneTooShort": "Phone number should be atleast 10 digits long",
-    "@customerPhoneTooShort": {
-        "description": "Error when Phone number is is not 10 digits"
-    },
     "dcv": "DCV",
     "@dcv": {
         "description": "Unit for DC Voltage textfield"
@@ -103,6 +103,10 @@
     "dcVoltageRequired": "Enter voltage",
     "@dcVoltageRequired": {
         "description": "Error message shown when DC voltage value is empty"
+    },
+    "doneElevatedButton": "Done",
+    "@doneElevatedButton":{
+        "description": "Label for the elevated button on the canvas"
     },
     "email": "Email",
     "@email": {
@@ -369,6 +373,10 @@
     "settings": "Settings",
     "@settings": {
         "description": "Label for the settings Icon"
+    },
+    "signHereText": "Sign Here",
+    "@signHere": {
+        "description": "Text for the canvas"
     },
     "stabilizer": "Stabilizer",
     "@stabilizer": {

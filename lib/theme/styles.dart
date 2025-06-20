@@ -181,4 +181,16 @@ class AppStyle {
       ),
     );
   }
+
+  // CANVAS AND CONTAINER COLOR
+  static const Color canvasAndContainerColor =
+      Color.fromARGB(255, 100, 100, 100);
+
+  // 'DONE' ELEVATED BUTTON PADDING
+  static const EdgeInsets customerApprovalDoneButtonPadding =
+      EdgeInsets.fromLTRB(0, 0, 120, 0);
+
+  // 'CLEAR' ELEVATED BUTTON PADDING
+  static const EdgeInsets customerApprovalClearButtonPadding =
+      EdgeInsets.fromLTRB(120, 0, 0, 0);
 }

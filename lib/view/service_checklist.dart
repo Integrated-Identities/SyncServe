@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/electrical_page_1.dart';
+import 'package:syncserve/view/readings_page.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/view_model/service_checklist_view_model.dart';
 
@@ -81,12 +82,12 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
             Padding(
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
-                style: AppStyle.elevatedButtonStyle(),
+                style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ElectricalPage(),
+                      builder: (context) => ReadingsPage(),
                     ),
                   );
                 },

@@ -12,7 +12,7 @@ class AppStyle {
   static final TextStyle hintText = labelText.copyWith(color: Colors.grey);
 
 // ELEVATED BUTTON STYLE
-  static ButtonStyle elevatedButtonStyle() {
+  static ButtonStyle primaryElevatedButtonStyle() {
     return ElevatedButton.styleFrom(
       backgroundColor: Color.fromARGB(255, 237, 125, 125),
       minimumSize: const Size(double.infinity, 60),
@@ -44,12 +44,14 @@ class AppStyle {
     );
   }
 
-// CUSTOMER DETAIL PAGE TEXTFORMFIELD
+  // INPUT DECORATION WITH LABEL and
   static InputDecoration inputDecorationWithLabel(
     String label, {
+    String? suffix,
     bool isRequired = false,
   }) {
     return InputDecoration(
+      suffixText: suffix,
       helperText: ' ',
       alignLabelWithHint: true,
       fillColor: Colors.white,
@@ -150,4 +152,51 @@ class AppStyle {
 
   // DIVIDER COLOR
   static const Color dividerColor = Color.fromARGB(255, 100, 100, 100);
+
+  // STYLE OF INCREMENT DECREMENT BUTTON OF QUANITYSELECTOR
+  static ButtonStyle quantitySelectorButtonStyle() {
+    return primaryElevatedButtonStyle().copyWith(
+      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      padding: WidgetStateProperty.all(
+        const EdgeInsets.all(8),
+      ),
+      minimumSize: WidgetStateProperty.all(
+        const Size(40, 40),
+      ),
+      maximumSize: WidgetStateProperty.all(
+        const Size(40, 40),
+      ),
+    );
+  }
+
+  // SEGMENTED BUTTON COLOR STYLES
+  static ButtonStyle segmentedButtonStyle() {
+    return ButtonStyle(
+      shape: WidgetStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      backgroundColor: WidgetStateColor.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return Color.fromARGB(255, 237, 125, 125);
+          }
+          return Colors.white;
+        },
+      ),
+      foregroundColor: WidgetStateColor.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return Colors.black;
+        },
+      ),
+    );
+  }
 }

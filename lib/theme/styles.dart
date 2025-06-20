@@ -128,6 +128,10 @@ class AppStyle {
   static const EdgeInsets sectionContentPadding =
       EdgeInsets.symmetric(horizontal: 5);
 
+  // CUSTOMER APPROVAL PAGE SECTION CONTENT PADDING
+  static const EdgeInsets sectionContentPadding2 =
+      EdgeInsets.fromLTRB(15, 25, 15, 10);
+
   // DIVIDER COLOR
   static const Color dividerColor = Color.fromARGB(255, 100, 100, 100);
 

@@ -28,6 +28,10 @@
     "@callBasis": {
         "description": "Label for the call-basis checkbox"
     },
+    "certificationCheckbox": "Certified that system is working to our satisfaction",
+    "@certificationCheckbox":{
+        "description": "Label for the certification checkbox"
+    },
     "coolingFan": "Cooling fan works",
     "@coolingFan": {
         "description": "Checkbox Text when the cooling fan is working"
@@ -43,6 +47,10 @@
     "customerAddressTooShort": "Address too short",
     "@customerAddressTooShort": {
         "description": "Error message shown when the customer address is too short"
+    },
+        "customerApprovalPage": "Readings Page",
+    "@customerApprovalPage": {
+        "description": "Title for the customer approval page"
     },
     "customerEmail": "Customer email",
     "@customerEmail": {
@@ -72,9 +80,17 @@
     "@customerNameTooShort": {
         "description": "Error message shown when the customer name is too short"
     },
-    "customerPhone": "Customer phone",
+    "customerPhone": "Customer Phone Number",
     "@customerPhone": {
         "description": "Label for the customer's phone field"
+    },
+    "customerPhoneRequired": "Phone Number is required",
+    "@customerPhoneRequired": {
+        "description": "Error message shown when the customer phone number is not given"
+    },
+    "customerPhoneTooShort": "Phone number should be atleast 10 digits long",
+    "@customerPhoneTooShort": {
+        "description": "Error when Phone number is is not 10 digits"
     },
     "dcv": "DCV",
     "@dcv": {
@@ -373,6 +389,10 @@
     "systemType": "System Type",
     "@systemType": {
         "description": "Label for the system you're working on"
+    },
+    "tapToSign": "Tap to Sign",
+    "@tapToSign": {
+        "description": "Signature placeholder text"
     },
     "title": "Service Checklist",
     "@title": {

@@ -52,7 +52,7 @@
     "@customerAddressTooShort": {
         "description": "Error message shown when the customer address is too short"
     },
-        "customerApprovalPage": "Readings Page",
+        "customerApprovalPage": "Customer Approval Page",
     "@customerApprovalPage": {
         "description": "Title for the customer approval page"
     },

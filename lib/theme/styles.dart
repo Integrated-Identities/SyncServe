@@ -9,7 +9,10 @@ class AppStyle {
   );
 
 // HINTTEXT FOR INPUT FIELDS
-  static final TextStyle hintText = labelText.copyWith(color: Colors.grey);
+  static final ButtonStyle hintTextButton = ButtonStyle(
+    foregroundColor: WidgetStateProperty.all(Colors.grey),
+    textStyle: WidgetStateProperty.all(labelText),
+  );
 
 // ELEVATED BUTTON STYLE
   static ButtonStyle elevatedButtonStyle() {
@@ -37,9 +40,23 @@ class AppStyle {
         borderSide: const BorderSide(color: Colors.black),
         borderRadius: BorderRadius.circular(15),
       ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: const BorderSide(
+          color: Colors.red,
+          width: 2,
+        ),
+      ),
       focusedBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.black),
         borderRadius: BorderRadius.circular(15),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(
+          color: Colors.red,
+          width: 2,
+        ),
       ),
     );
   }

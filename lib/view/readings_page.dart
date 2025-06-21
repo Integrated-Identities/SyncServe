@@ -56,7 +56,7 @@ class _ReadingsPageState extends State<ReadingsPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: AppStyle.appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         title: Text(
           AppLocalizations.of(context)!.readingsPage,
         ),
@@ -129,7 +129,7 @@ class _PowerConfigurationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppStyle.appBarAndNavBarColor,
+      color: AppStyle.appBarNavBarCardAndCanvasColor,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -140,6 +140,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.powerController,
                       keyboardType:
                           const TextInputType.numberWithOptions(decimal: true),
@@ -169,6 +170,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 8),
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.dcVoltageController,
                       keyboardType:
                           const TextInputType.numberWithOptions(decimal: true),
@@ -225,6 +227,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 8),
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.energyController,
                       keyboardType:
                           const TextInputType.numberWithOptions(decimal: true),
@@ -258,6 +261,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.manufacturerNameController,
                       label: AppLocalizations.of(context)!.manufacturerName,
                       validator: (value) {
@@ -335,7 +339,7 @@ class _PhaseSelectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppStyle.appBarAndNavBarColor,
+      color: AppStyle.appBarNavBarCardAndCanvasColor,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

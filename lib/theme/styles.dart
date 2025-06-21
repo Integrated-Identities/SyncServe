@@ -87,8 +87,8 @@ class AppStyle {
     );
   }
 
-  // APP BAR AND NAVIGATION BAR BACKGROUND COLOR
-  static const appBarAndNavBarColor = Colors.white;
+  // APP BAR AND NAVIGATION BAR CARD AND CANVAS BACKGROUND COLOR
+  static const appBarNavBarCardAndCanvasColor = Colors.white;
 
   // CHECKBOX TEXT STYLE
   static const TextStyle labelText = TextStyle(
@@ -127,10 +127,6 @@ class AppStyle {
   // SECTION CONTENT PADDING
   static const EdgeInsets sectionContentPadding =
       EdgeInsets.symmetric(horizontal: 5);
-
-  // CUSTOMER APPROVAL PAGE SECTION CONTENT PADDING
-  static const EdgeInsets sectionContentPadding2 =
-      EdgeInsets.fromLTRB(15, 25, 15, 10);
 
   // DIVIDER COLOR
   static const Color dividerColor = Color.fromARGB(255, 100, 100, 100);
@@ -188,9 +184,20 @@ class AppStyle {
 
   // 'DONE' ELEVATED BUTTON PADDING
   static const EdgeInsets customerApprovalDoneButtonPadding =
-      EdgeInsets.fromLTRB(0, 0, 120, 0);
+      EdgeInsets.fromLTRB(0, 0, 100, 0);
 
   // 'CLEAR' ELEVATED BUTTON PADDING
   static const EdgeInsets customerApprovalClearButtonPadding =
-      EdgeInsets.fromLTRB(120, 0, 0, 0);
+      EdgeInsets.fromLTRB(100, 0, 0, 0);
+
+  // ELEVATED BUTTON COLORS
+  static ButtonStyle primaryCanvasElevatedButtonStyle() {
+    return ElevatedButton.styleFrom(
+      backgroundColor: Color.fromARGB(255, 237, 125, 125),
+    );
+  }
+
+// ELEVATED BUTTON TEXT COLOR
+  static final TextStyle elevatedButtonText =
+      labelText.copyWith(color: Colors.white);
 }

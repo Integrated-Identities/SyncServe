@@ -24,6 +24,7 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
 
   Future<void> _saveSignature() async {
     final image = await _signatureController.toPngBytes();
+    if (!mounted) return;
     if (image != null) {
       Navigator.pop(context, image);
     }
@@ -35,7 +36,8 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
       body: Row(
         children: [
           Container(
-            color: AppStyle.canvasAndContainerColor,
+            margin: EdgeInsets.fromLTRB(30, 35, 0, 35),
+            color: AppStyle.appBarNavBarCardAndCanvasColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -45,11 +47,12 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
                   child: Padding(
                     padding: AppStyle.customerApprovalDoneButtonPadding,
                     child: ElevatedButton(
+                      style: AppStyle.primaryCanvasElevatedButtonStyle(),
                       onPressed: () {
                         _signatureController.clear();
                       },
                       child: Text(
-                        style: AppStyle.labelText,
+                        style: AppStyle.elevatedButtonText,
                         AppLocalizations.of(context)!.clearElevatedButton,
                       ),
                     ),
@@ -67,11 +70,12 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
                   child: Padding(
                     padding: AppStyle.customerApprovalClearButtonPadding,
                     child: ElevatedButton(
+                      style: AppStyle.primaryCanvasElevatedButtonStyle(),
                       onPressed: () {
                         _saveSignature();
                       },
                       child: Text(
-                        style: AppStyle.labelText,
+                        style: AppStyle.elevatedButtonText,
                         AppLocalizations.of(context)!.doneElevatedButton,
                       ),
                     ),
@@ -81,10 +85,13 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
             ),
           ),
           Expanded(
-            child: Signature(
-              controller: _signatureController,
-              backgroundColor: AppStyle.canvasAndContainerColor,
-              width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(0, 35, 40, 35),
+              child: Signature(
+                controller: _signatureController,
+                backgroundColor: Colors.white,
+                width: double.infinity,
+              ),
             ),
           ),
         ],

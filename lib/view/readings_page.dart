@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncserve/custom_controls/labeled_checkbox.dart';
 import 'package:syncserve/custom_controls/quantity_selector.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
+import 'package:syncserve/view/customer_approval.dart';
 import 'package:syncserve/enums/battery_type.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -35,7 +36,12 @@ class _ReadingsPageState extends State<ReadingsPage> {
     bool isValid = _formKey.currentState?.validate() ?? false;
 
     if (isValid) {
-      // Go to next page if form is valid
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CustomerApproval(),
+        ),
+      );
     }
   }
 
@@ -50,7 +56,7 @@ class _ReadingsPageState extends State<ReadingsPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: AppStyle.appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         title: Text(
           AppLocalizations.of(context)!.readingsPage,
         ),
@@ -123,7 +129,7 @@ class _PowerConfigurationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppStyle.appBarAndNavBarColor,
+      color: AppStyle.appBarNavBarCardAndCanvasColor,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -134,6 +140,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.powerController,
                       keyboardType:
                           const TextInputType.numberWithOptions(decimal: true),
@@ -163,6 +170,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 8),
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.dcVoltageController,
                       keyboardType:
                           const TextInputType.numberWithOptions(decimal: true),
@@ -219,6 +227,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 8),
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.energyController,
                       keyboardType:
                           const TextInputType.numberWithOptions(decimal: true),
@@ -252,6 +261,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ValidatedTextField(
+                      autovalidateMode: AutovalidateMode.disabled,
                       controller: viewModel.manufacturerNameController,
                       label: AppLocalizations.of(context)!.manufacturerName,
                       validator: (value) {
@@ -329,7 +339,7 @@ class _PhaseSelectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppStyle.appBarAndNavBarColor,
+      color: AppStyle.appBarNavBarCardAndCanvasColor,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

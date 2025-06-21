@@ -39,7 +39,7 @@ class _ServiceFormState extends State<ServiceForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppStyle.appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         title: Text(AppLocalizations.of(context)!.serviceForm),
         centerTitle: true,
       ),

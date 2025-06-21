@@ -87,8 +87,8 @@ class AppStyle {
     );
   }
 
-  // APP BAR AND NAVIGATION BAR BACKGROUND COLOR
-  static const appBarAndNavBarColor = Colors.white;
+  // APP BAR AND NAVIGATION BAR CARD AND CANVAS BACKGROUND COLOR
+  static const appBarNavBarCardAndCanvasColor = Colors.white;
 
   // CHECKBOX TEXT STYLE
   static const TextStyle labelText = TextStyle(
@@ -177,4 +177,27 @@ class AppStyle {
       ),
     );
   }
+
+  // CANVAS AND CONTAINER COLOR
+  static const Color canvasAndContainerColor =
+      Color.fromARGB(255, 100, 100, 100);
+
+  // 'DONE' ELEVATED BUTTON PADDING
+  static const EdgeInsets customerApprovalDoneButtonPadding =
+      EdgeInsets.fromLTRB(0, 0, 100, 0);
+
+  // 'CLEAR' ELEVATED BUTTON PADDING
+  static const EdgeInsets customerApprovalClearButtonPadding =
+      EdgeInsets.fromLTRB(100, 0, 0, 0);
+
+  // ELEVATED BUTTON COLORS
+  static ButtonStyle primaryCanvasElevatedButtonStyle() {
+    return ElevatedButton.styleFrom(
+      backgroundColor: Color.fromARGB(255, 237, 125, 125),
+    );
+  }
+
+// ELEVATED BUTTON TEXT COLOR
+  static final TextStyle elevatedButtonText =
+      labelText.copyWith(color: Colors.white);
 }

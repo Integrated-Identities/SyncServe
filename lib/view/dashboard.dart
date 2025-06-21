@@ -10,7 +10,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppStyle.appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         actions: [
           Row(
             children: [
@@ -78,7 +78,7 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppStyle.appBarAndNavBarColor,
+        backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

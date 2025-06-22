@@ -139,17 +139,14 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         validator: (value) {
                           if (!isEmailTouched) return null;
                           if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!
-                                .customerEmailRequired;
+                            return AppLocalizations.of(context)!.emailRequired;
                           }
                           return Zod()
                               .required(
-                                AppLocalizations.of(context)!
-                                    .customerEmailRequired,
+                                AppLocalizations.of(context)!.emailRequired,
                               )
                               .email(
-                                AppLocalizations.of(context)!
-                                    .customerEmailInvalid,
+                                AppLocalizations.of(context)!.emailInvalid,
                               )
                               .min(
                                 3,

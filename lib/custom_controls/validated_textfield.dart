@@ -6,13 +6,13 @@ class ValidatedTextField extends StatelessWidget {
     required TextEditingController controller,
     required String label,
     required String? Function(String?) validator,
+    required InputDecoration decoration,
     TextInputType keyboardType = TextInputType.text,
     int maxLines = 1,
     bool isRequired = false,
     EdgeInsets padding = const EdgeInsets.symmetric(vertical: 5),
-    AutovalidateMode autovalidateMode = AutovalidateMode.always,
-    required void Function(String?) onChanged,
-    required InputDecoration decoration,
+    AutovalidateMode autovalidateMode = AutovalidateMode.onUnfocus,
+    void Function(String?)? onChanged,
   }) {
     this.validator = validator;
     this.autovalidateMode = autovalidateMode;
@@ -30,7 +30,7 @@ class ValidatedTextField extends StatelessWidget {
   late final TextEditingController controller;
   late final TextInputType keyboardType;
   late final int maxLines;
-  late final void Function(String?) onChanged;
+  late final void Function(String?)? onChanged;
   late final InputDecoration decoration;
 
   @override

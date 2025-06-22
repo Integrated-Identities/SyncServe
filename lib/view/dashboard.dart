@@ -49,7 +49,7 @@ class Dashboard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 100, bottom: 10),
                 child: ElevatedButton(
-                  style: AppStyle.elevatedButtonStyle(),
+                  style: AppStyle.primaryElevatedButtonStyle(),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -66,7 +66,7 @@ class Dashboard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 10, bottom: 20),
                 child: ElevatedButton(
-                  style: AppStyle.elevatedButtonStyle(),
+                  style: AppStyle.primaryElevatedButtonStyle(),
                   onPressed: () {},
                   child: Text(
                     AppLocalizations.of(context)!.startGeneratorService,

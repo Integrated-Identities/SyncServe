@@ -108,7 +108,7 @@ class _LoginState extends ConsumerState<Login> {
                       padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                       child: ElevatedButton(
                         onPressed: state.isLoading ? null : _handleLogin,
-                        style: AppStyle.elevatedButtonStyle(),
+                        style: AppStyle.primaryElevatedButtonStyle(),
                         child: state.isLoading
                             ? const SizedBox(
                                 width: 24,

@@ -337,6 +337,7 @@
     "pleaseEnterPassword": "Please enter your password",
     "@pleaseEnterPassword": {
         "description": "Error message shown when password field is empty"
+    },
     "plusSign": "+",
     "@plusSign": {
         "description": "Plus sign symbol for quantity selector"
@@ -416,6 +417,7 @@
     "unknownLoginError": "An error had occurred while logging in. Please try again.",
     "@unknownLoginError": {
         "description": "Error message when login fails for unknown reason"
+    },
     "threePhase": "3 Phase",
     "@threePhase": {
         "description": "Label for the button in segemented button in readings page"

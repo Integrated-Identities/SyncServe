@@ -35,7 +35,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

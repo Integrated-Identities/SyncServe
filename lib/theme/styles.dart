@@ -178,26 +178,19 @@ class AppStyle {
     );
   }
 
-  // CANVAS AND CONTAINER COLOR
-  static const Color canvasAndContainerColor =
-      Color.fromARGB(255, 100, 100, 100);
-
-  // 'DONE' ELEVATED BUTTON PADDING
-  static const EdgeInsets customerApprovalDoneButtonPadding =
+  // 'CLEAR' ELEVATED BUTTON PADDING
+  static const EdgeInsets signatureCaptureClearButtonPadding =
       EdgeInsets.fromLTRB(0, 0, 100, 0);
 
-  // 'CLEAR' ELEVATED BUTTON PADDING
-  static const EdgeInsets customerApprovalClearButtonPadding =
+  // 'DONE' ELEVATED BUTTON PADDING
+  static const EdgeInsets signatureCaptureDoneButtonPadding =
       EdgeInsets.fromLTRB(100, 0, 0, 0);
 
   // ELEVATED BUTTON COLORS
   static ButtonStyle primaryCanvasElevatedButtonStyle() {
     return ElevatedButton.styleFrom(
       backgroundColor: Color.fromARGB(255, 237, 125, 125),
+      textStyle: TextStyle(fontSize: 18, color: Colors.white),
     );
   }
-
-// ELEVATED BUTTON TEXT COLOR
-  static final TextStyle elevatedButtonText =
-      labelText.copyWith(color: Colors.white);
 }

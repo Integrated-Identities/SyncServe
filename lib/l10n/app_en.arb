@@ -28,12 +28,12 @@
     "@callBasis": {
         "description": "Label for the call-basis checkbox"
     },
-    "certificationCheckbox": "Certified that system is working to our satisfaction",
+    "certificationCheckbox": "I Certify that system is working to our satisfaction",
     "@certificationCheckbox":{
         "description": "Label for the certification checkbox"
     },
-    "clearElevatedButton": "Clear",
-    "@clearElevatedButton": {
+    "clear": "Clear",
+    "@clear": {
         "description": "Label for the elevated button named as clear"
     },
     "coolingFan": "Cooling fan works",
@@ -104,8 +104,8 @@
     "@dcVoltageRequired": {
         "description": "Error message shown when DC voltage value is empty"
     },
-    "doneElevatedButton": "Done",
-    "@doneElevatedButton":{
+    "done": "Done",
+    "@done":{
         "description": "Label for the elevated button on the canvas"
     },
     "email": "Email",
@@ -375,7 +375,7 @@
         "description": "Label for the settings Icon"
     },
     "signHereText": "Sign Here",
-    "@signHere": {
+    "@signHereText": {
         "description": "Text for the canvas"
     },
     "stabilizer": "Stabilizer",

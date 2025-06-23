@@ -4,7 +4,6 @@ class CustomerApprovalViewModel {
   TextEditingController customerNameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   bool isChecked = false;
-  bool isCertified = false;
 
   void dispose() {
     customerNameController.dispose();
@@ -12,11 +11,7 @@ class CustomerApprovalViewModel {
   }
 
   void reset() {
-    customerNameController.clear;
+    customerNameController.clear();
     phoneNumberController.clear();
-  }
-
-  void toggleCertified(bool? value) {
-    isCertified = value ?? false;
   }
 }

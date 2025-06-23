@@ -24,6 +24,12 @@ class _CustomerApprovalState extends State<CustomerApproval> {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    viewModel.dispose();
+    super.dispose();
+  }
+
   void _onNextPressed() {
     bool isValid = _formKey.currentState?.validate() ?? false;
 
@@ -129,10 +135,8 @@ class _CustomerApprovalState extends State<CustomerApproval> {
                           width: double.infinity,
                           height: 100,
                           decoration: BoxDecoration(
-                            border: Border.all(
-                              color: AppStyle.canvasAndContainerColor,
-                            ),
-                            color: Colors.white,
+                            border: Border.all(),
+                            color: AppStyle.appBarNavBarCardAndCanvasColor,
                           ),
                           child: _signatureImage != null
                               ? RotatedBox(

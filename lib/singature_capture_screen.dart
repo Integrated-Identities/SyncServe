@@ -36,60 +36,67 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
       body: Row(
         children: [
           Container(
-            margin: EdgeInsets.fromLTRB(30, 35, 0, 35),
+            margin: EdgeInsets.fromLTRB(10, 10, 0, 10),
             color: AppStyle.appBarNavBarCardAndCanvasColor,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                RotatedBox(
-                  quarterTurns: 1,
-                  child: Padding(
-                    padding: AppStyle.customerApprovalDoneButtonPadding,
-                    child: ElevatedButton(
-                      style: AppStyle.primaryCanvasElevatedButtonStyle(),
-                      onPressed: () {
-                        _signatureController.clear();
-                      },
-                      child: Text(
-                        style: AppStyle.elevatedButtonText,
-                        AppLocalizations.of(context)!.clearElevatedButton,
+            child: Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  RotatedBox(
+                    quarterTurns: 1,
+                    child: Padding(
+                      padding: AppStyle.signatureCaptureClearButtonPadding,
+                      child: SizedBox(
+                        width: 100,
+                        child: ElevatedButton(
+                          style: AppStyle.primaryElevatedButtonStyle(),
+                          onPressed: () {
+                            _signatureController.clear();
+                          },
+                          child: Text(
+                            AppLocalizations.of(context)!.clear,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                RotatedBox(
-                  quarterTurns: 1,
-                  child: Text(
-                    style: AppStyle.headingText,
-                    AppLocalizations.of(context)!.signHereText,
+                  RotatedBox(
+                    quarterTurns: 1,
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      style: AppStyle.headingText,
+                      AppLocalizations.of(context)!.signHereText,
+                    ),
                   ),
-                ),
-                RotatedBox(
-                  quarterTurns: 1,
-                  child: Padding(
-                    padding: AppStyle.customerApprovalClearButtonPadding,
-                    child: ElevatedButton(
-                      style: AppStyle.primaryCanvasElevatedButtonStyle(),
-                      onPressed: () {
-                        _saveSignature();
-                      },
-                      child: Text(
-                        style: AppStyle.elevatedButtonText,
-                        AppLocalizations.of(context)!.doneElevatedButton,
+                  RotatedBox(
+                    quarterTurns: 1,
+                    child: Padding(
+                      padding: AppStyle.signatureCaptureDoneButtonPadding,
+                      child: SizedBox(
+                        width: 100,
+                        child: ElevatedButton(
+                          style: AppStyle.primaryElevatedButtonStyle(),
+                          onPressed: () {
+                            _saveSignature();
+                          },
+                          child: Text(
+                            AppLocalizations.of(context)!.done,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 35, 40, 35),
+              padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
               child: Signature(
                 controller: _signatureController,
-                backgroundColor: Colors.white,
+                backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
                 width: double.infinity,
               ),
             ),

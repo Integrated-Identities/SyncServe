@@ -28,7 +28,7 @@
     "@callBasis": {
         "description": "Label for the call-basis checkbox"
     },
-    "certificationCheckbox": "I Certify that system is working to our satisfaction",
+    "certificationCheckbox": "I certify that system is working to our satisfaction",
     "@certificationCheckbox":{
         "description": "Label for the certification checkbox"
     },
@@ -377,6 +377,10 @@
     "signHereText": "Sign Here",
     "@signHereText": {
         "description": "Text for the canvas"
+    },
+    "snackbarMessage": "Please accept the terms to continue",
+    "@snackbarMessage": {
+        "description": "A message shown inside the snackbar if the user doesn't ticks the checkbox"
     },
     "stabilizer": "Stabilizer",
     "@stabilizer": {

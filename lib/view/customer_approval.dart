@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
-import 'package:syncserve/singature_capture_screen.dart';
+import 'package:syncserve/view/singature_capture_screen.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view/login.dart';
@@ -32,6 +32,16 @@ class _CustomerApprovalState extends State<CustomerApproval> {
 
   void _onNextPressed() {
     bool isValid = _formKey.currentState?.validate() ?? false;
+
+    if (!viewModel.isCertified) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.snackbarMessage),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
 
     if (isValid) {
       Navigator.push(
@@ -161,21 +171,22 @@ class _CustomerApprovalState extends State<CustomerApproval> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
-              child: Row(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Checkbox(
-                    value: viewModel.isChecked,
-                    onChanged: (bool? newValue) {
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.zero,
+                    controlAffinity: ListTileControlAffinity.leading,
+                    value: viewModel.isCertified,
+                    onChanged: (value) {
                       setState(() {
-                        viewModel.isChecked = newValue!;
+                        viewModel.isCertified = value!;
                       });
                     },
-                  ),
-                  Flexible(
-                    child: Text(
+                    title: Text(
                       AppLocalizations.of(context)!.certificationCheckbox,
                       style: AppStyle.labelText,
-                      softWrap: true,
                     ),
                   ),
                 ],

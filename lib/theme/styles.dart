@@ -185,12 +185,4 @@ class AppStyle {
   // 'DONE' ELEVATED BUTTON PADDING
   static const EdgeInsets signatureCaptureDoneButtonPadding =
       EdgeInsets.fromLTRB(100, 0, 0, 0);
-
-  // ELEVATED BUTTON COLORS
-  static ButtonStyle primaryCanvasElevatedButtonStyle() {
-    return ElevatedButton.styleFrom(
-      backgroundColor: Color.fromARGB(255, 237, 125, 125),
-      textStyle: TextStyle(fontSize: 18, color: Colors.white),
-    );
-  }
 }

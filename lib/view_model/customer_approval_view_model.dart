@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomerApprovalViewModel {
   TextEditingController customerNameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
-  bool isChecked = false;
+  bool isCertified = false;
 
   void dispose() {
     customerNameController.dispose();

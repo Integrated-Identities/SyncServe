@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/model/customer_detail_model.dart';
-import 'package:syncserve/view/customer_detail.dart';
+import 'package:syncserve/providers/customer_providers.dart';
 
 class CustomerDetailsViewModel {
   final nameController = TextEditingController();
@@ -14,11 +14,12 @@ class CustomerDetailsViewModel {
   bool isEmailTouched = false;
 
   void save(WidgetRef ref) {
-    ref.read(customerProvider.notifier).state = Customer(
+    final customer = Customer(
       name: nameController.text.trim(),
       address: addressController.text.trim(),
       email: emailController.text.trim(),
     );
+    ref.read(customerProvider.notifier).state = customer;
   }
 
   void dispose() {

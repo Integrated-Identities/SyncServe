@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/view/readings_page.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/view_model/service_checklist_view_model.dart';
-import 'package:syncserve/providers/customer_providers.dart';
 
 class ServiceChecklist extends StatelessWidget {
   const ServiceChecklist({super.key});
@@ -15,15 +13,14 @@ class ServiceChecklist extends StatelessWidget {
   }
 }
 
-class ServiceChecklistView extends ConsumerStatefulWidget {
+class ServiceChecklistView extends StatefulWidget {
   const ServiceChecklistView({super.key});
 
   @override
-  ConsumerState<ServiceChecklistView> createState() =>
-      _ServiceChecklistViewState();
+  State<ServiceChecklistView> createState() => _ServiceChecklistViewState();
 }
 
-class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
+class _ServiceChecklistViewState extends State<ServiceChecklistView> {
   ServiceChecklistViewModel? viewModel;
 
   @override
@@ -31,10 +28,6 @@ class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
     super.initState();
     // Initialize after the widget is fully mounted
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final customer = ref.read(customerProvider);
-      print(
-        'Customer data: ${customer?.name}, ${customer?.email}, ${customer?.address}',
-      );
       setState(() {
         viewModel = ServiceChecklistViewModel(AppLocalizations.of(context)!);
       });
@@ -90,11 +83,6 @@ class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: () {
-                  final customer = ref.read(customerProvider);
-                  print('Customer on next:');
-                  print('Name: ${customer?.name}');
-                  print('Address: ${customer?.address}');
-                  print('Email: ${customer?.email}');
                   Navigator.push(
                     context,
                     MaterialPageRoute(

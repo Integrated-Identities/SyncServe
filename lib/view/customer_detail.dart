@@ -72,7 +72,6 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                         controller: viewModel.nameController,
                         label: AppLocalizations.of(context)!.customerName,
                         validator: (value) {
-                          if (!viewModel.isNameTouched) return null;
                           if (value == null || value.trim().isEmpty) {
                             return AppLocalizations.of(context)!
                                 .customerNameRequired;
@@ -82,24 +81,9 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                                 AppLocalizations.of(context)!
                                     .customerNameRequired,
                               )
-                              .min(
-                                3,
-                                AppLocalizations.of(context)!
-                                    .customerNameTooShort,
-                              )
                               .build(value);
                         },
                         isRequired: true,
-                        onChanged: (_) {
-                          if (!viewModel.isNameTouched) {
-                            setState(() {
-                              viewModel.isNameTouched = true;
-                            });
-                          }
-                        },
-                        autovalidateMode: viewModel.isNameTouched
-                            ? AutovalidateMode.always
-                            : AutovalidateMode.always,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerName,
                         ),
@@ -109,7 +93,6 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                         controller: viewModel.addressController,
                         label: AppLocalizations.of(context)!.customerAddress,
                         validator: (value) {
-                          if (!viewModel.isAddressTouched) return null;
                           if (value == null || value.trim().isEmpty) {
                             return AppLocalizations.of(context)!
                                 .customerAddressRequired;
@@ -119,25 +102,10 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                                 AppLocalizations.of(context)!
                                     .customerAddressRequired,
                               )
-                              .min(
-                                10,
-                                AppLocalizations.of(context)!
-                                    .customerAddressTooShort,
-                              )
                               .build(value);
                         },
                         maxLines: 2,
                         isRequired: true,
-                        onChanged: (_) {
-                          if (!viewModel.isAddressTouched) {
-                            setState(() {
-                              viewModel.isAddressTouched = true;
-                            });
-                          }
-                        },
-                        autovalidateMode: viewModel.isAddressTouched
-                            ? AutovalidateMode.onUserInteraction
-                            : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerAddress,
                         ),
@@ -148,7 +116,6 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                         label: AppLocalizations.of(context)!.customerEmail,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if (!viewModel.isEmailTouched) return null;
                           if (value == null || value.trim().isEmpty) {
                             return AppLocalizations.of(context)!
                                 .customerEmailRequired;
@@ -162,24 +129,9 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                                 AppLocalizations.of(context)!
                                     .customerEmailInvalid,
                               )
-                              .min(
-                                3,
-                                AppLocalizations.of(context)!
-                                    .customerEmailTooShort,
-                              )
                               .build(value);
                         },
                         isRequired: true,
-                        onChanged: (_) {
-                          if (!viewModel.isEmailTouched) {
-                            setState(() {
-                              viewModel.isEmailTouched = true;
-                            });
-                          }
-                        },
-                        autovalidateMode: viewModel.isEmailTouched
-                            ? AutovalidateMode.onUserInteraction
-                            : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerEmail,
                         ),

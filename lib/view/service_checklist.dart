@@ -44,7 +44,7 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppStyle.appBarNavBarandCardColor,
+        backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         centerTitle: true,
         title: Text(AppLocalizations.of(context)!.title),
       ),

@@ -42,6 +42,14 @@
     "@callBasis": {
         "description": "Label for the call-basis checkbox"
     },
+    "certificationCheckbox": "I certify that system is working to our satisfaction",
+    "@certificationCheckbox":{
+        "description": "Label for the certification checkbox"
+    },
+    "clear": "Clear",
+    "@clear": {
+        "description": "Label for the elevated button named as clear"
+    },
     "coolingFan": "Cooling fan works",
     "@coolingFan": {
         "description": "Checkbox Text when the cooling fan is working"
@@ -65,6 +73,10 @@
     "customerAddressTooShort": "Address too short",
     "@customerAddressTooShort": {
         "description": "Error message shown when the customer address is too short"
+    },
+        "customerApprovalPage": "Customer Approval Page",
+    "@customerApprovalPage": {
+        "description": "Title for the customer approval page"
     },
     "customerEmail": "Customer email",
     "@customerEmail": {
@@ -94,9 +106,13 @@
     "@customerNameTooShort": {
         "description": "Error message shown when the customer name is too short"
     },
-    "customerPhone": "Customer phone",
+    "customerPhone": "Customer Phone Number",
     "@customerPhone": {
         "description": "Label for the customer's phone field"
+    },
+    "customerPhoneRequired": "Phone Number is required",
+    "@customerPhoneRequired": {
+        "description": "Error message shown when the customer phone number is not given"
     },
     "dcv": "DCV",
     "@dcv": {
@@ -113,6 +129,10 @@
     "directCurrent": "Direct Current",
     "@directCurrent": {
         "description": "Section title for electrical_readings page 2"
+    },
+    "done": "Done",
+    "@done":{
+        "description": "Label for the elevated button on the canvas"
     },
     "electricalReadings": "Electrical Readings",
     "@electricalReadings":{
@@ -433,6 +453,14 @@
     "@settings": {
         "description": "Label for the settings Icon"
     },
+    "signHereText": "Sign Here",
+    "@signHereText": {
+        "description": "Text for the canvas"
+    },
+    "snackbarMessage": "Please accept the terms to continue",
+    "@snackbarMessage": {
+        "description": "A message shown inside the snackbar if the user doesn't ticks the checkbox"
+    },
     "stabilizer": "Stabilizer",
     "@stabilizer": {
         "description": "Label for the stabilizer checkbox"
@@ -452,6 +480,10 @@
     "systemType": "System Type",
     "@systemType": {
         "description": "Label for the system you're working on"
+    },
+    "tapToSign": "Tap to Sign",
+    "@tapToSign": {
+        "description": "Signature placeholder text"
     },
     "title": "Service Checklist",
     "@title": {

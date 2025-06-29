@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:syncserve/model/customer_detail_model.dart';
+import 'package:syncserve/model/customer.dart';
 import 'package:syncserve/providers/customer_providers.dart';
 
 class CustomerDetailsViewModel {
   final nameController = TextEditingController();
   final addressController = TextEditingController();
   final emailController = TextEditingController();
-  bool isFormValid = false;
-
-  bool isNameTouched = false;
-  bool isAddressTouched = false;
-  bool isEmailTouched = false;
 
   void save(WidgetRef ref) {
     final customer = Customer(

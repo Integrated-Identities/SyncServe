@@ -1,33 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:syncserve/providers/customer_providers.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:syncserve/view/service_form.dart';
+import 'package:syncserve/view_model/customer_details_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
 
-class CustomerDetail extends StatefulWidget {
+class CustomerDetail extends ConsumerStatefulWidget {
   const CustomerDetail({super.key});
 
   @override
-  State<CustomerDetail> createState() => _CustomerDetailState();
+  ConsumerState<CustomerDetail> createState() => _CustomerDetailState();
 }
 
-class _CustomerDetailState extends State<CustomerDetail> {
+class _CustomerDetailState extends ConsumerState<CustomerDetail> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
-  final _addressController = TextEditingController();
-  final _emailController = TextEditingController();
-  bool _isFormValid = false;
+  late final CustomerDetailsViewModel viewModel;
 
-  bool isNameTouched = false;
-  bool isAddressTouched = false;
-  bool isEmailTouched = false;
+  @override
+  void initState() {
+    super.initState();
+    viewModel = ref.read(customerDetailsViewModelProvider);
+    viewModel.load();
+  }
 
-  void _validateForm() {
-    final isValid = _formKey.currentState?.validate() ?? false;
-    setState(() {
-      _isFormValid = isValid;
-    });
+  @override
+  void dispose() {
+    final viewModel = ref.read(customerProvider);
+    viewModel?.dispose();
+    super.dispose();
+  }
+
+  void _onNextPressed() {
+    final viewModel = ref.read(customerProvider);
+    bool isValid = _formKey.currentState?.validate() ?? false;
+
+    if (isValid) {
+      viewModel?.save(ref);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ServiceForm(),
+        ),
+      );
+    }
   }
 
   @override
@@ -56,10 +74,9 @@ class _CustomerDetailState extends State<CustomerDetail> {
                     children: [
                       ValidatedTextField(
                         padding: EdgeInsets.zero,
-                        controller: _nameController,
+                        controller: viewModel.nameController,
                         label: AppLocalizations.of(context)!.customerName,
                         validator: (value) {
-                          if (!isNameTouched) return null;
                           if (value == null || value.trim().isEmpty) {
                             return AppLocalizations.of(context)!
                                 .customerNameRequired;
@@ -77,27 +94,15 @@ class _CustomerDetailState extends State<CustomerDetail> {
                               .build(value);
                         },
                         isRequired: true,
-                        onChanged: (_) {
-                          if (!isNameTouched) {
-                            setState(() {
-                              isNameTouched = true;
-                            });
-                          }
-                          _validateForm();
-                        },
-                        autovalidateMode: isNameTouched
-                            ? AutovalidateMode.always
-                            : AutovalidateMode.always,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerName,
                         ),
                       ),
                       ValidatedTextField(
                         padding: EdgeInsets.zero,
-                        controller: _addressController,
+                        controller: viewModel.addressController,
                         label: AppLocalizations.of(context)!.customerAddress,
                         validator: (value) {
-                          if (!isAddressTouched) return null;
                           if (value == null || value.trim().isEmpty) {
                             return AppLocalizations.of(context)!
                                 .customerAddressRequired;
@@ -116,28 +121,16 @@ class _CustomerDetailState extends State<CustomerDetail> {
                         },
                         maxLines: 2,
                         isRequired: true,
-                        onChanged: (_) {
-                          if (!isAddressTouched) {
-                            setState(() {
-                              isAddressTouched = true;
-                            });
-                          }
-                          _validateForm();
-                        },
-                        autovalidateMode: isAddressTouched
-                            ? AutovalidateMode.onUserInteraction
-                            : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerAddress,
                         ),
                       ),
                       ValidatedTextField(
                         padding: EdgeInsets.zero,
-                        controller: _emailController,
+                        controller: viewModel.emailController,
                         label: AppLocalizations.of(context)!.customerEmail,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if (!isEmailTouched) return null;
                           if (value == null || value.trim().isEmpty) {
                             return AppLocalizations.of(context)!
                                 .customerEmailRequired;
@@ -159,17 +152,6 @@ class _CustomerDetailState extends State<CustomerDetail> {
                               .build(value);
                         },
                         isRequired: true,
-                        onChanged: (_) {
-                          if (!isEmailTouched) {
-                            setState(() {
-                              isEmailTouched = true;
-                            });
-                          }
-                          _validateForm();
-                        },
-                        autovalidateMode: isEmailTouched
-                            ? AutovalidateMode.onUserInteraction
-                            : AutovalidateMode.disabled,
                         decoration: AppStyle.inputDecorationWithLabel(
                           AppLocalizations.of(context)!.customerEmail,
                         ),
@@ -188,18 +170,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
             Padding(
               padding: AppStyle.bottomAreaPadding,
               child: ElevatedButton(
-                onPressed: _isFormValid
-                    ? () {
-                        if (_formKey.currentState?.validate() ?? false) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ServiceForm(),
-                            ),
-                          );
-                        }
-                      }
-                    : null,
+                onPressed: _onNextPressed,
                 style: AppStyle.primaryElevatedButtonStyle(),
                 child: Text(AppLocalizations.of(context)!.next),
               ),

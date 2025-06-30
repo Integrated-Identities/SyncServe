@@ -11,6 +11,12 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
+*.g.dart
+
+# firebase
+google-services.json
+GoogleService-Info.plist
+firebase_options.dart
 
 # Environment files
 .env

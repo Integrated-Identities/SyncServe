@@ -117,17 +117,14 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!
-                                .customerEmailRequired;
+                            return AppLocalizations.of(context)!.emailRequired;
                           }
                           return Zod()
                               .required(
-                                AppLocalizations.of(context)!
-                                    .customerEmailRequired,
+                                AppLocalizations.of(context)!.emailRequired,
                               )
                               .email(
-                                AppLocalizations.of(context)!
-                                    .customerEmailInvalid,
+                                AppLocalizations.of(context)!.emailInvalid,
                               )
                               .build(value);
                         },

@@ -1,5 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 class Customer {
   Customer({
     required this.name,
@@ -11,8 +9,4 @@ class Customer {
   final String address;
   final String email;
   final String? phone;
-
-  void save(WidgetRef ref) {
-    print('Customer $name saved.');
-  }
 }

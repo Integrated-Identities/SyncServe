@@ -23,13 +23,11 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
   void initState() {
     super.initState();
     viewModel = ref.read(customerDetailsViewModelProvider);
-    viewModel.load();
   }
 
   @override
   void dispose() {
-    final viewModel = ref.read(customerProvider);
-    viewModel?.dispose();
+    viewModel.dispose();
     super.dispose();
   }
 
@@ -86,11 +84,6 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                                 AppLocalizations.of(context)!
                                     .customerNameRequired,
                               )
-                              .min(
-                                3,
-                                AppLocalizations.of(context)!
-                                    .customerNameTooShort,
-                              )
                               .build(value);
                         },
                         isRequired: true,
@@ -111,11 +104,6 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                               .required(
                                 AppLocalizations.of(context)!
                                     .customerAddressRequired,
-                              )
-                              .min(
-                                10,
-                                AppLocalizations.of(context)!
-                                    .customerAddressTooShort,
                               )
                               .build(value);
                         },
@@ -143,11 +131,6 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                               .email(
                                 AppLocalizations.of(context)!
                                     .customerEmailInvalid,
-                              )
-                              .min(
-                                3,
-                                AppLocalizations.of(context)!
-                                    .customerEmailTooShort,
                               )
                               .build(value);
                         },

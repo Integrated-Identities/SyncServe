@@ -17,7 +17,7 @@
    ```
 
 2. Configure Git hooks
-   ```bash
+   ```bash 
    dart tools/setup.dart
    ```
 

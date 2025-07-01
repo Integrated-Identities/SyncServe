@@ -46,7 +46,7 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
                   RotatedBox(
                     quarterTurns: 1,
                     child: Padding(
-                      padding: AppStyle.signatureCaptureClearButtonPadding,
+                      padding: EdgeInsets.fromLTRB(0, 0, 100, 0),
                       child: SizedBox(
                         width: 100,
                         child: ElevatedButton(
@@ -72,7 +72,7 @@ class _SingatureCaptureScreenState extends State<SingatureCaptureScreen> {
                   RotatedBox(
                     quarterTurns: 1,
                     child: Padding(
-                      padding: AppStyle.signatureCaptureDoneButtonPadding,
+                      padding: EdgeInsets.fromLTRB(100, 0, 0, 0),
                       child: SizedBox(
                         width: 100,
                         child: ElevatedButton(

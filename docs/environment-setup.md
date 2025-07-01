@@ -4,6 +4,7 @@ This document provides detailed instructions for setting up various environment 
 
 ## Table of Contents
 - [Gmail SMTP Configuration](#gmail-smtp-configuration)
+- [Firebase](#firebase)
 
 ## Gmail SMTP Configuration
 
@@ -41,3 +42,11 @@ SMTP_PASSWORD=your_16_character_app_password
 - Never commit your `.env` file to version control
 - Regularly rotate your App Password for security
 - Keep your App Password secure - anyone with this password can send emails through your account
+
+## Firebase
+
+- Get access to SyncServe project on firebase.
+- Navigate to Firebase console.
+- Click on Project overview settings button on the top right.
+- Scroll down to "Your apps" section and download the "google-services.json" file.
+- Copy the file in `android/app/src` folder.

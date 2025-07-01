@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view/readings_page.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/view_model/service_checklist_view_model.dart';
+import 'package:syncserve/theme/app_paddings.dart';
 
 class ServiceChecklist extends StatelessWidget {
   const ServiceChecklist({super.key});
@@ -79,7 +80,7 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
               ),
             ),
             Padding(
-              padding: AppStyle.bottomAreaPadding,
+              padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: () {

@@ -8,6 +8,7 @@ import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view_model/readings_page_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
+import 'package:syncserve/theme/app_paddings.dart';
 
 class ReadingsPage extends StatefulWidget {
   const ReadingsPage({super.key});
@@ -102,7 +103,7 @@ class _ReadingsPageState extends State<ReadingsPage> {
               ),
             ),
             Padding(
-              padding: AppStyle.bottomAreaPadding,
+              padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: _onNextPressed,
@@ -161,7 +162,8 @@ class _PowerConfigurationCard extends StatelessWidget {
                       isRequired: true,
                       decoration: AppStyle.inputDecorationWithLabel(
                         AppLocalizations.of(context)!.power,
-                        suffix: AppLocalizations.of(context)!.kva,
+                        suffix:
+                            AppLocalizations.of(context)!.kilovoltAmpereShort,
                       ),
                     ),
                   ),
@@ -192,7 +194,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                       isRequired: true,
                       decoration: AppStyle.inputDecorationWithLabel(
                         AppLocalizations.of(context)!.dcVoltage,
-                        suffix: AppLocalizations.of(context)!.dcv,
+                        suffix: AppLocalizations.of(context)!.dcVoltageShort,
                       ),
                     ),
                   ),
@@ -248,7 +250,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                       isRequired: true,
                       decoration: AppStyle.inputDecorationWithLabel(
                         AppLocalizations.of(context)!.energy,
-                        suffix: AppLocalizations.of(context)!.ah,
+                        suffix: AppLocalizations.of(context)!.ampereHourShort,
                       ),
                     ),
                   ),

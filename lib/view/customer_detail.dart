@@ -4,6 +4,7 @@ import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:syncserve/view/service_form.dart';
 import 'package:zod_validation/zod_validation.dart';
+import 'package:syncserve/theme/app_paddings.dart';
 
 class CustomerDetail extends StatefulWidget {
   const CustomerDetail({super.key});
@@ -186,7 +187,7 @@ class _CustomerDetailState extends State<CustomerDetail> {
               ),
             ),
             Padding(
-              padding: AppStyle.bottomAreaPadding,
+              padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 onPressed: _isFormValid
                     ? () {

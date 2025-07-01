@@ -7,6 +7,7 @@ import 'package:syncserve/view/login.dart';
 import 'package:zod_validation/zod_validation.dart';
 import 'dart:typed_data';
 import 'package:syncserve/view_model/customer_approval_view_model.dart';
+import 'package:syncserve/theme/app_paddings.dart';
 
 class CustomerApproval extends StatefulWidget {
   const CustomerApproval({super.key});
@@ -193,7 +194,7 @@ class _CustomerApprovalState extends State<CustomerApproval> {
               ),
             ),
             Padding(
-              padding: AppStyle.bottomAreaPadding,
+              padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: _onNextPressed,

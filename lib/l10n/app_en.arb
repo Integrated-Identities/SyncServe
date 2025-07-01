@@ -4,20 +4,22 @@
     "@a": {
         "description": "Unit for the electrical page textfield"
     },
-    "b": "B",
-    "@b": {
-        "description": "Unit for the elecatrical page textfield"
     "ah": "AH",
     "@ah": {
         "description": "Unit for Energy"
+    },
+    "b": "B",
+    "@b": {
+        "description": "Unit for the electrical page textfield"
     },
     "backUpTest": "Backup checked",
     "@backUpTest": {
         "description": "Checkbox Text when the backup is checked"
     },
-    "batteryAfterfourtyMins": "Battery after 40 minutes",
-    "@batteryAfterfourtyMins":{
-        "description": "Label for electrical_readings_page_2"
+    "batteryAfterFortyMins": "Battery after 40 minutes",
+    "@batteryAfterFortyMins":{
+        "description": "Label for battery after 40 mins reading"
+    },
     "batteryType": "Battery Type",
     "@batteryType": {
         "description": "Label for drop down on readings page"
@@ -140,7 +142,8 @@
     },
     "earth": "Earth",
     "@earth": {
-        "description": "Label for textfield of electrical_page_2"
+        "description": "Label for earth line"
+    },
     "email": "Email",
     "@email": {
         "description": "Label for the email field"
@@ -313,7 +316,7 @@
     },
     "inputPhase": "Input Phase",
     "@inputPhase": {
-        "description": "Label for segemented button in readings page"
+        "description": "Label for segmented button in readings page"
     },
     "installation": "Installation",
     "@installation": {
@@ -357,7 +360,8 @@
     },
     "neutral": "Neutral",
     "@neutral": {
-        "description": "Label for electraical_page_2"
+        "description": "Label for neutral line"
+    },
     "minusSign": "-",
     "@minusSign":{
         "description": "Minus sign text for quantity "
@@ -380,14 +384,15 @@
     },
     "outputCurrent": "Output Current",
     "@outputCurrent": {
-        "description": "Section Title for electrical readings page"
+        "description": "Label for output current"
     },
     "outputVoltage": "Output Voltage",
     "@outputVoltage": {
-        "description": "Section Title for electrical readings page"
+        "description": "Label for output voltage"
+    },
     "outputPhase": "Output Phase",
     "@outputPhase": {
-        "description": "Section Title for segmented button"
+        "description": "Section Title for output phase segmented button"
     },
     "panelReadingMatched": "Panel reading matched",
     "@panelReadingMatched": {
@@ -491,7 +496,7 @@
     },
     "threePhase": "3 Phase",
     "@threePhase": {
-        "description": "Label for the button in segemented button in readings page"
+        "description": "Label for the button in segmented button in readings page"
     },
     "ups": "UPS",
     "@ups": {
@@ -507,11 +512,11 @@
     },
     "uv": "UV",
     "@uv": {
-        "description": "Unit for the electrical page textfields"
+        "description": "Unit for the electrical page text fields"
     },
     "v": "V",
     "@v": {
-        "description": "Unit for the electrical page textfields"
+        "description": "Unit for the electrical page text fields"
     },
     "voltage": "Voltage",
     "@voltage": {
@@ -539,11 +544,12 @@
     },
    "y": "Y",
    "@y": {
-    "description": "Unit for the electrical page textfields"
+    "description": "Unit for the electrical page text fields"
    } ,
     "yb": "YB",
     "@yb": {
         "description": "Label for electrical page textfield"
+    },
     "withStabilizer": "With Stabilizer",
     "@withStabilizer": {
         "description": "Label for checkbox in readings page"

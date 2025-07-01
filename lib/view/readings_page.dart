@@ -8,6 +8,7 @@ import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view_model/readings_page_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
+import 'package:syncserve/theme/app_paddings.dart';
 
 class ReadingsPage extends StatefulWidget {
   const ReadingsPage({super.key});
@@ -102,7 +103,7 @@ class _ReadingsPageState extends State<ReadingsPage> {
               ),
             ),
             Padding(
-              padding: AppStyle.bottomAreaPadding,
+              padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: _onNextPressed,

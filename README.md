@@ -22,7 +22,7 @@
 
 3. Install dependencies
    ```bash
-   dart pub get
+   flutter pub get
    ```
 
 4. Configure Environment Variables

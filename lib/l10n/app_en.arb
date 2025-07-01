@@ -84,14 +84,6 @@
     "@customerEmail": {
         "description": "Label for the customer's email field"
     },
-    "customerEmailInvalid": "Customer email is invalid",
-    "@customerEmailInvalid": {
-        "description": "Error message shown when the customer email is invalid"
-    },
-    "customerEmailRequired": "Customer email is required",
-    "@customerEmailRequired": {
-        "description": "Error message shown when the customer email field is empty"
-    },
     "customerEmailTooShort": "Customer email must be at least 3 characters long",
     "@customerEmailTooShort": {
         "description": "Error message shown when the customer email is too short"
@@ -174,6 +166,10 @@
     "@emailCreatingMessage": {
         "description": "Log message shown when creating email message"
     },
+    "emailInvalid": "Email is invalid",
+    "@emailInvalid": {
+        "description": "Error message shown when the email is invalid"
+    },
     "emailOperationCancelled": "Operation cancelled",
     "@emailOperationCancelled": {
         "description": "Message shown when email operation is cancelled"
@@ -197,6 +193,10 @@
                 "example": "3"
             }
         }
+    },
+    "emailRequired": "Please enter your email",
+    "@emailRequired": {
+        "description": "Error message shown when the email field is empty"
     },
     "emailSending": "Sending email...",
     "@emailSending": {
@@ -310,6 +310,14 @@
     "@inAnnualMaintenanceContract": {
         "description": "Checkbox Text when the equipment is in annual maintenance contract"
     },
+    "incorrectPassword": "Password did not match",
+    "@incorrectPassword": {
+        "description": "Error message when password did not match"
+    },
+    "invalidCredentials": "Invalid credentials",
+    "@invalidCredentials": {
+        "description": "Error message when credentials do not match"
+    },
     "inFreeService": "Free service",
     "@inFreeService": {
         "description": "Label for the free service checkbox"
@@ -340,6 +348,10 @@
     },
     "logIn": "Log In",
     "@logIn": {
+        "description": "Label for the log in button"
+    },
+    "logInFailedMessage": "Log in failed. Please try again.",
+    "@logInFailedMessage": {
         "description": "Label for the log in button"
     },
     "logOut": "Log Out",
@@ -401,6 +413,26 @@
     "password": "Password",
     "@password": {
         "description": "Label for the password field"
+    },
+    "passwordRequired": "Please enter the password",
+    "@passwordRequired": {
+        "description": "Message to display when password field is empty"
+    },
+    "passwordResetEmailSent": "Password reset email has been sent",
+    "@passwordResetEmailSent": {
+        "description": "Message to display when password reset email has been sent"
+    },
+    "pleaseEnterEmail": "Please enter your email",
+    "@pleaseEnterEmail": {
+        "description": "Error message shown when email field is empty"
+    },
+    "pleaseEnterValidEmail": "Please enter a valid email",
+    "@pleaseEnterValidEmail": {
+        "description": "Error message shown when email format is invalid"
+    },
+    "pleaseEnterPassword": "Please enter your password",
+    "@pleaseEnterPassword": {
+        "description": "Error message shown when password field is empty"
     },
     "plusSign": "+",
     "@plusSign": {
@@ -494,6 +526,14 @@
     "@title": {
         "description": "Title of Service Checklist page"
     },
+    "unknownForgotPasswordError": "An error had occurred while resetting password. Please try again.",
+    "@unknownLoginError": {
+        "description": "Error message when resetting password fails for unknown reason"
+    },
+    "unknownLoginError": "An error had occurred while logging in. Please try again.",
+    "@unknownLoginError": {
+        "description": "Error message when login fails for unknown reason"
+    },
     "threePhase": "3 Phase",
     "@threePhase": {
         "description": "Label for the button in segmented button in readings page"
@@ -533,6 +573,13 @@
     "wPhaseShort": "W",
     "@wPhaseShort": {
         "description": "Unit for the electrical page textfield"
+    "userDisabled": "Your account has been disabled. Please contact admin.",
+    "@userDisabled": {
+        "description": "Error message when user account is disabled"
+    },
+    "userNotFound": "No user found with this email",
+    "@userNotFound": {
+        "description": "Error message when user was not found with entered email"
     },
     "welcome": "Welcome!",
     "@welcome": {

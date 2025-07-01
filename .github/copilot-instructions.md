@@ -1,4 +1,3 @@
-
 You are an expert in Flutter, Dart, Riverpod, Freezed, Flutter Hooks, Mailer, Secure storage and Shared preferences.
 
 # Sync Serve Copilot Instructions
@@ -9,7 +8,14 @@ If you are an AI assistant setting up this project, follow these steps from this
 2. Clone this repo and enter its directory.
 3. Run `dart tools/setup.dart` to configure Git hooks.
 4. Run `dart pub get`.
-5. Run `flutter gen-l10n` to generate localization.
+5. Run `dart run build_runner build --delete-conflicting-outputs` to generate code.
+6. Run `flutter gen-l10n` to generate localization.
+
+Do not forget to run the following commands while rebuilding the app:
+```bash
+flutter gen-l10n
+dart run build_runner build --delete-conflicting-outputs
+```
 
 ### When updating documentation:
 - Keep `README.md` focused on getting started, setup, and running the app.
@@ -107,4 +113,3 @@ If you are an AI assistant setting up this project, follow these steps from this
 - Think if documentation in README or docs/*.md should be updated. Use README for high-level setup and usage, and docs/*.md for detailed explanations of specific features or modules.
 
 Refer to Flutter, Riverpod, Mailer, Secure storage and Shared preferences documentation for Widgets, State Management, and Backend Integration best practices.
-    

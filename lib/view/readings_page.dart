@@ -162,7 +162,8 @@ class _PowerConfigurationCard extends StatelessWidget {
                       isRequired: true,
                       decoration: AppStyle.inputDecorationWithLabel(
                         AppLocalizations.of(context)!.power,
-                        suffix: AppLocalizations.of(context)!.kva,
+                        suffix:
+                            AppLocalizations.of(context)!.kilovoltAmpereShort,
                       ),
                     ),
                   ),
@@ -193,7 +194,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                       isRequired: true,
                       decoration: AppStyle.inputDecorationWithLabel(
                         AppLocalizations.of(context)!.dcVoltage,
-                        suffix: AppLocalizations.of(context)!.dcv,
+                        suffix: AppLocalizations.of(context)!.dcVoltageShort,
                       ),
                     ),
                   ),
@@ -249,7 +250,7 @@ class _PowerConfigurationCard extends StatelessWidget {
                       isRequired: true,
                       decoration: AppStyle.inputDecorationWithLabel(
                         AppLocalizations.of(context)!.energy,
-                        suffix: AppLocalizations.of(context)!.ah,
+                        suffix: AppLocalizations.of(context)!.ampereHourShort,
                       ),
                     ),
                   ),

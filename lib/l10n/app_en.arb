@@ -1,15 +1,15 @@
 {
     "@@locale": "en",
-    "a": "A",
-    "@a": {
+    "amperageShort": "A",
+    "@amperageShort": {
         "description": "Unit for the electrical page textfield"
     },
-    "ah": "AH",
-    "@ah": {
+    "ampereHourShort": "AH",
+    "@ampereHourShort": {
         "description": "Unit for Energy"
     },
-    "b": "B",
-    "@b": {
+    "bPhaseShort": "B",
+    "@bPhaseShort": {
         "description": "Unit for the electrical page textfield"
     },
     "backUpTest": "Backup checked",
@@ -36,8 +36,8 @@
     "@blowerChanged": {
         "description": "Checkbox Text when the blower is changed"
     },
-    "br": "BR",
-    "@br": {
+    "blueRedShort": "BR",
+    "@blueRedShort": {
         "description": "Label for electrical page textfield"
     },
     "callBasis": "Call-basis",
@@ -116,8 +116,8 @@
     "@customerPhoneRequired": {
         "description": "Error message shown when the customer phone number is not given"
     },
-    "dcv": "DCV",
-    "@dcv": {
+    "dcVoltageShort": "DCV",
+    "@dcVoltageShort": {
         "description": "Unit for DC Voltage textfield"
     },
     "dcVoltage": "DC Voltage",
@@ -290,8 +290,8 @@
     "@home": {
         "description": "Label for the home Icon"
     },
-    "hz": "Hz",
-    "@hz": {
+    "hertzShort": "Hz",
+    "@hertzShort": {
         "description": "Label for textfield in electrical_page_2"
     },
     "input": "Input",
@@ -334,8 +334,8 @@
     "@inWarranty": {
         "description": "Checkbox Text when the equipment is in warranty"
     },
-    "kva": "KVA",
-    "@kva": {
+    "kilovoltAmpereShort": "KVA",
+    "@kilovoltAmpereShort": {
         "description": "Unit for power textfield"
     },
     "logIn": "Log In",
@@ -446,12 +446,12 @@
     "@serviceForm": {
         "description": "Title for the service form page"
     },
-    "r": "R",
-    "@r": {
+    "rPhaseShort": "R",
+    "@rPhaseShort": {
         "description": "Unit for the electrical page textfield"
     },
-    "ry": "RY",
-    "@ry": {
+    "redYellowShort": "RY",
+    "@redYellowShort": {
         "description": "Label for textfield"
     },
     "settings": "Settings",
@@ -506,16 +506,16 @@
     "@upsConnectionTight": {
         "description": "Checkbox Text when the UPS connection is tightened"
     },
-    "u": "U",
-    "@u": {
+    "uPhaseShort": "U",
+    "@uPhaseShort": {
         "description": "Unit for the electrical page textfield"
     },
-    "uv": "UV",
-    "@uv": {
+    "uvPhaseShort": "UV",
+    "@uvPhaseShort": {
         "description": "Unit for the electrical page text fields"
     },
-    "v": "V",
-    "@v": {
+    "voltShort": "V",
+    "@voltShort": {
         "description": "Unit for the electrical page text fields"
     },
     "voltage": "Voltage",
@@ -526,28 +526,28 @@
     "@voltageRequired": {
         "description": "Error message for voltage textfield"
     },
-    "vw": "VW",
-    "@vw": {
+    "vwPhaseShort": "VW",
+    "@vwPhaseShort": {
         "description": "Unit for the electrical page textfield"
     },
-    "w": "W",
-    "@w": {
+    "wPhaseShort": "W",
+    "@wPhaseShort": {
         "description": "Unit for the electrical page textfield"
     },
     "welcome": "Welcome!",
     "@welcome": {
         "description": "Welcome message for the user"
     },
-    "wu": "WU",
-    "@wu": {
+    "wuPhaseShort": "WU",
+    "@wuPhaseShort": {
         "description": "Unit for the electrical page textfield"
     },
-   "y": "Y",
-   "@y": {
+   "yPhaseShort": "Y",
+   "@yPhaseShort": {
     "description": "Unit for the electrical page text fields"
    } ,
-    "yb": "YB",
-    "@yb": {
+    "yellowBlueShort": "YB",
+    "@yellowBlueShort": {
         "description": "Label for electrical page textfield"
     },
     "withStabilizer": "With Stabilizer",

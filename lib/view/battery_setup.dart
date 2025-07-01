@@ -111,8 +111,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.voltage,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -148,8 +148,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.current,
-                                          suffix:
-                                              AppLocalizations.of(context)!.a,
+                                          suffix: AppLocalizations.of(context)!
+                                              .amperageShort,
                                         ),
                                       ),
                                     ),
@@ -201,8 +201,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.voltage,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -238,8 +238,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.current,
-                                          suffix:
-                                              AppLocalizations.of(context)!.a,
+                                          suffix: AppLocalizations.of(context)!
+                                              .amperageShort,
                                         ),
                                       ),
                                     ),
@@ -302,8 +302,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.neutral,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -339,8 +339,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.earth,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -384,7 +384,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                   autovalidateMode: AutovalidateMode.disabled,
                                   decoration: AppStyle.inputDecorationWithLabel(
                                     AppLocalizations.of(context)!.input,
-                                    suffix: AppLocalizations.of(context)!.hz,
+                                    suffix: AppLocalizations.of(context)!
+                                        .hertzShort,
                                   ),
                                 ),
                               ],
@@ -443,8 +444,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.neutral,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -480,8 +481,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
                                           AppLocalizations.of(context)!.earth,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -524,7 +525,8 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
                                   autovalidateMode: AutovalidateMode.disabled,
                                   decoration: AppStyle.inputDecorationWithLabel(
                                     AppLocalizations.of(context)!.output,
-                                    suffix: AppLocalizations.of(context)!.hz,
+                                    suffix: AppLocalizations.of(context)!
+                                        .hertzShort,
                                   ),
                                 ),
                               ],

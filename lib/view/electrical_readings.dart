@@ -88,7 +88,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                     Expanded(
                                       child: ValidatedTextField(
                                         controller: viewModel.ryController,
-                                        label: AppLocalizations.of(context)!.ry,
+                                        label: AppLocalizations.of(context)!
+                                            .redYellowShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -114,16 +115,18 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.ry,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          AppLocalizations.of(context)!
+                                              .redYellowShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
                                     Expanded(
                                       child: ValidatedTextField(
                                         controller: viewModel.ybController,
-                                        label: AppLocalizations.of(context)!.yb,
+                                        label: AppLocalizations.of(context)!
+                                            .yellowBlueShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -149,9 +152,10 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.yb,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          AppLocalizations.of(context)!
+                                              .yellowBlueShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -159,7 +163,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                 ),
                                 ValidatedTextField(
                                   controller: viewModel.brController,
-                                  label: AppLocalizations.of(context)!.br,
+                                  label: AppLocalizations.of(context)!
+                                      .blueRedShort,
                                   keyboardType:
                                       const TextInputType.numberWithOptions(
                                     decimal: true,
@@ -184,8 +189,9 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                   isRequired: true,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   decoration: AppStyle.inputDecorationWithLabel(
-                                    AppLocalizations.of(context)!.br,
-                                    suffix: AppLocalizations.of(context)!.v,
+                                    AppLocalizations.of(context)!.blueRedShort,
+                                    suffix:
+                                        AppLocalizations.of(context)!.voltShort,
                                   ),
                                 ),
                                 // SECTION TITLE- 2 OF CARD 1
@@ -205,7 +211,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                       child: ValidatedTextField(
                                         controller:
                                             viewModel.rCurrentController,
-                                        label: AppLocalizations.of(context)!.r,
+                                        label: AppLocalizations.of(context)!
+                                            .rPhaseShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -231,9 +238,10 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.r,
-                                          suffix:
-                                              AppLocalizations.of(context)!.a,
+                                          AppLocalizations.of(context)!
+                                              .rPhaseShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .amperageShort,
                                         ),
                                       ),
                                     ),
@@ -241,7 +249,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                       child: ValidatedTextField(
                                         controller:
                                             viewModel.yCurrentController,
-                                        label: AppLocalizations.of(context)!.y,
+                                        label: AppLocalizations.of(context)!
+                                            .yPhaseShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -267,9 +276,10 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.y,
-                                          suffix:
-                                              AppLocalizations.of(context)!.a,
+                                          AppLocalizations.of(context)!
+                                              .yPhaseShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .amperageShort,
                                         ),
                                       ),
                                     ),
@@ -277,7 +287,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                 ),
                                 ValidatedTextField(
                                   controller: viewModel.bCurrentController,
-                                  label: AppLocalizations.of(context)!.b,
+                                  label:
+                                      AppLocalizations.of(context)!.bPhaseShort,
                                   keyboardType:
                                       const TextInputType.numberWithOptions(
                                     decimal: true,
@@ -302,8 +313,9 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                   isRequired: true,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   decoration: AppStyle.inputDecorationWithLabel(
-                                    AppLocalizations.of(context)!.b,
-                                    suffix: AppLocalizations.of(context)!.a,
+                                    AppLocalizations.of(context)!.bPhaseShort,
+                                    suffix: AppLocalizations.of(context)!
+                                        .amperageShort,
                                   ),
                                 ),
                               ],
@@ -334,7 +346,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                     Expanded(
                                       child: ValidatedTextField(
                                         controller: viewModel.uvController,
-                                        label: AppLocalizations.of(context)!.uv,
+                                        label: AppLocalizations.of(context)!
+                                            .uvPhaseShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -360,16 +373,18 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.uv,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          AppLocalizations.of(context)!
+                                              .uvPhaseShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
                                     Expanded(
                                       child: ValidatedTextField(
                                         controller: viewModel.vwController,
-                                        label: AppLocalizations.of(context)!.vw,
+                                        label: AppLocalizations.of(context)!
+                                            .vwPhaseShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -395,9 +410,10 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.vw,
-                                          suffix:
-                                              AppLocalizations.of(context)!.v,
+                                          AppLocalizations.of(context)!
+                                              .vwPhaseShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .voltShort,
                                         ),
                                       ),
                                     ),
@@ -405,7 +421,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                 ),
                                 ValidatedTextField(
                                   controller: viewModel.wuController,
-                                  label: AppLocalizations.of(context)!.wu,
+                                  label: AppLocalizations.of(context)!
+                                      .wuPhaseShort,
                                   keyboardType:
                                       const TextInputType.numberWithOptions(
                                     decimal: true,
@@ -430,8 +447,9 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                   isRequired: true,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   decoration: AppStyle.inputDecorationWithLabel(
-                                    AppLocalizations.of(context)!.wu,
-                                    suffix: AppLocalizations.of(context)!.v,
+                                    AppLocalizations.of(context)!.wuPhaseShort,
+                                    suffix:
+                                        AppLocalizations.of(context)!.voltShort,
                                   ),
                                 ),
                                 // TITLE-2 OF CARD-2
@@ -451,7 +469,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                       child: ValidatedTextField(
                                         controller:
                                             viewModel.uCurrentController,
-                                        label: AppLocalizations.of(context)!.u,
+                                        label: AppLocalizations.of(context)!
+                                            .uPhaseShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -477,9 +496,10 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.u,
-                                          suffix:
-                                              AppLocalizations.of(context)!.a,
+                                          AppLocalizations.of(context)!
+                                              .uPhaseShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .amperageShort,
                                         ),
                                       ),
                                     ),
@@ -487,7 +507,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                       child: ValidatedTextField(
                                         controller:
                                             viewModel.vCurrentController,
-                                        label: AppLocalizations.of(context)!.v,
+                                        label: AppLocalizations.of(context)!
+                                            .voltShort,
                                         keyboardType: const TextInputType
                                             .numberWithOptions(decimal: true),
                                         validator: (value) {
@@ -513,9 +534,10 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                             AutovalidateMode.disabled,
                                         decoration:
                                             AppStyle.inputDecorationWithLabel(
-                                          AppLocalizations.of(context)!.v,
-                                          suffix:
-                                              AppLocalizations.of(context)!.a,
+                                          AppLocalizations.of(context)!
+                                              .voltShort,
+                                          suffix: AppLocalizations.of(context)!
+                                              .amperageShort,
                                         ),
                                       ),
                                     ),
@@ -523,7 +545,8 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                 ),
                                 ValidatedTextField(
                                   controller: viewModel.wCurrentController,
-                                  label: AppLocalizations.of(context)!.w,
+                                  label:
+                                      AppLocalizations.of(context)!.wPhaseShort,
                                   keyboardType:
                                       const TextInputType.numberWithOptions(
                                     decimal: true,
@@ -548,8 +571,9 @@ class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
                                   isRequired: true,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   decoration: AppStyle.inputDecorationWithLabel(
-                                    AppLocalizations.of(context)!.w,
-                                    suffix: AppLocalizations.of(context)!.a,
+                                    AppLocalizations.of(context)!.wPhaseShort,
+                                    suffix: AppLocalizations.of(context)!
+                                        .amperageShort,
                                   ),
                                 ),
                               ],

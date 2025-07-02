@@ -1,3 +1,6 @@
+import 'package:syncserve/enums/service_form.dart';
+import 'package:syncserve/utils/flags.dart';
+
 class ServiceFormModel {
   ServiceFormModel({
     required this.reasons,
@@ -6,8 +9,8 @@ class ServiceFormModel {
     required this.manufacturerName,
   });
 
-  final String reasons;
-  final String categories;
-  final String systems;
+  final EnumFlags<ServiceReasons> reasons;
+  final EnumFlags<ServiceCategory> categories;
+  final EnumFlags<ServiceSystemType> systems;
   final String manufacturerName;
 }

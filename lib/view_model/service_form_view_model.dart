@@ -7,18 +7,9 @@ import 'package:syncserve/utils/flags.dart';
 class ServiceFormViewModel {
   void save(WidgetRef ref) {
     final model = ServiceFormModel(
-      reasons: reasons
-          .getActive(ServiceReasons.values)
-          .map((e) => e.name)
-          .join(', '),
-      categories: category
-          .getActive(ServiceCategory.values)
-          .map((e) => e.name)
-          .join(', '),
-      systems: systemType
-          .getActive(ServiceSystemType.values)
-          .map((e) => e.name)
-          .join(', '),
+      reasons: reasons,
+      categories: category,
+      systems: systemType,
       manufacturerName: manufacturerName!.trim(),
     );
     ref.read(serviceFormProvider.notifier).state = model;

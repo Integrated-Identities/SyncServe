@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/enums/service_form.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/labeled_checkbox.dart';
@@ -8,17 +9,16 @@ import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/view_model/service_form_view_model.dart';
 import 'package:syncserve/theme/app_paddings.dart';
 
-class ServiceForm extends StatefulWidget {
+class ServiceForm extends ConsumerStatefulWidget {
   const ServiceForm({super.key});
 
   @override
-  State<ServiceForm> createState() => _ServiceFormState();
+  ConsumerState<ServiceForm> createState() => _ServiceFormState();
 }
 
-class _ServiceFormState extends State<ServiceForm> {
+class _ServiceFormState extends ConsumerState<ServiceForm> {
   final _formKey = GlobalKey<FormState>();
   ServiceFormViewModel viewModel = ServiceFormViewModel();
-  final TextEditingController controller = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -32,8 +32,21 @@ class _ServiceFormState extends State<ServiceForm> {
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
+  }
+
+  void _onNextPressed() {
+    bool isValid = _formKey.currentState?.validate() ?? false;
+
+    if (isValid) {
+      viewModel.save(ref);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ServiceChecklist(),
+        ),
+      );
+    }
   }
 
   @override
@@ -340,24 +353,11 @@ class _ServiceFormState extends State<ServiceForm> {
                                     AppLocalizations.of(context)!
                                         .manufacturerNameRequired,
                                   )
-                                  .min(
-                                    3,
-                                    AppLocalizations.of(context)!
-                                        .manufacturerNameTooShort,
-                                  )
                                   .build(value);
                             },
-                            controller: controller,
                             decoration: AppStyle.inputDecorationWithLabel(
                               AppLocalizations.of(context)!.manufacturerName,
                             ),
-                            autovalidateMode: AutovalidateMode.onUnfocus,
-                            onChanged: (value) {
-                              setState(() {
-                                viewModel.manufacturerName = value;
-                                _formKey.currentState?.validate();
-                              });
-                            },
                           ),
                         ),
                       ],
@@ -370,18 +370,7 @@ class _ServiceFormState extends State<ServiceForm> {
               padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
-                onPressed: viewModel.isValid
-                    ? () {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ServiceChecklist(),
-                            ),
-                          );
-                        }
-                      }
-                    : null,
+                onPressed: _onNextPressed,
                 child: Text(AppLocalizations.of(context)!.next),
               ),
             ),

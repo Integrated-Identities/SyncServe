@@ -573,6 +573,7 @@
     "wPhaseShort": "W",
     "@wPhaseShort": {
         "description": "Unit for the electrical page textfield"
+    },
     "userDisabled": "Your account has been disabled. Please contact admin.",
     "@userDisabled": {
         "description": "Error message when user account is disabled"
@@ -601,4 +602,4 @@
     "@withStabilizer": {
         "description": "Label for checkbox in readings page"
     }
-}
+    }

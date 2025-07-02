@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/enums/service_form.dart';
-import 'package:syncserve/providers/service_form_providers.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/labeled_checkbox.dart';
 import 'package:syncserve/view/service_checklist.dart';
 import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/view_model/service_form_view_model.dart';
-import 'package:syncserve/helpers/service_form_helper.dart';
 import 'package:syncserve/theme/app_paddings.dart';
 
 class ServiceForm extends ConsumerStatefulWidget {
@@ -21,7 +19,6 @@ class ServiceForm extends ConsumerStatefulWidget {
 class _ServiceFormState extends ConsumerState<ServiceForm> {
   final _formKey = GlobalKey<FormState>();
   ServiceFormViewModel viewModel = ServiceFormViewModel();
-  final TextEditingController controller = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -35,7 +32,6 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 
@@ -43,6 +39,7 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
     bool isValid = _formKey.currentState?.validate() ?? false;
 
     if (isValid) {
+      viewModel.save(ref);
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -54,10 +51,6 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
 
   @override
   Widget build(BuildContext context) {
-    final selectedReasons = ref.watch(visitReasonProvider);
-    final selectedCategories = ref.watch(serviceCategoryProvider);
-    final selectedSystems = ref.watch(systemTypeProvider);
-    final manufacturerName = ref.watch(manufacturerNameProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
@@ -94,16 +87,19 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .installation,
-                                      value: selectedReasons.contains(
+                                      value: viewModel.reasons.contains(
                                         ServiceReasons.installation,
                                       ),
                                       onChanged: (value) {
-                                        toggleItem<ServiceReasons>(
-                                          ref,
-                                          visitReasonProvider,
-                                          ServiceReasons.installation,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.reasons.add(
+                                                  ServiceReasons.installation,
+                                                )
+                                              : viewModel.reasons.remove(
+                                                  ServiceReasons.installation,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -111,16 +107,18 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .callBasis,
-                                      value: selectedReasons.contains(
-                                        ServiceReasons.callBasis,
-                                      ),
+                                      value: viewModel.reasons
+                                          .contains(ServiceReasons.callBasis),
                                       onChanged: (value) {
-                                        toggleItem<ServiceReasons>(
-                                          ref,
-                                          visitReasonProvider,
-                                          ServiceReasons.callBasis,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.reasons.add(
+                                                  ServiceReasons.callBasis,
+                                                )
+                                              : viewModel.reasons.remove(
+                                                  ServiceReasons.callBasis,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -129,16 +127,21 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                               LabeledCheckbox(
                                 label: AppLocalizations.of(context)!
                                     .preventiveMaintenance,
-                                value: selectedReasons.contains(
+                                value: viewModel.reasons.contains(
                                   ServiceReasons.preventiveMaintenance,
                                 ),
                                 onChanged: (value) {
-                                  toggleItem<ServiceReasons>(
-                                    ref,
-                                    visitReasonProvider,
-                                    ServiceReasons.preventiveMaintenance,
-                                    value,
-                                  );
+                                  setState(() {
+                                    value
+                                        ? viewModel.reasons.add(
+                                            ServiceReasons
+                                                .preventiveMaintenance,
+                                          )
+                                        : viewModel.reasons.remove(
+                                            ServiceReasons
+                                                .preventiveMaintenance,
+                                          );
+                                  });
                                 },
                               ),
                             ],
@@ -168,16 +171,19 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .inWarranty,
-                                      value: selectedCategories.contains(
+                                      value: viewModel.category.contains(
                                         ServiceCategory.inWarranty,
                                       ),
                                       onChanged: (value) {
-                                        toggleItem<ServiceCategory>(
-                                          ref,
-                                          serviceCategoryProvider,
-                                          ServiceCategory.inWarranty,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.category.add(
+                                                  ServiceCategory.inWarranty,
+                                                )
+                                              : viewModel.category.remove(
+                                                  ServiceCategory.inWarranty,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -185,16 +191,19 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .inFreeService,
-                                      value: selectedCategories.contains(
+                                      value: viewModel.category.contains(
                                         ServiceCategory.inFreeService,
                                       ),
                                       onChanged: (value) {
-                                        toggleItem<ServiceCategory>(
-                                          ref,
-                                          serviceCategoryProvider,
-                                          ServiceCategory.inFreeService,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.category.add(
+                                                  ServiceCategory.inFreeService,
+                                                )
+                                              : viewModel.category.remove(
+                                                  ServiceCategory.inFreeService,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -203,16 +212,21 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                               LabeledCheckbox(
                                 label: AppLocalizations.of(context)!
                                     .inAnnualMaintenanceContract,
-                                value: selectedCategories.contains(
+                                value: viewModel.category.contains(
                                   ServiceCategory.inAnnualMaintenanceContract,
                                 ),
                                 onChanged: (value) {
-                                  toggleItem<ServiceCategory>(
-                                    ref,
-                                    serviceCategoryProvider,
-                                    ServiceCategory.inAnnualMaintenanceContract,
-                                    value,
-                                  );
+                                  setState(() {
+                                    value
+                                        ? viewModel.category.add(
+                                            ServiceCategory
+                                                .inAnnualMaintenanceContract,
+                                          )
+                                        : viewModel.category.remove(
+                                            ServiceCategory
+                                                .inAnnualMaintenanceContract,
+                                          );
+                                  });
                                 },
                               ),
                             ],
@@ -241,16 +255,19 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                   Expanded(
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!.ups,
-                                      value: selectedSystems.contains(
+                                      value: viewModel.systemType.contains(
                                         ServiceSystemType.ups,
                                       ),
                                       onChanged: (value) {
-                                        toggleItem<ServiceSystemType>(
-                                          ref,
-                                          systemTypeProvider,
-                                          ServiceSystemType.ups,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.systemType.add(
+                                                  ServiceSystemType.ups,
+                                                )
+                                              : viewModel.systemType.remove(
+                                                  ServiceSystemType.ups,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -258,16 +275,19 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .generator,
-                                      value: selectedSystems.contains(
+                                      value: viewModel.systemType.contains(
                                         ServiceSystemType.generator,
                                       ),
                                       onChanged: (value) {
-                                        toggleItem<ServiceSystemType>(
-                                          ref,
-                                          systemTypeProvider,
-                                          ServiceSystemType.generator,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.systemType.add(
+                                                  ServiceSystemType.generator,
+                                                )
+                                              : viewModel.systemType.remove(
+                                                  ServiceSystemType.generator,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -279,16 +299,19 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .stabilizer,
-                                      value: selectedSystems.contains(
+                                      value: viewModel.systemType.contains(
                                         ServiceSystemType.stabilizer,
                                       ),
                                       onChanged: (value) {
-                                        toggleItem<ServiceSystemType>(
-                                          ref,
-                                          systemTypeProvider,
-                                          ServiceSystemType.stabilizer,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.systemType.add(
+                                                  ServiceSystemType.stabilizer,
+                                                )
+                                              : viewModel.systemType.remove(
+                                                  ServiceSystemType.stabilizer,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -296,16 +319,19 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                                     child: LabeledCheckbox(
                                       label: AppLocalizations.of(context)!
                                           .inverter,
-                                      value: selectedSystems.contains(
+                                      value: viewModel.systemType.contains(
                                         ServiceSystemType.inverter,
                                       ),
                                       onChanged: (value) {
-                                        toggleItem<ServiceSystemType>(
-                                          ref,
-                                          systemTypeProvider,
-                                          ServiceSystemType.inverter,
-                                          value,
-                                        );
+                                        setState(() {
+                                          value
+                                              ? viewModel.systemType.add(
+                                                  ServiceSystemType.inverter,
+                                                )
+                                              : viewModel.systemType.remove(
+                                                  ServiceSystemType.inverter,
+                                                );
+                                        });
                                       },
                                     ),
                                   ),
@@ -317,7 +343,6 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
                           child: TextFormField(
-                            initialValue: manufacturerName,
                             validator: (value) {
                               if (value == null || value.trim().isEmpty) {
                                 return AppLocalizations.of(context)!
@@ -333,11 +358,6 @@ class _ServiceFormState extends ConsumerState<ServiceForm> {
                             decoration: AppStyle.inputDecorationWithLabel(
                               AppLocalizations.of(context)!.manufacturerName,
                             ),
-                            onChanged: (value) {
-                              ref
-                                  .read(manufacturerNameProvider.notifier)
-                                  .state = value;
-                            },
                           ),
                         ),
                       ],

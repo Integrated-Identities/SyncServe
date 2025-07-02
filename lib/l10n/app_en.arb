@@ -362,7 +362,7 @@
     "@manufacturerName": {
         "description": "Label for the manufacturer's Textfield"
     },
-    "manufacturerNameRequired": "Enter manufacturer name",
+    "manufacturerNameRequired": "Enter manufacturer",
     "@manufacturerNameRequired": {
         "description": "Error message shown when manufacturer name is empty"
     },

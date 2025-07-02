@@ -1,12 +1,24 @@
 {
     "@@locale": "en",
-    "ah": "AH",
-    "@ah": {
+    "amperageShort": "A",
+    "@amperageShort": {
+        "description": "Unit for the electrical page textfield"
+    },
+    "ampereHourShort": "AH",
+    "@ampereHourShort": {
         "description": "Unit for Energy"
+    },
+    "bPhaseShort": "B",
+    "@bPhaseShort": {
+        "description": "Unit for the electrical page textfield"
     },
     "backUpTest": "Backup checked",
     "@backUpTest": {
         "description": "Checkbox Text when the backup is checked"
+    },
+    "batteryAfterFortyMins": "Battery after 40 minutes",
+    "@batteryAfterFortyMins":{
+        "description": "Label for battery after 40 mins reading"
     },
     "batteryType": "Battery Type",
     "@batteryType": {
@@ -24,6 +36,10 @@
     "@blowerChanged": {
         "description": "Checkbox Text when the blower is changed"
     },
+    "blueRedShort": "BR",
+    "@blueRedShort": {
+        "description": "Label for electrical page textfield"
+    },
     "callBasis": "Call-basis",
     "@callBasis": {
         "description": "Label for the call-basis checkbox"
@@ -39,6 +55,14 @@
     "coolingFan": "Cooling fan works",
     "@coolingFan": {
         "description": "Checkbox Text when the cooling fan is working"
+    },
+    "current": "Current",
+    "@current": {
+        "description": "Label for electrical_readings_page_2"
+    },
+    "currentRequired": "Current Required",
+    "@currentRequired": {
+        "description": "Error message for the electrical readings textfield"
     },
     "customerAddress": "Customer address",
     "@customerAddress": {
@@ -59,14 +83,6 @@
     "customerEmail": "Customer email",
     "@customerEmail": {
         "description": "Label for the customer's email field"
-    },
-    "customerEmailInvalid": "Customer email is invalid",
-    "@customerEmailInvalid": {
-        "description": "Error message shown when the customer email is invalid"
-    },
-    "customerEmailRequired": "Customer email is required",
-    "@customerEmailRequired": {
-        "description": "Error message shown when the customer email field is empty"
     },
     "customerEmailTooShort": "Customer email must be at least 3 characters long",
     "@customerEmailTooShort": {
@@ -92,8 +108,8 @@
     "@customerPhoneRequired": {
         "description": "Error message shown when the customer phone number is not given"
     },
-    "dcv": "DCV",
-    "@dcv": {
+    "dcVoltageShort": "DCV",
+    "@dcVoltageShort": {
         "description": "Unit for DC Voltage textfield"
     },
     "dcVoltage": "DC Voltage",
@@ -104,9 +120,21 @@
     "@dcVoltageRequired": {
         "description": "Error message shown when DC voltage value is empty"
     },
+    "directCurrent": "Direct Current",
+    "@directCurrent": {
+        "description": "Section title for electrical_readings page 2"
+    },
     "done": "Done",
     "@done":{
         "description": "Label for the elevated button on the canvas"
+    },
+    "electricalReadings": "Electrical Readings",
+    "@electricalReadings":{
+        "description": "Title for the electrical readings page"
+    },
+    "earth": "Earth",
+    "@earth": {
+        "description": "Label for earth line"
     },
     "email": "Email",
     "@email": {
@@ -138,6 +166,10 @@
     "@emailCreatingMessage": {
         "description": "Log message shown when creating email message"
     },
+    "emailInvalid": "Email is invalid",
+    "@emailInvalid": {
+        "description": "Error message shown when the email is invalid"
+    },
     "emailOperationCancelled": "Operation cancelled",
     "@emailOperationCancelled": {
         "description": "Message shown when email operation is cancelled"
@@ -161,6 +193,10 @@
                 "example": "3"
             }
         }
+    },
+    "emailRequired": "Please enter your email",
+    "@emailRequired": {
+        "description": "Error message shown when the email field is empty"
     },
     "emailSending": "Sending email...",
     "@emailSending": {
@@ -230,6 +266,14 @@
     "@forgotPassword": {
         "description": "Label for the forgot password action"
     },
+    "frequency": "Frequency",
+    "@frequency": {
+        "description": "Label for textfield in electrical_page_2"
+    },
+    "frequencyRequired": "Frequency Required",
+    "@frequencyRequired": {
+        "description": "Error message for frequency textfield"
+    },
     "generator": "Generator",
     "@generator": {
         "description": "Label for the generator checkbox"
@@ -246,9 +290,33 @@
     "@home": {
         "description": "Label for the home Icon"
     },
+    "hertzShort": "Hz",
+    "@hertzShort": {
+        "description": "Label for textfield in electrical_page_2"
+    },
+    "input": "Input",
+    "@input": {
+        "description": "Label for textfield in electrical_2_page"
+    },
+    "inputCurrent": "Input Current",
+    "@inputCurrent": {
+        "description": "Section title for electrical readings page"
+    },
+    "inputVoltage": "Input Voltage",
+    "@inputVoltage": {
+        "description": "Section Title for electrical readings page"
+    },
     "inAnnualMaintenanceContract": "In Annual Maintenance Contract",
     "@inAnnualMaintenanceContract": {
         "description": "Checkbox Text when the equipment is in annual maintenance contract"
+    },
+    "incorrectPassword": "Password did not match",
+    "@incorrectPassword": {
+        "description": "Error message when password did not match"
+    },
+    "invalidCredentials": "Invalid credentials",
+    "@invalidCredentials": {
+        "description": "Error message when credentials do not match"
     },
     "inFreeService": "Free service",
     "@inFreeService": {
@@ -256,7 +324,7 @@
     },
     "inputPhase": "Input Phase",
     "@inputPhase": {
-        "description": "Label for segemented button in readings page"
+        "description": "Label for segmented button in readings page"
     },
     "installation": "Installation",
     "@installation": {
@@ -274,12 +342,16 @@
     "@inWarranty": {
         "description": "Checkbox Text when the equipment is in warranty"
     },
-    "kva": "KVA",
-    "@kva": {
+    "kilovoltAmpereShort": "KVA",
+    "@kilovoltAmpereShort": {
         "description": "Unit for power textfield"
     },
     "logIn": "Log In",
     "@logIn": {
+        "description": "Label for the log in button"
+    },
+    "logInFailedMessage": "Log in failed. Please try again.",
+    "@logInFailedMessage": {
         "description": "Label for the log in button"
     },
     "logOut": "Log Out",
@@ -298,6 +370,10 @@
     "@manufacturerNameTooShort": {
         "description": "Error message shown when the manufacturer's name is too short"
     },
+    "neutral": "Neutral",
+    "@neutral": {
+        "description": "Label for neutral line"
+    },
     "minusSign": "-",
     "@minusSign":{
         "description": "Minus sign text for quantity "
@@ -314,9 +390,21 @@
     "@otherEquipment": {
         "description": "Label for the other equipment checkbox"
     },
+    "output": "Output",
+    "@output": {
+        "description": "Label for textfield in electrical_page_2"
+    },
+    "outputCurrent": "Output Current",
+    "@outputCurrent": {
+        "description": "Label for output current"
+    },
+    "outputVoltage": "Output Voltage",
+    "@outputVoltage": {
+        "description": "Label for output voltage"
+    },
     "outputPhase": "Output Phase",
     "@outputPhase": {
-        "description": "Section Title for segmented button"
+        "description": "Section Title for output phase segmented button"
     },
     "panelReadingMatched": "Panel reading matched",
     "@panelReadingMatched": {
@@ -325,6 +413,26 @@
     "password": "Password",
     "@password": {
         "description": "Label for the password field"
+    },
+    "passwordRequired": "Please enter the password",
+    "@passwordRequired": {
+        "description": "Message to display when password field is empty"
+    },
+    "passwordResetEmailSent": "Password reset email has been sent",
+    "@passwordResetEmailSent": {
+        "description": "Message to display when password reset email has been sent"
+    },
+    "pleaseEnterEmail": "Please enter your email",
+    "@pleaseEnterEmail": {
+        "description": "Error message shown when email field is empty"
+    },
+    "pleaseEnterValidEmail": "Please enter a valid email",
+    "@pleaseEnterValidEmail": {
+        "description": "Error message shown when email format is invalid"
+    },
+    "pleaseEnterPassword": "Please enter your password",
+    "@pleaseEnterPassword": {
+        "description": "Error message shown when password field is empty"
     },
     "plusSign": "+",
     "@plusSign": {
@@ -370,6 +478,14 @@
     "@serviceForm": {
         "description": "Title for the service form page"
     },
+    "rPhaseShort": "R",
+    "@rPhaseShort": {
+        "description": "Unit for the electrical page textfield"
+    },
+    "redYellowShort": "RY",
+    "@redYellowShort": {
+        "description": "Label for textfield"
+    },
     "settings": "Settings",
     "@settings": {
         "description": "Label for the settings Icon"
@@ -410,9 +526,17 @@
     "@title": {
         "description": "Title of Service Checklist page"
     },
+    "unknownForgotPasswordError": "An error had occurred while resetting password. Please try again.",
+    "@unknownLoginError": {
+        "description": "Error message when resetting password fails for unknown reason"
+    },
+    "unknownLoginError": "An error had occurred while logging in. Please try again.",
+    "@unknownLoginError": {
+        "description": "Error message when login fails for unknown reason"
+    },
     "threePhase": "3 Phase",
     "@threePhase": {
-        "description": "Label for the button in segemented button in readings page"
+        "description": "Label for the button in segmented button in readings page"
     },
     "ups": "UPS",
     "@ups": {
@@ -422,9 +546,56 @@
     "@upsConnectionTight": {
         "description": "Checkbox Text when the UPS connection is tightened"
     },
+    "uPhaseShort": "U",
+    "@uPhaseShort": {
+        "description": "Unit for the electrical page textfield"
+    },
+    "uvPhaseShort": "UV",
+    "@uvPhaseShort": {
+        "description": "Unit for the electrical page text fields"
+    },
+    "voltShort": "V",
+    "@voltShort": {
+        "description": "Unit for the electrical page text fields"
+    },
+    "voltage": "Voltage",
+    "@voltage": {
+        "description": "Label of textfield"
+    },
+    "voltageRequired": "Voltage Required",
+    "@voltageRequired": {
+        "description": "Error message for voltage textfield"
+    },
+    "vwPhaseShort": "VW",
+    "@vwPhaseShort": {
+        "description": "Unit for the electrical page textfield"
+    },
+    "wPhaseShort": "W",
+    "@wPhaseShort": {
+        "description": "Unit for the electrical page textfield"
+    "userDisabled": "Your account has been disabled. Please contact admin.",
+    "@userDisabled": {
+        "description": "Error message when user account is disabled"
+    },
+    "userNotFound": "No user found with this email",
+    "@userNotFound": {
+        "description": "Error message when user was not found with entered email"
+    },
     "welcome": "Welcome!",
     "@welcome": {
         "description": "Welcome message for the user"
+    },
+    "wuPhaseShort": "WU",
+    "@wuPhaseShort": {
+        "description": "Unit for the electrical page textfield"
+    },
+   "yPhaseShort": "Y",
+   "@yPhaseShort": {
+    "description": "Unit for the electrical page text fields"
+   } ,
+    "yellowBlueShort": "YB",
+    "@yellowBlueShort": {
+        "description": "Label for electrical page textfield"
     },
     "withStabilizer": "With Stabilizer",
     "@withStabilizer": {

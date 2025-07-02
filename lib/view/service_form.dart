@@ -6,6 +6,7 @@ import 'package:syncserve/custom_controls/labeled_checkbox.dart';
 import 'package:syncserve/view/service_checklist.dart';
 import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/view_model/service_form_view_model.dart';
+import 'package:syncserve/theme/app_paddings.dart';
 
 class ServiceForm extends StatefulWidget {
   const ServiceForm({super.key});
@@ -57,14 +58,14 @@ class _ServiceFormState extends State<ServiceForm> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: AppStyle.sectionTitlePadding,
+                          padding: AppPaddings.sectionTitlePadding,
                           child: Text(
                             AppLocalizations.of(context)!.reasonForVisit,
                             style: AppStyle.sectionTitleText,
                           ),
                         ),
                         Padding(
-                          padding: AppStyle.sectionContentPadding,
+                          padding: AppPaddings.sectionContentPadding,
                           child: Column(
                             children: [
                               Row(
@@ -141,14 +142,14 @@ class _ServiceFormState extends State<ServiceForm> {
                           ),
                         ),
                         Padding(
-                          padding: AppStyle.sectionTitlePadding,
+                          padding: AppPaddings.sectionTitlePadding,
                           child: Text(
                             AppLocalizations.of(context)!.serviceCategory,
                             style: AppStyle.sectionTitleText,
                           ),
                         ),
                         Padding(
-                          padding: AppStyle.sectionContentPadding,
+                          padding: AppPaddings.sectionContentPadding,
                           child: Column(
                             children: [
                               Row(
@@ -226,14 +227,14 @@ class _ServiceFormState extends State<ServiceForm> {
                           ),
                         ),
                         Padding(
-                          padding: AppStyle.sectionTitlePadding,
+                          padding: AppPaddings.sectionTitlePadding,
                           child: Text(
                             AppLocalizations.of(context)!.systemType,
                             style: AppStyle.sectionTitleText,
                           ),
                         ),
                         Padding(
-                          padding: AppStyle.sectionContentPadding,
+                          padding: AppPaddings.sectionContentPadding,
                           child: Column(
                             children: [
                               Row(
@@ -366,7 +367,7 @@ class _ServiceFormState extends State<ServiceForm> {
               ),
             ),
             Padding(
-              padding: AppStyle.bottomAreaPadding,
+              padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
                 onPressed: viewModel.isValid

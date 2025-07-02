@@ -9,7 +9,10 @@ class AppStyle {
   );
 
 // HINTTEXT FOR INPUT FIELDS
-  static final TextStyle hintText = labelText.copyWith(color: Colors.grey);
+  static final ButtonStyle hintTextButton = ButtonStyle(
+    foregroundColor: WidgetStateProperty.all(Colors.grey),
+    textStyle: WidgetStateProperty.all(labelText),
+  );
 
 // ELEVATED BUTTON STYLE
   static ButtonStyle primaryElevatedButtonStyle() {
@@ -37,9 +40,23 @@ class AppStyle {
         borderSide: const BorderSide(color: Colors.black),
         borderRadius: BorderRadius.circular(15),
       ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: const BorderSide(
+          color: Colors.red,
+          width: 2,
+        ),
+      ),
       focusedBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.black),
         borderRadius: BorderRadius.circular(15),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(
+          color: Colors.red,
+          width: 2,
+        ),
       ),
     );
   }
@@ -96,10 +113,13 @@ class AppStyle {
     color: Colors.black,
   );
 
-  // BOTTOM AREA PADDING FOR ELEVATED BUTTON
-  static const EdgeInsets bottomAreaPadding = EdgeInsets.symmetric(
-    horizontal: 10,
-    vertical: 10,
+  static const TextStyle titleOnCard =
+      TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.w500);
+
+  // SECTIONTITLE TEXT STYLE
+  static TextStyle sectionTitleText = labelText.copyWith(
+    fontWeight: FontWeight.bold,
+    fontSize: 20,
   );
 
   // CHECKBOX THEME FOR CHECKBOX STYLE
@@ -112,21 +132,6 @@ class AppStyle {
     }),
     checkColor: WidgetStateColor.resolveWith((states) => Colors.white),
   );
-
-  // SECTION TITLE TEXT STYLE
-  static const TextStyle sectionTitleText = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
-    color: Colors.black,
-  );
-
-  // SECTION TITLE PADDING
-  static const EdgeInsets sectionTitlePadding =
-      EdgeInsets.symmetric(horizontal: 10);
-
-  // SECTION CONTENT PADDING
-  static const EdgeInsets sectionContentPadding =
-      EdgeInsets.symmetric(horizontal: 5);
 
   // DIVIDER COLOR
   static const Color dividerColor = Color.fromARGB(255, 100, 100, 100);
@@ -177,12 +182,4 @@ class AppStyle {
       ),
     );
   }
-
-  // 'CLEAR' ELEVATED BUTTON PADDING
-  static const EdgeInsets signatureCaptureClearButtonPadding =
-      EdgeInsets.fromLTRB(0, 0, 100, 0);
-
-  // 'DONE' ELEVATED BUTTON PADDING
-  static const EdgeInsets signatureCaptureDoneButtonPadding =
-      EdgeInsets.fromLTRB(100, 0, 0, 0);
 }

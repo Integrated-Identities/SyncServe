@@ -7,6 +7,8 @@ import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:syncserve/view/service_form.dart';
 import 'package:syncserve/view_model/customer_details_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
+import 'package:syncserve/theme/app_paddings.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CustomerDetail extends ConsumerStatefulWidget {
   const CustomerDetail({super.key});
@@ -120,17 +122,14 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!
-                                .customerEmailRequired;
+                            return AppLocalizations.of(context)!.emailRequired;
                           }
                           return Zod()
                               .required(
-                                AppLocalizations.of(context)!
-                                    .customerEmailRequired,
+                                AppLocalizations.of(context)!.emailRequired,
                               )
                               .email(
-                                AppLocalizations.of(context)!
-                                    .customerEmailInvalid,
+                                AppLocalizations.of(context)!.emailInvalid,
                               )
                               .build(value);
                         },
@@ -151,7 +150,7 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
               ),
             ),
             Padding(
-              padding: AppStyle.bottomAreaPadding,
+              padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 onPressed: _onNextPressed,
                 style: AppStyle.primaryElevatedButtonStyle(),

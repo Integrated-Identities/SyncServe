@@ -8,7 +8,6 @@ import 'package:syncserve/view/service_form.dart';
 import 'package:syncserve/view_model/customer_details_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/theme/app_paddings.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CustomerDetail extends ConsumerStatefulWidget {
   const CustomerDetail({super.key});

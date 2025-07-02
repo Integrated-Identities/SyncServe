@@ -42,13 +42,4 @@ class CustomerDetailsViewModel {
     addressController.clear();
     emailController.clear();
   }
-
-  Future<void> load() async {
-    nameController.text =
-        await _storage.getString(StorageKeys.customerName) ?? '';
-    addressController.text =
-        await _storage.getString(StorageKeys.customerAddress) ?? '';
-    emailController.text =
-        await _storage.getString(StorageKeys.customerEmail) ?? '';
-  }
 }

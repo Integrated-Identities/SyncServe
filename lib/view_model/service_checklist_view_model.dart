@@ -1,19 +1,50 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syncserve/enums/service_checklist.dart';
 import 'package:syncserve/model/service_checklist_model.dart';
 
 class ServiceChecklistViewModel {
   ServiceChecklistViewModel(AppLocalizations localizations) {
     items = [
-      ServiceChecklistItem(label: localizations.batteryUPSCleaned),
-      ServiceChecklistItem(label: localizations.blowerChanged),
-      ServiceChecklistItem(label: localizations.upsConnectionTight),
-      ServiceChecklistItem(label: localizations.batteryWaterLevel),
-      ServiceChecklistItem(label: localizations.coolingFan),
-      ServiceChecklistItem(label: localizations.backUpTest),
-      ServiceChecklistItem(label: localizations.staticBypass),
-      ServiceChecklistItem(label: localizations.panelReadingMatched),
-      ServiceChecklistItem(label: localizations.historyCardEntry),
-      ServiceChecklistItem(label: localizations.equipmentOk),
+      ServiceChecklistItem(
+        label: localizations.batteryUPSCleaned,
+        flag: ServiceChecklistFlag.batterycleaned,
+      ),
+      ServiceChecklistItem(
+        label: localizations.blowerChanged,
+        flag: ServiceChecklistFlag.blowerchanged,
+      ),
+      ServiceChecklistItem(
+        label: localizations.upsConnectionTight,
+        flag: ServiceChecklistFlag.upsConnectionTightened,
+      ),
+      ServiceChecklistItem(
+        label: localizations.batteryWaterLevel,
+        flag: ServiceChecklistFlag.batteryWaterLevelChecked,
+      ),
+      ServiceChecklistItem(
+        label: localizations.coolingFan,
+        flag: ServiceChecklistFlag.coolingFanWorks,
+      ),
+      ServiceChecklistItem(
+        label: localizations.backUpTest,
+        flag: ServiceChecklistFlag.backupChecked,
+      ),
+      ServiceChecklistItem(
+        label: localizations.staticBypass,
+        flag: ServiceChecklistFlag.staticBypassChecked,
+      ),
+      ServiceChecklistItem(
+        label: localizations.panelReadingMatched,
+        flag: ServiceChecklistFlag.panelReadingMatched,
+      ),
+      ServiceChecklistItem(
+        label: localizations.historyCardEntry,
+        flag: ServiceChecklistFlag.historyCardEntered,
+      ),
+      ServiceChecklistItem(
+        label: localizations.equipmentOk,
+        flag: ServiceChecklistFlag.equipmentIsOK,
+      ),
     ];
   }
 

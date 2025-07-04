@@ -2,30 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view/customer_detail.dart';
 import 'package:syncserve/theme/styles.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:syncserve/providers/customer_providers.dart';
+import 'package:syncserve/view/login.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends ConsumerWidget {
   const Dashboard({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         actions: [
-          Row(
-            children: [
-              Text(
-                AppLocalizations.of(context)!.logOut,
-                style: TextStyle(
-                  color: Colors.red,
+          GestureDetector(
+            onTap: () {
+              ref.invalidate(customerProvider);
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const Login(),
                 ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.logOut,
+                    style: const TextStyle(
+                      color: Colors.red,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  const Icon(
+                    Icons.logout,
+                    color: Colors.red,
+                  ),
+                ],
               ),
-              IconButton(
-                icon: Icon(Icons.logout),
-                onPressed: () {},
-                color: Colors.red,
-              ),
-            ],
+            ),
           ),
         ],
       ),

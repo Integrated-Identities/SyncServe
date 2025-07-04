@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/view/login.dart';
+import 'package:syncserve/view/dashboard.dart'; // Import Dashboard
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/theme/styles.dart';
@@ -23,11 +24,13 @@ Future<void> main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    bool isLoggedIn = false;
+    // check if employee is details are saved in storage
     return MaterialApp(
       theme: ThemeData(
         checkboxTheme: AppStyle.checkboxThemeData,
@@ -42,7 +45,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en', ''),
       ],
-      home: Login(),
+      home: isLoggedIn ? const Dashboard() : const Login(),
     );
   }
 }

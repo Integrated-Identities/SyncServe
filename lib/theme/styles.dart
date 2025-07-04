@@ -1,5 +1,18 @@
 import 'package:flutter/material.dart';
 
+// APP COLORS
+class AppColors {
+  // Primary brand colors - Coral theme
+  static const Color primaryPink =
+      Color.fromARGB(235, 254, 108, 94); // Custom coral-red
+
+  // Neutral colors
+  static const Color black = Colors.black;
+  static const Color white = Colors.white;
+  static const Color grey = Colors.grey;
+  static const Color lightGrey = Color.fromARGB(255, 100, 100, 100);
+}
+
 // WELCOME BACK
 class AppStyle {
   static const TextStyle headingText = TextStyle(
@@ -17,7 +30,7 @@ class AppStyle {
 // ELEVATED BUTTON STYLE
   static ButtonStyle primaryElevatedButtonStyle() {
     return ElevatedButton.styleFrom(
-      backgroundColor: Color.fromARGB(255, 237, 125, 125),
+      backgroundColor: AppColors.primaryPink,
       minimumSize: const Size(double.infinity, 60),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -126,7 +139,7 @@ class AppStyle {
   static CheckboxThemeData checkboxThemeData = CheckboxThemeData(
     fillColor: WidgetStateColor.resolveWith((Set<WidgetState> states) {
       if (states.contains(WidgetState.selected)) {
-        return const Color.fromARGB(255, 237, 125, 125);
+        return AppColors.primaryPink;
       }
       return Colors.white;
     }),
@@ -167,7 +180,7 @@ class AppStyle {
       backgroundColor: WidgetStateColor.resolveWith(
         (Set<WidgetState> states) {
           if (states.contains(WidgetState.selected)) {
-            return Color.fromARGB(255, 237, 125, 125);
+            return AppColors.primaryPink;
           }
           return Colors.white;
         },

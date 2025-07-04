@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syncserve/enums/service_checklist.dart';
+import 'package:syncserve/utils/flags.dart';
 import 'package:syncserve/view/readings_page.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/view_model/service_checklist_view_model.dart';
@@ -22,6 +24,7 @@ class ServiceChecklistView extends StatefulWidget {
 }
 
 class _ServiceChecklistViewState extends State<ServiceChecklistView> {
+  final EnumFlags<ServiceChecklistFlag> _flags = EnumFlags();
   ServiceChecklistViewModel? viewModel;
 
   @override
@@ -58,14 +61,14 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
                   itemCount: viewModel!.items.length,
                   itemBuilder: (context, index) {
                     final item = viewModel!.items[index];
+                    final isChecked = _flags.contains(item.flag);
                     return CheckboxListTile(
-                      value: item.isChecked,
-                      onChanged: (newValue) {
-                        print(
-                          'Checkbox changed: ${item.label}, new value: $newValue',
-                        );
+                      value: isChecked,
+                      onChanged: (_) {
                         setState(() {
-                          item.isChecked = newValue ?? false;
+                          isChecked
+                              ? _flags.remove(item.flag)
+                              : _flags.add(item.flag);
                         });
                       },
                       title: Text(

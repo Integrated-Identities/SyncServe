@@ -42,10 +42,28 @@ class _LoginState extends ConsumerState<Login> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
-                      child: Container(
-                        color: Colors.grey,
-                        height: 80,
-                        width: 100,
+                      child: SizedBox(
+                        height: 120,
+                        width: 120,
+                        child: Image.asset(
+                          'assets/images/app_icon.png',
+                          fit: BoxFit.contain,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              height: 120,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Icon(
+                                Icons.business,
+                                size: 60,
+                                color: Colors.grey,
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                     Text(

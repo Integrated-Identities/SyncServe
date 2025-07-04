@@ -106,10 +106,12 @@ dart run build_runner build --delete-conflicting-outputs
 
 ### Documentation
 - Document complex logic and non-obvious code decisions.
+- Prefer adding documentation comments to public APIs, classes, and methods.
+- Prefer add comments in code where necessary over adding md files.
 - Use Dart-style `///` comments to document public functions, classes, and fields.
 - Avoid over-commenting simple or self-explanatory code.
 - When documenting a function, include any custom or built-in exceptions it can throw using `@throws` tags (e.g., `/// @throws EmailSendFailure when SMTP server is unreachable.`).
 - Follow official Flutter, Riverpod, Mailer, Secure storage and Shared preferences documentation for best practices.
-- Think if documentation in README or docs/*.md should be updated. Use README for high-level setup and usage, and docs/*.md for detailed explanations of specific features or modules.
+- Think if documentation in README or docs/*.md should be updated. Use README for getting started instructions only and docs/*.md for high-level setup.
 
 Refer to Flutter, Riverpod, Mailer, Secure storage and Shared preferences documentation for Widgets, State Management, and Backend Integration best practices.

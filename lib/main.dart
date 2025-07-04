@@ -1,13 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:syncserve/view/login.dart';
-import 'package:syncserve/view/dashboard.dart'; // Import Dashboard
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:syncserve/providers/auth_state_provider.dart';
+import 'package:syncserve/view/dashboard.dart';
+import 'package:syncserve/view/login.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +31,8 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool isLoggedIn = false;
-    // check if employee is details are saved in storage
+    final authStateAsync = ref.watch(isAuthenticatedProvider);
+
     return MaterialApp(
       theme: ThemeData(
         checkboxTheme: AppStyle.checkboxThemeData,
@@ -43,11 +44,39 @@ class MyApp extends ConsumerWidget {
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: const [
         Locale('en', ''),
       ],
-      home: isLoggedIn ? const Dashboard() : const Login(),
+      home: authStateAsync.when(
+        data: (isAuthenticated) {
+          if (isAuthenticated) {
+            return const Dashboard();
+          } else {
+            return const Login();
+          }
+        },
+        loading: () => const Scaffold(
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(),
+                SizedBox(height: 16),
+                Text(
+                  'Checking authentication...',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
+          ),
+        ),
+        error: (error, stackTrace) {
+          // On error, default to login screen
+          return const Login();
+        },
+      ),
     );
   }
 }

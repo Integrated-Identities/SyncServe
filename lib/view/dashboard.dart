@@ -3,8 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/view/customer_detail.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:syncserve/providers/customer_providers.dart';
 import 'package:syncserve/view/login.dart';
+import 'package:syncserve/services/firebase_auth_service.dart';
 
 class Dashboard extends ConsumerWidget {
   const Dashboard({super.key});
@@ -16,13 +16,35 @@ class Dashboard extends ConsumerWidget {
         backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         actions: [
           GestureDetector(
-            onTap: () {
-              ref.invalidate(customerProvider);
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const Login(),
-                ),
-              );
+            onTap: () async {
+              try {
+                // Clear tokens and sign out
+                final authService = ref.read(firebaseAuthProvider);
+                await authService.signOut();
+
+                // TODO: Clear employee data
+
+                // Navigate to login
+                if (context.mounted) {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const Login(),
+                    ),
+                  );
+                }
+              } catch (e) {
+                // Handle sign out error if needed
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        AppLocalizations.of(context)!.signOutFailed,
+                      ),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              }
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

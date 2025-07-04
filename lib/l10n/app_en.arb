@@ -478,6 +478,10 @@
     "@serviceForm": {
         "description": "Title for the service form page"
     },
+    "signOutFailed": "Sign out failed. Please try again.",
+    "@signOutFailed": {
+        "description": "Error message shown when sign out fails."
+    },
     "rPhaseShort": "R",
     "@rPhaseShort": {
         "description": "Unit for the electrical page textfield"

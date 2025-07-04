@@ -40,6 +40,14 @@ class LoginViewModel extends _$LoginViewModel {
         email: state.email.trim(),
         password: state.password,
       );
+
+      // Verify tokens were saved
+      final hasTokens = await authService.hasValidTokens();
+      if (!hasTokens) {
+        // Force token refresh if not saved properly
+        await authService.getIdToken(forceRefresh: true);
+      }
+
       state = state.copyWith(isLoading: false);
       return true;
     } catch (e) {

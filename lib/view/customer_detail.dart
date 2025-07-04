@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:syncserve/providers/customer_providers.dart';
+import 'package:syncserve/services/non_secure_storage_service.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:syncserve/view/service_form.dart';
@@ -23,7 +23,7 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
   @override
   void initState() {
     super.initState();
-    viewModel = ref.read(customerDetailsViewModelProvider);
+    viewModel = CustomerDetailsViewModel(NonSecureStorageService());
   }
 
   @override
@@ -33,11 +33,10 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
   }
 
   void _onNextPressed() {
-    final viewModel = ref.read(customerProvider);
     bool isValid = _formKey.currentState?.validate() ?? false;
 
     if (isValid) {
-      viewModel?.save(ref);
+      viewModel.save(ref);
       Navigator.push(
         context,
         MaterialPageRoute(

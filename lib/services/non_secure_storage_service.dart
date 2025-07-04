@@ -9,33 +9,39 @@ final nonSecureServiceProvider = Provider<NonSecureStorageService>(
 );
 
 class NonSecureStorageService {
+  SharedPreferences? _prefs;
+  Future<SharedPreferences> get _instance async {
+    _prefs ??= await SharedPreferences.getInstance();
+    return _prefs!;
+  }
+
   // Save a string value
   Future<void> saveString({required String key, required String value}) async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _instance;
     await prefs.setString(key, value);
   }
 
   // Read a string value
   Future<String?> getString(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _instance;
     return prefs.getString(key);
   }
 
   // Remove a value
   Future<bool> remove(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _instance;
     return prefs.remove(key);
   }
 
   // Check if a key exists
   Future<bool> containsKey(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _instance;
     return prefs.containsKey(key);
   }
 
   // Clear all
   Future<void> clearAll() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _instance;
     await prefs.clear();
   }
 }

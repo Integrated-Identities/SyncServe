@@ -14,7 +14,7 @@ class CustomerDetailsViewModel {
   final addressController = TextEditingController();
   final emailController = TextEditingController();
 
-  void save(WidgetRef ref) {
+  void save(WidgetRef ref) async {
     final customer = Customer(
       name: nameController.text.trim(),
       address: addressController.text.trim(),
@@ -23,12 +23,18 @@ class CustomerDetailsViewModel {
     ref.read(customerProvider.notifier).state = customer;
 
     // Persist to local storage
-    _storage.saveString(key: StorageKeys.customerName, value: customer.name);
-    _storage.saveString(
+    await _storage.saveString(
+      key: StorageKeys.customerName,
+      value: customer.name,
+    );
+    await _storage.saveString(
       key: StorageKeys.customerAddress,
       value: customer.address,
     );
-    _storage.saveString(key: StorageKeys.customerEmail, value: customer.email);
+    await _storage.saveString(
+      key: StorageKeys.customerEmail,
+      value: customer.email,
+    );
   }
 
   void dispose() {

@@ -155,11 +155,11 @@ class _LoginState extends ConsumerState<Login> {
   }
 
   Future<void> _handleLogin() async {
-    if (!_formKey.currentState!.validate()) return;
+    // if (!_formKey.currentState!.validate()) return;
 
     try {
-      final success = await ref.read(loginViewModelProvider.notifier).login();
-      if (!success) return;
+      // final success = await ref.read(loginViewModelProvider.notifier).login();
+      // if (!success) return;
 
       if (mounted) {
         Navigator.pushReplacement(

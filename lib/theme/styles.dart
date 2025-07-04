@@ -19,6 +19,7 @@ class AppStyle {
     fontWeight: FontWeight.bold,
     fontSize: 30,
     color: Colors.black,
+    fontFamily: 'Noto Sans',
   );
 
 // HINTTEXT FOR INPUT FIELDS
@@ -39,6 +40,7 @@ class AppStyle {
         fontSize: 20,
         color: Colors.white,
         fontWeight: FontWeight.bold,
+        fontFamily: 'Noto Sans',
       ),
       foregroundColor: Colors.white,
     );
@@ -90,6 +92,7 @@ class AppStyle {
       labelStyle: const TextStyle(
         color: Colors.black,
         fontSize: 16,
+        fontFamily: 'Noto Sans',
       ),
       contentPadding: const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
       enabledBorder: OutlineInputBorder(
@@ -124,10 +127,15 @@ class AppStyle {
   static const TextStyle labelText = TextStyle(
     fontSize: 18,
     color: Colors.black,
+    fontFamily: 'Noto Sans',
   );
 
-  static const TextStyle titleOnCard =
-      TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.w500);
+  static const TextStyle titleOnCard = TextStyle(
+    fontSize: 18,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Noto Sans',
+  );
 
   // SECTIONTITLE TEXT STYLE
   static TextStyle sectionTitleText = labelText.copyWith(

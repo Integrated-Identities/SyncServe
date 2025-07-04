@@ -46,67 +46,77 @@ class Dashboard extends ConsumerWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Image.asset(
-                'assets/images/worker.png',
-                width: 200,
-                height: 150,
-              ),
-              Text(
-                AppLocalizations.of(context)!.hello,
-                style: AppStyle.headingText,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 100, bottom: 10),
-                child: ElevatedButton(
-                  style: AppStyle.primaryElevatedButtonStyle(),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CustomerDetail(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    AppLocalizations.of(context)!.startUPSservice,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 16),
+            SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: Image.asset(
+                'assets/images/dashboard_hero.png',
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  height: 200,
+                  color: Colors.grey[200],
+                  child: const Icon(
+                    Icons.image_not_supported,
+                    size: 64,
+                    color: Colors.grey,
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 20),
-                child: ElevatedButton(
-                  style: AppStyle.primaryElevatedButtonStyle(),
-                  onPressed: () {},
-                  child: Text(
-                    AppLocalizations.of(context)!.startGeneratorService,
-                  ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              AppLocalizations.of(context)!.hello,
+              style: AppStyle.headingText,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 32),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: AppStyle.primaryElevatedButtonStyle(),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CustomerDetail(),
+                    ),
+                  );
+                },
+                child: Text(
+                  AppLocalizations.of(context)!.startUPSservice,
                 ),
               ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: AppStyle.primaryElevatedButtonStyle(),
+                onPressed: () {},
+                child: Text(
+                  AppLocalizations.of(context)!.startGeneratorService,
+                ),
+              ),
+            ),
+            const Spacer(),
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppStyle.appBarNavBarCardAndCanvasColor,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             label: AppLocalizations.of(context)!.home,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: AppLocalizations.of(context)!.settings,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
             label: AppLocalizations.of(context)!.profile,
           ),
         ],

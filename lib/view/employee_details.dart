@@ -26,6 +26,7 @@ class _EmployeeDetailsState extends ConsumerState<EmployeeDetails> {
 
   @override
   void dispose() {
+    viewModel.dispose();
     super.dispose();
   }
 

@@ -5,7 +5,7 @@ import 'package:syncserve/enums/auth.dart';
 import 'package:syncserve/exceptions/auth_exception.dart';
 import 'package:syncserve/services/message_service.dart';
 import 'package:syncserve/theme/styles.dart';
-import 'package:syncserve/view/dashboard.dart';
+import 'package:syncserve/view/employee_details.dart';
 import 'package:syncserve/view_model/login_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
 
@@ -147,7 +147,7 @@ class _LoginState extends ConsumerState<Login> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const Dashboard(),
+            builder: (context) => const EmployeeDetails(),
           ),
         );
       }

@@ -6,6 +6,9 @@ import 'package:syncserve/utils/flags.dart';
 
 class ServiceFormViewModel {
   void save(WidgetRef ref) {
+    if (manufacturerName == null || manufacturerName!.trim().isEmpty) {
+      return;
+    }
     final model = ServiceFormModel(
       reasons: reasons,
       categories: category,

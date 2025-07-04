@@ -206,6 +206,42 @@
     "@emailSentSuccessfully": {
         "description": "Log message shown when email is sent successfully"
     },
+    "employeeAddress": "Employee address",
+    "@employeeAddress":{
+        "description": "Label for Employee's Address field"
+    },
+    "employeeAddressRequired": "Employee address is required",
+    "@employeeAddressRequired": {
+        "description": "Error message shown when the employee address field is required"
+    },
+    "employeeDetails": "Employee Details",
+    "@employeeDetails": {
+        "description": "Heading Text for Employee Details page"
+    },
+    "employeeEmail": "Employee email",
+    "@employeeEmail": {
+        "description": "Label for Employee's email field"
+    },
+    "employeeEmailRequired": "Employee email is required",
+    "@employeeEmailRequired": {
+        "description": "Error message shown when the employee email is required"
+    },
+    "employeeEmailInvalid": "Employee email invalid",
+    "@employeeEmailInvalid": {
+        "description": "Error message shown when the employee email is invalid"
+    },
+    "employeeName": "Employee Name",
+    "@employeeName": {
+        "description": "Label for Employee's name field"
+    },
+    "employeeNameRequired": "Employee name is required",
+    "@employeeNameRequired": {
+        "description": "Error message shown when the employee name field is required"
+    },
+    "employeePhone": "Employee phone number",
+    "@employeePhone": {
+        "description": "Label for Employee's phone number"
+    },
     "energy": "Energy",
     "@energy": {
         "description": "Label for energy textfield"

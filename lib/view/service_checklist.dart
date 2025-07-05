@@ -26,7 +26,6 @@ class ServiceChecklistView extends ConsumerStatefulWidget {
 }
 
 class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
-  final _formKey = GlobalKey<FormState>();
   final EnumFlags<ServiceChecklistFlag> flags = EnumFlags();
   ServiceChecklistViewModel? viewModel;
 
@@ -47,17 +46,13 @@ class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
   }
 
   void _onNextPressed() {
-    bool isValid = _formKey.currentState?.validate() ?? false;
-
-    if (isValid) {
-      viewModel!.save(ref);
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ReadingsPage(),
-        ),
-      );
-    }
+    viewModel!.save(ref);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ReadingsPage(),
+      ),
+    );
   }
 
   @override
@@ -74,48 +69,45 @@ class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
         title: Text(AppLocalizations.of(context)!.title),
       ),
       body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
-                  child: ListView.builder(
-                    itemCount: viewModel!.items.length,
-                    itemBuilder: (context, index) {
-                      final item = viewModel!.items[index];
-                      final isChecked = flags.contains(item.flag);
-                      return CheckboxListTile(
-                        value: isChecked,
-                        onChanged: (_) {
-                          setState(() {
-                            isChecked
-                                ? flags.remove(item.flag)
-                                : flags.add(item.flag);
-                          });
-                        },
-                        title: Text(
-                          item.label,
-                          style: AppStyle.labelText,
-                        ),
-                        controlAffinity: ListTileControlAffinity.leading,
-                        visualDensity: VisualDensity.comfortable,
-                      );
-                    },
-                  ),
+        child: Column(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                child: ListView.builder(
+                  itemCount: viewModel!.items.length,
+                  itemBuilder: (context, index) {
+                    final item = viewModel!.items[index];
+                    final isChecked = flags.contains(item.flag);
+                    return CheckboxListTile(
+                      value: isChecked,
+                      onChanged: (_) {
+                        setState(() {
+                          isChecked
+                              ? flags.remove(item.flag)
+                              : flags.add(item.flag);
+                        });
+                      },
+                      title: Text(
+                        item.label,
+                        style: AppStyle.labelText,
+                      ),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      visualDensity: VisualDensity.comfortable,
+                    );
+                  },
                 ),
               ),
-              Padding(
-                padding: AppPaddings.bottomAreaPadding,
-                child: ElevatedButton(
-                  style: AppStyle.primaryElevatedButtonStyle(),
-                  onPressed: _onNextPressed,
-                  child: Text(AppLocalizations.of(context)!.next),
-                ),
+            ),
+            Padding(
+              padding: AppPaddings.bottomAreaPadding,
+              child: ElevatedButton(
+                style: AppStyle.primaryElevatedButtonStyle(),
+                onPressed: _onNextPressed,
+                child: Text(AppLocalizations.of(context)!.next),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

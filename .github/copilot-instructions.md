@@ -58,7 +58,7 @@ dart run build_runner build --delete-conflicting-outputs
 ## Localization
 - Use localization strings from `lib/l10n/app_en.arb`.
 - Ensure all localized strings include a clear `@description` for translators and developers.
-- Arrange localization keys alphabetically within the `.arb` file.
+- !! Arrange localization keys alphabetically within the `.arb` file.
 - Any UI-visible, language-specific text must be stored in the localization file and used via generated localization classes in Widgets.
 
 ## Performance Optimization

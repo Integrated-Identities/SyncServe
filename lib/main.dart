@@ -37,6 +37,9 @@ class MyApp extends ConsumerWidget {
       theme: ThemeData(
         checkboxTheme: AppStyle.checkboxThemeData,
         textTheme: GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: AppStyle.appButton,
+        ),
       ),
       locale: const Locale('en'),
       title: 'SyncServe',

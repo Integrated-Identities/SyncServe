@@ -28,21 +28,28 @@ class AppStyle {
     textStyle: WidgetStateProperty.all(labelText),
   );
 
-// ELEVATED BUTTON STYLE
-  static ButtonStyle primaryElevatedButtonStyle() {
-    return ElevatedButton.styleFrom(
-      backgroundColor: AppColors.primaryPink,
-      minimumSize: const Size(double.infinity, 60),
-      shape: RoundedRectangleBorder(
+  static ButtonStyle appButton = ButtonStyle(
+    minimumSize: WidgetStateProperty.all(const Size(double.infinity, 60)),
+    shape: WidgetStateProperty.all(
+      RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      textStyle: const TextStyle(
+    ),
+    textStyle: WidgetStateProperty.all(
+      const TextStyle(
         fontSize: 20,
         color: Colors.white,
         fontWeight: FontWeight.bold,
         fontFamily: 'Noto Sans',
       ),
-      foregroundColor: Colors.white,
+    ),
+  );
+
+// ELEVATED BUTTON STYLE
+  static ButtonStyle primaryElevatedButtonStyle() {
+    return appButton.copyWith(
+      backgroundColor: WidgetStateProperty.all(AppColors.primaryPink),
+      foregroundColor: WidgetStateProperty.all(Colors.white),
     );
   }
 

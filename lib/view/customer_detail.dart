@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:syncserve/providers/customer_providers.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:syncserve/view/service_form.dart';
 import 'package:syncserve/view_model/customer_details_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/theme/app_paddings.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CustomerDetail extends ConsumerStatefulWidget {
   const CustomerDetail({super.key});
@@ -17,7 +18,6 @@ class CustomerDetail extends ConsumerStatefulWidget {
 
 class _CustomerDetailState extends ConsumerState<CustomerDetail> {
   final _formKey = GlobalKey<FormState>();
-  CustomerDetailsViewModel viewModel = CustomerDetailsViewModel();
 
   @override
   void initState() {
@@ -26,11 +26,10 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
 
   @override
   void dispose() {
-    viewModel.dispose();
     super.dispose();
   }
 
-  void _onNextPressed() {
+  void _onNextPressed(CustomerDetailsViewModel viewModel) {
     bool isValid = _formKey.currentState?.validate() ?? false;
 
     if (isValid) {
@@ -46,6 +45,7 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = ref.watch(customerDetailsViewModelProvider);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -148,7 +148,7 @@ class _CustomerDetailState extends ConsumerState<CustomerDetail> {
             Padding(
               padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
-                onPressed: _onNextPressed,
+                onPressed: () => _onNextPressed(viewModel),
                 style: AppStyle.primaryElevatedButtonStyle(),
                 child: Text(AppLocalizations.of(context)!.next),
               ),

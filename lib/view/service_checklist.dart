@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:syncserve/enums/service_checklist.dart';
-import 'package:syncserve/utils/flags.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/view/readings_page.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/view_model/service_checklist_view_model.dart';
@@ -16,26 +15,41 @@ class ServiceChecklist extends StatelessWidget {
   }
 }
 
-class ServiceChecklistView extends StatefulWidget {
+class ServiceChecklistView extends ConsumerStatefulWidget {
   const ServiceChecklistView({super.key});
 
   @override
-  State<ServiceChecklistView> createState() => _ServiceChecklistViewState();
+  ConsumerState<ServiceChecklistView> createState() =>
+      _ServiceChecklistViewState();
 }
 
-class _ServiceChecklistViewState extends State<ServiceChecklistView> {
-  final EnumFlags<ServiceChecklistFlag> _flags = EnumFlags();
+class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
   ServiceChecklistViewModel? viewModel;
 
   @override
   void initState() {
     super.initState();
-    // Initialize after the widget is fully mounted
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        viewModel = ServiceChecklistViewModel(AppLocalizations.of(context)!);
-      });
-    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    viewModel ??= ServiceChecklistViewModel(AppLocalizations.of(context)!);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  void _onNextPressed() {
+    viewModel!.save(ref);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ReadingsPage(),
+      ),
+    );
   }
 
   @override
@@ -61,14 +75,11 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
                   itemCount: viewModel!.items.length,
                   itemBuilder: (context, index) {
                     final item = viewModel!.items[index];
-                    final isChecked = _flags.contains(item.flag);
                     return CheckboxListTile(
-                      value: isChecked,
-                      onChanged: (_) {
+                      value: item.isChecked,
+                      onChanged: (bool? value) {
                         setState(() {
-                          isChecked
-                              ? _flags.remove(item.flag)
-                              : _flags.add(item.flag);
+                          item.isChecked = value ?? false;
                         });
                       },
                       title: Text(
@@ -86,14 +97,7 @@ class _ServiceChecklistViewState extends State<ServiceChecklistView> {
               padding: AppPaddings.bottomAreaPadding,
               child: ElevatedButton(
                 style: AppStyle.primaryElevatedButtonStyle(),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReadingsPage(),
-                    ),
-                  );
-                },
+                onPressed: _onNextPressed,
                 child: Text(AppLocalizations.of(context)!.next),
               ),
             ),

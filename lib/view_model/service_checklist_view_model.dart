@@ -1,6 +1,9 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/enums/service_checklist.dart';
 import 'package:syncserve/model/service_checklist_model.dart';
+import 'package:syncserve/providers/service_checklist_providers.dart';
+import 'package:syncserve/utils/flags.dart';
 
 class ServiceChecklistViewModel {
   ServiceChecklistViewModel(AppLocalizations localizations) {
@@ -47,6 +50,22 @@ class ServiceChecklistViewModel {
       ),
     ];
   }
+  void save(WidgetRef ref) {
+    final flags = EnumFlags<ServiceChecklistFlag>();
 
-  late final List<ServiceChecklistItem> items;
+    for (final item in items) {
+      if (item.isChecked) {
+        flags.add(item.flag);
+      }
+    }
+    ref.read(serviceChecklistProvider.notifier).state = flags;
+  }
+
+  void reset() {
+    for (var item in items) {
+      item.isChecked = false;
+    }
+  }
+
+  late List<ServiceChecklistItem> items;
 }

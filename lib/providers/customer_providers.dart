@@ -6,8 +6,11 @@ import 'package:syncserve/view_model/customer_details_view_model.dart';
 // Riverpod provider to hold selected customer details throughout the app
 final customerProvider = StateProvider<Customer?>((ref) => null);
 
-final customerDetailsViewModelProvider =
-    Provider<CustomerDetailsViewModel>((ref) {
-  final storage = ref.read(nonSecureServiceProvider);
-  return CustomerDetailsViewModel(storage);
+final customerDetailsViewModelProvider = Provider<CustomerDetailsViewModel>(
+  (ref) => CustomerDetailsViewModel(),
+);
+
+final nonSecureStorageProvider =
+    FutureProvider<NonSecureStorageService>((ref) async {
+  return await NonSecureStorageService.create();
 });

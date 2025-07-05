@@ -1,47 +1,31 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// Provider for the non secure storage
-final nonSecureServiceProvider = Provider<NonSecureStorageService>(
-  (ref) {
-    return NonSecureStorageService();
-  },
-);
-
 class NonSecureStorageService {
-  SharedPreferences? _prefs;
-  Future<SharedPreferences> get _instance async {
-    _prefs ??= await SharedPreferences.getInstance();
-    return _prefs!;
+  NonSecureStorageService._(this._prefs);
+  final SharedPreferences _prefs;
+
+  static Future<NonSecureStorageService> create() async {
+    final prefs = await SharedPreferences.getInstance();
+    return NonSecureStorageService._(prefs);
   }
 
-  // Save a string value
   Future<void> saveString({required String key, required String value}) async {
-    final prefs = await _instance;
-    await prefs.setString(key, value);
+    await _prefs.setString(key, value);
   }
 
-  // Read a string value
-  Future<String?> getString(String key) async {
-    final prefs = await _instance;
-    return prefs.getString(key);
+  String? getString(String key) {
+    return _prefs.getString(key);
   }
 
-  // Remove a value
   Future<bool> remove(String key) async {
-    final prefs = await _instance;
-    return prefs.remove(key);
+    return _prefs.remove(key);
   }
 
-  // Check if a key exists
-  Future<bool> containsKey(String key) async {
-    final prefs = await _instance;
-    return prefs.containsKey(key);
+  bool containsKey(String key) {
+    return _prefs.containsKey(key);
   }
 
-  // Clear all
   Future<void> clearAll() async {
-    final prefs = await _instance;
-    await prefs.clear();
+    await _prefs.clear();
   }
 }

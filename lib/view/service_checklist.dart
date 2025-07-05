@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:syncserve/enums/service_checklist.dart';
-import 'package:syncserve/utils/flags.dart';
 import 'package:syncserve/view/readings_page.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:syncserve/view_model/service_checklist_view_model.dart';
@@ -26,18 +24,17 @@ class ServiceChecklistView extends ConsumerStatefulWidget {
 }
 
 class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
-  final EnumFlags<ServiceChecklistFlag> flags = EnumFlags();
   ServiceChecklistViewModel? viewModel;
 
   @override
   void initState() {
     super.initState();
-    // Initialize after the widget is fully mounted
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        viewModel = ServiceChecklistViewModel(AppLocalizations.of(context)!);
-      });
-    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    viewModel ??= ServiceChecklistViewModel(AppLocalizations.of(context)!);
   }
 
   @override
@@ -78,14 +75,11 @@ class _ServiceChecklistViewState extends ConsumerState<ServiceChecklistView> {
                   itemCount: viewModel!.items.length,
                   itemBuilder: (context, index) {
                     final item = viewModel!.items[index];
-                    final isChecked = flags.contains(item.flag);
                     return CheckboxListTile(
-                      value: isChecked,
-                      onChanged: (_) {
+                      value: item.isChecked,
+                      onChanged: (bool? value) {
                         setState(() {
-                          isChecked
-                              ? flags.remove(item.flag)
-                              : flags.add(item.flag);
+                          item.isChecked = value ?? false;
                         });
                       },
                       title: Text(

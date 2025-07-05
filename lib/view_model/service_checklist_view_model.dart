@@ -62,6 +62,5 @@ class ServiceChecklistViewModel {
     }
   }
 
-  bool get isValid => items.isNotEmpty;
   late List<ServiceChecklistItem> items;
 }

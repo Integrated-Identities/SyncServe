@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/view/battery_setup.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,16 +8,23 @@ import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:syncserve/theme/app_paddings.dart';
 import 'package:syncserve/view_model/electrical_readings_view_model.dart';
 
-class ElectricalReadingsPage extends StatefulWidget {
+class ElectricalReadingsPage extends ConsumerStatefulWidget {
   const ElectricalReadingsPage({super.key});
 
   @override
-  State<ElectricalReadingsPage> createState() => _ElectricalReadingsPageState();
+  ConsumerState<ElectricalReadingsPage> createState() =>
+      _ElectricalReadingsPageState();
 }
 
-class _ElectricalReadingsPageState extends State<ElectricalReadingsPage> {
+class _ElectricalReadingsPageState
+    extends ConsumerState<ElectricalReadingsPage> {
   final ElectricalReadingsViewModel viewModel = ElectricalReadingsViewModel();
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   void dispose() {

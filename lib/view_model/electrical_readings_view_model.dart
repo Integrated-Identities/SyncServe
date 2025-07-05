@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:syncserve/model/electrical_readings_model.dart';
+import 'package:syncserve/providers/electrical_readings_providers.dart';
 
 class ElectricalReadingsViewModel {
   // Input Voltage Controllers
@@ -20,6 +23,24 @@ class ElectricalReadingsViewModel {
   final uCurrentController = TextEditingController();
   final vCurrentController = TextEditingController();
   final wCurrentController = TextEditingController();
+
+  void save(WidgetRef ref) {
+    final readings = ElectricalReadingsModel(
+      ry: ryController.text,
+      yb: ybController.text,
+      br: brController.text,
+      r: rCurrentController.text,
+      y: yCurrentController.text,
+      b: bCurrentController.text,
+      uv: uvController.text,
+      vw: vwController.text,
+      wu: wuController.text,
+      u: uCurrentController.text,
+      v: vCurrentController.text,
+      w: wCurrentController.text,
+    );
+    ref.read(electricalReadingsProvider.notifier).state = readings;
+  }
 
   void reset() {
     ryController.clear();

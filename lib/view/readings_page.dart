@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/custom_controls/labeled_checkbox.dart';
 import 'package:syncserve/custom_controls/quantity_selector.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
-import 'package:syncserve/view/customer_approval.dart';
 import 'package:syncserve/enums/battery_type.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syncserve/view/setup_info.dart';
 import 'package:syncserve/view_model/readings_page_view_model.dart';
 import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/theme/app_paddings.dart';
 
-class ReadingsPage extends StatefulWidget {
+class ReadingsPage extends ConsumerStatefulWidget {
   const ReadingsPage({super.key});
 
   @override
-  State<ReadingsPage> createState() => _ReadingsPageState();
+  ConsumerState<ReadingsPage> createState() => _ReadingsPageState();
 }
 
-class _ReadingsPageState extends State<ReadingsPage> {
+class _ReadingsPageState extends ConsumerState<ReadingsPage> {
   final ReadingsViewModel viewModel = ReadingsViewModel();
   final _formKey = GlobalKey<FormState>();
   late List<String> category;
@@ -37,10 +38,11 @@ class _ReadingsPageState extends State<ReadingsPage> {
     bool isValid = _formKey.currentState?.validate() ?? false;
 
     if (isValid) {
+      viewModel.save(ref);
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => CustomerApproval(),
+          builder: (context) => SetupInfoPage(),
         ),
       );
     }

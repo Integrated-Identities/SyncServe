@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncserve/theme/styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncserve/theme/app_paddings.dart';
+import 'package:syncserve/view/customer_approval.dart';
 import 'package:zod_validation/zod_validation.dart';
 import 'package:syncserve/custom_controls/validated_textfield.dart';
 import 'package:syncserve/view_model/battery_setup_view_model.dart';
@@ -27,7 +28,12 @@ class _BatterySetupPageState extends State<BatterySetupPage> {
     bool isValid = _formKey.currentState?.validate() ?? false;
 
     if (isValid) {
-      // Navigate to next page or perform action
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CustomerApproval(),
+        ),
+      );
     }
   }
 

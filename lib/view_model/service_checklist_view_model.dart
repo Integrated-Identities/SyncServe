@@ -1,6 +1,8 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncserve/enums/service_checklist.dart';
 import 'package:syncserve/model/service_checklist_model.dart';
+import 'package:syncserve/providers/service_checklist_providers.dart';
 
 class ServiceChecklistViewModel {
   ServiceChecklistViewModel(AppLocalizations localizations) {
@@ -47,6 +49,19 @@ class ServiceChecklistViewModel {
       ),
     ];
   }
+  void save(WidgetRef ref) {
+    ref.read(serviceChecklistProvider.notifier).state = items;
+  }
 
-  late final List<ServiceChecklistItem> items;
+  void reset() {
+    for (var i = 0; i < items.length; i++) {
+      items[i] = ServiceChecklistItem(
+        label: items[i].label,
+        flag: items[i].flag,
+      );
+    }
+  }
+
+  bool get isValid => items.isNotEmpty;
+  late List<ServiceChecklistItem> items;
 }

@@ -13,7 +13,7 @@ class ServiceFormViewModel {
       reasons: reasons,
       categories: category,
       systems: systemType,
-      manufacturerName: manufacturerName?.trim() ?? '',
+      manufacturerName: manufacturerName!.trim(),
     );
     ref.read(serviceFormProvider.notifier).state = model;
   }
